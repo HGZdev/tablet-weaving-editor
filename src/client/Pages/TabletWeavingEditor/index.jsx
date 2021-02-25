@@ -2,20 +2,24 @@ import React, {useState} from 'react'
 import SectionWrap from '../../Components/SectionWrap'
 import Text, {XXL} from '../../Components/Text'
 import {Box} from 'Components/Box'
-import {initDraft1} from './initDraft'
 import {BLUE4, WHITE} from 'src/client/styles/index'
 import {useMediaQuery} from 'plugins/MediaQuery'
 import ControlPanel from './ControlPanel'
 import TabletsPanel from './TabletsPanel'
 import DraftPanel from './DraftPanel'
+import initDraft from './DraftExamples/draft0.json'
 
 const EditorPanel = () => {
 	const {isPhone} = useMediaQuery()
+	const [draft, setDraft] = useState(initDraft)
 	const [selectedCol, setSelectedCol] = useState(0)
 	const [colors, setColors] = useState(draft.colors)
 
 	const {tablets, holes, picks, skews, dirsChanges} = draft
 
+	const handleUploaded = uplDraft => {
+		setDraft(uplDraft)
+		setColors(uplDraft.colors)
 	}
 
 	const handleSkewToggle = col => {
@@ -100,6 +104,7 @@ const EditorPanel = () => {
 				onTabletsChange: handleTabletsChange,
 				onPaletteColorChange: handlePaletteColorChange,
 				setSelectedCol,
+				onUploaded: handleUploaded,
 			}}
 		/>
 	)

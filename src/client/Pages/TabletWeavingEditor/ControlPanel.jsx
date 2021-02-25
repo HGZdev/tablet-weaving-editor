@@ -3,6 +3,7 @@ import Text from '../../Components/Text'
 import {Box} from 'Components/Box'
 import {InputNumberArrowed, Input} from 'src/client/Components/Inputs'
 import {ColorBox} from './Components'
+import FilePanel from './FilePanel'
 import {WHITE} from 'src/client/styles/index'
 import {isEmpty} from 'lodash'
 import {BlueButton} from 'src/client/Components/Buttons/TabletButtons'
@@ -126,6 +127,7 @@ const ControlPanel = props => {
 			<Text>Control Panel</Text>
 			<InputsPanel {...props} />
 			<ColorsPanel {...props} />
+			<FilePanel {...props} />
 		</Box>
 	)
 }
