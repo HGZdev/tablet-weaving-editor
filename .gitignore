@@ -1,0 +1,9 @@
+.vscode
+.DS_Store
+node_modules
+build
+*.log
+yarn.lock
+data
+coverage
+.env

@@ -1,0 +1,28 @@
+// js configuration file of VS Code
+// The presence of a jsconfig.json file in a directory indicates that the directory is the root of a JavaScript project. jsconfig.json specifies the root files and the options for the language features provided by the JavaScript language service.
+//
+// WARNING: jsconfig does NOT work as ".js" file with export.module
+//
+{
+	"compilerOptions": {
+		// typescript stuff?
+		"allowSyntheticDefaultImports": true,
+		// turning off annoying experimentalDecorators warning in VSCode
+		"experimentalDecorators": true,
+		"target": "es2020",
+		// don't ignore .jsx files
+		"jsx": "preserve",
+		// aliases - definitions for VS Code tools like path-intellisense (this is separete from webpack compilation!)
+		"baseUrl": ".",
+		"paths": {
+			"src/*": ["src/*"],
+			"config/*": ["config/*"],
+			"plugins/*": ["plugins/*"],
+			"data/*": ["data/*"],
+			"assets/*": ["assets/*"],
+			"Components/*": ["src/client/Components/*"],
+			"Styles/*": ["src/client/styles/*"]
+		}
+	},
+	"exclude": ["node_modules", "build", "assets"]
+}
