@@ -20,16 +20,15 @@ module.exports = {
 	scripts: {
 		default: 'nps start', // heroku require default action in nps
 		start: {
-			default: `nps build db.migration.prod prod`,
-			inspect: `nps build db.migration.prod prod.inspect`,
+			default: `nps build`,
 		},
 		prod: {
 			default: `${DEBUG} ${PROD} node --inspect ${serverPath}`,
 			inspect: `${DEBUG_ALL} ${PROD} node --inspect ${serverPath}`,
 		},
 		dev: {
-			default: concurrent.nps('server', 'db.migration', 'client'),
-			verbose: concurrent.nps('server.verbose', 'db.migration', 'client'),
+			default: concurrent.nps('server', 'client'),
+			verbose: concurrent.nps('server.verbose', 'client'),
 		},
 		build: `${PROD} webpack --mode production`,
 		client: `webpack serve --mode development --devtool inline-source-map --hot`,
