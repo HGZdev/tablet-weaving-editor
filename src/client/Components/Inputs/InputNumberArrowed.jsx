@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {Box} from 'Components/Box'
-import {Button} from 'Components/Button'
+import {Button} from 'Components/Buttons'
 import styled, {css} from 'styled-components'
 import {isNumeric} from 'src/client/helpers'
 import {BLACK, GREY4} from 'src/client/styles/index'

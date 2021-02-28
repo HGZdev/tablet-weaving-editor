@@ -1,0 +1,32 @@
+{
+	"fileName": "draft0",
+	"tablets": [
+		["black", "white", "black", "black"],
+		["black", "black", "white", "black"],
+		["black", "black", "white", "black"],
+		["black", "white", "black", "black"]
+	],
+	"picks": 8,
+	"holes": 4,
+	"skews": [1, 1, -1, -1],
+	"dirsChanges": [
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0]
+	],
+	"colors": [
+		"#000000",
+		"#C0C0C0",
+		"#0000FF",
+		"#008000",
+		"#FFFF00",
+		"#ffa500",
+		"#FF0000",
+		"#FFFFFF"
+	],
+	"holes": 4
+}

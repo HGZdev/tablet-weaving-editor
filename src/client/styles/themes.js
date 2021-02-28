@@ -60,6 +60,7 @@ const defaultTextTheme = {
 			l: 1.5,
 			m: 1,
 			s: 0.9,
+			xs: 0.8,
 		},
 		font: css`
 			font-family: 'Quicksand', sans-serif;
