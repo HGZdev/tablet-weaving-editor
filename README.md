@@ -1,6 +1,6 @@
 # tablet-weaving-editor
 
-**Link:** https://tablet-weaving-editor.herokuapp.com (Please, wait ~30 sec. The app may hibernate in the Heroku free mode)
+**Link:** https://hgzdev.github.io/tablet-weaving-editor
 
 Tablet Weaving Editor is a free, browser-based tablet weaving drafting tool.
 
