@@ -10,6 +10,7 @@
     // "esModuleInterop": true,
 
     /* Bundler mode */
+    "allowSyntheticDefaultImports": true,
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
