@@ -15,6 +15,8 @@ const mockDraftCtx: DraftContextType = {
     tablets: [[], []], // Tablets array with 2 items
     picks: 5,
     paletteOfColors: ["#ff0000", "#00ff00", "#0000ff"],
+    skews: [],
+    dirsChanges: [],
   },
   selectedColor: 0,
   setSelectedColor: vi.fn(),
@@ -25,8 +27,8 @@ const mockDraftCtx: DraftContextType = {
   onHolesChange: vi.fn(),
   onPicksChange: vi.fn(),
   onTabletsChange: vi.fn(),
-
   onPaletteColorChange: vi.fn(),
+  paletteOfColors: [],
 };
 
 describe("InputsPanel Component", () => {

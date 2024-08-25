@@ -34,6 +34,7 @@ const mockDraftContext: DraftContextType = {
   onPicksChange: vi.fn(),
   onTabletsChange: vi.fn(),
   onPaletteColorChange: vi.fn(),
+  paletteOfColors: [],
 };
 
 describe("TabletsPanel Component", () => {

@@ -9,23 +9,26 @@ export const getViteConfig = (mode: string | undefined): ImportMetaEnv => {
 
 const {VITE_JWT_SECRET} = getViteConfig(process.env.NODE_ENV);
 
+if (!VITE_JWT_SECRET) {
+  throw new Error(
+    "VITE_JWT_SECRET is not defined. Please set it in the environment variables."
+  );
+}
+
 export const getUserFromToken = (token: string) => {
   if (!token) return;
-  if (!VITE_JWT_SECRET)
-    throw new Error("getUserFromToken: secret is undefined");
 
   try {
     const user = jwt.verify(token, VITE_JWT_SECRET);
     return user;
   } catch (err) {
-    console.log(err);
+    console.error("JWT verification failed:", err);
+    throw new Error("Invalid token");
   }
 };
 
 export const makeTokenFromUser = (user: UserRow, expiresIn: string = "1hr") => {
   if (!user) throw new Error("makeTokenFromUser: user is undefined");
-  if (!VITE_JWT_SECRET)
-    throw new Error("makeTokenFromUser: secret is undefined");
 
   const token = jwt.sign(user, VITE_JWT_SECRET, {
     expiresIn,

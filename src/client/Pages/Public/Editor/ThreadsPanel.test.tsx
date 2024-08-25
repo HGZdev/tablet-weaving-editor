@@ -21,6 +21,7 @@ const mockDraftCtx: DraftContextType = {
       [1, 0, 0],
     ],
     paletteOfColors: ["#ff0000", "#00ff00", "#0000ff"],
+    holes: 4,
   },
   selectedColor: 0,
   setSelectedColor: vi.fn(),
@@ -32,6 +33,7 @@ const mockDraftCtx: DraftContextType = {
   onPicksChange: vi.fn(),
   onTabletsChange: vi.fn(),
   onPaletteColorChange: vi.fn(),
+  paletteOfColors: [],
 };
 
 describe("ThreadsPanel Component", () => {
