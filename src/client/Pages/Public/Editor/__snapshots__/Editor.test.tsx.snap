@@ -914,7 +914,9 @@ exports[`Editor Component > renders the Editor correctly 3`] = `
       </button>
     </div>
   </div>
-  <div>
+  <div
+    class="flex  gap-2 py-4"
+  >
     <span>
        Examples:
     </span>
@@ -1146,7 +1148,9 @@ exports[`Editor Component > renders the Editor correctly 4`] = `
         </button>
       </div>
     </div>
-    <div>
+    <div
+      class="flex  gap-2 py-4"
+    >
       <span>
          Examples:
       </span>

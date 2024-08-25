@@ -2,7 +2,10 @@ import {render, screen} from "@testing-library/react";
 import {describe, test, expect, vi, afterEach} from "vitest";
 import userEvent from "@testing-library/user-event";
 import FilePanel from "./FilePanel";
-import {DraftContext} from "./DraftContext/DraftContextProvider";
+import {
+  DraftContext,
+  DraftContextType,
+} from "./DraftContext/DraftContextProvider";
 import {findByText} from "../../../../tests/testing-library/helpers";
 import draft1 from "./__fixtures__/draft1";
 
@@ -24,6 +27,16 @@ const mockDraftCtx: DraftContextType = {
     paletteOfColors: ["#ff0000", "#00ff00", "#0000ff"],
   },
   onUploaded: vi.fn(),
+  paletteOfColors: [],
+  selectedColor: 0,
+  setSelectedColor: vi.fn(),
+  onSkewToggle: vi.fn(),
+  onDirChange: vi.fn(),
+  onColorChange: vi.fn(),
+  onHolesChange: vi.fn(),
+  onPicksChange: vi.fn(),
+  onTabletsChange: vi.fn(),
+  onPaletteColorChange: vi.fn(),
 };
 
 describe("FilePanel Component", () => {

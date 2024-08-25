@@ -17,6 +17,22 @@ const mockDraftCtx: DraftContextType = {
   selectedColor: 0,
   setSelectedColor: vi.fn(),
   onPaletteColorChange: vi.fn(),
+  draft: {
+    fileName: undefined,
+    tablets: [],
+    holes: 0,
+    picks: 0,
+    skews: [],
+    paletteOfColors: [],
+    dirsChanges: [],
+  },
+  onUploaded: vi.fn(),
+  onSkewToggle: vi.fn(),
+  onDirChange: vi.fn(),
+  onColorChange: vi.fn(),
+  onHolesChange: vi.fn(),
+  onPicksChange: vi.fn(),
+  onTabletsChange: vi.fn(),
 };
 
 describe("ColorsPanel Component", () => {
