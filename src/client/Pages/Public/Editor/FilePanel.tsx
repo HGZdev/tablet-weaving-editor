@@ -100,13 +100,13 @@ const FilePanel: React.FC = () => {
       <div className="flex  gap-2 py-4">
         <span> Examples:</span>
 
-        <button onClick={() => handleExampleDraftUpload(draft1)}>
+        <button onClick={() => handleExampleDraftUpload(draft1 as Draft)}>
           draft 1
         </button>
-        <button onClick={() => handleExampleDraftUpload(draft2)}>
+        <button onClick={() => handleExampleDraftUpload(draft2 as Draft)}>
           draft 2
         </button>
-        <button onClick={() => handleExampleDraftUpload(draft3)}>
+        <button onClick={() => handleExampleDraftUpload(draft3 as Draft)}>
           draft 3
         </button>
       </div>

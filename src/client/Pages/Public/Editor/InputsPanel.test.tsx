@@ -11,10 +11,20 @@ import {findByTitle} from "../../../../tests/testing-library/helpers";
 // Mock draft data
 const mockDraftCtx: DraftContextType = {
   draft: {
+    fileName: "fake",
     holes: 4,
     tablets: [[], []], // Tablets array with 2 items
     picks: 5,
-    paletteOfColors: ["#ff0000", "#00ff00", "#0000ff"],
+    paletteOfColors: [
+      "#ff0000",
+      "#00ff00",
+      "#0000ff",
+      "#ff0000",
+      "#00ff00",
+      "#0000ff",
+      "#ff0000",
+      "#00ff00",
+    ],
     skews: [],
     dirsChanges: [],
   },

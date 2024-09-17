@@ -41,7 +41,7 @@ export const genSqrt = ({
   col,
   dirsChanges,
 }: {
-  tablets: Tablet[];
+  tablets: Draft["tablets"];
   row: number;
   col: number;
   dirsChanges: MakeDirChange[][];
@@ -77,8 +77,8 @@ export const genThread = ({
   picks,
   ...props
 }: {
-  picks: Picks;
-  tablets: Tablet[];
+  picks: Draft["picks"];
+  tablets: Draft["tablets"];
   col: number;
   dirsChanges: MakeDirChange[][];
 }) => [...new Array(picks)].map((_x, pick) => genSqrt({row: pick, ...props}));

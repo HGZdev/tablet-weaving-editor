@@ -10,6 +10,7 @@ import {
 // Mock data for the draft
 const mockDraftCtx: DraftContextType = {
   draft: {
+    fileName: "fake",
     tablets: [
       ["#ff0000", "#00ff00", "#0000ff"],
       ["#ff0000", "#00ff00", "#0000ff"],
@@ -20,7 +21,16 @@ const mockDraftCtx: DraftContextType = {
       [0, 1, 0],
       [1, 0, 0],
     ],
-    paletteOfColors: ["#ff0000", "#00ff00", "#0000ff"],
+    paletteOfColors: [
+      "#ff0000",
+      "#00ff00",
+      "#0000ff",
+      "#ff0000",
+      "#00ff00",
+      "#0000ff",
+      "#ff0000",
+      "#00ff00",
+    ],
     holes: 4,
   },
   selectedColor: 0,
