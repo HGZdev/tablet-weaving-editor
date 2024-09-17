@@ -2,9 +2,12 @@ import jwt from "jsonwebtoken";
 import {loadEnv} from "vite";
 import {UserRow} from "./graphql/users";
 
-export const getViteConfig = (mode: string | undefined): ImportMetaEnv => {
+/** Load environment variables based on the mode */
+export const getViteConfig = (
+  mode: "development" | "production" | "test"
+): ImportMetaEnv => {
   if (!mode) throw new Error("getViteConfig: mode is undefined");
-  return loadEnv(mode, process.cwd()) as never;
+  return loadEnv(mode, process.cwd()) as ImportMetaEnv;
 };
 
 const {VITE_JWT_SECRET} = getViteConfig(process.env.NODE_ENV);
@@ -15,11 +18,12 @@ if (!VITE_JWT_SECRET) {
   );
 }
 
-export const getUserFromToken = (token: string) => {
+export const getUserFromToken = (token: string): UserRow | undefined => {
   if (!token) return;
 
   try {
-    const user = jwt.verify(token, VITE_JWT_SECRET);
+    const user = jwt.verify(token, VITE_JWT_SECRET) as UserRow;
+
     return user;
   } catch (err) {
     console.error("JWT verification failed:", err);
@@ -27,12 +31,17 @@ export const getUserFromToken = (token: string) => {
   }
 };
 
-export const makeTokenFromUser = (user: UserRow, expiresIn: string = "1hr") => {
+export const makeTokenFromUser = (
+  user: UserRow,
+  expiresIn: string = "1h"
+): string => {
   if (!user) throw new Error("makeTokenFromUser: user is undefined");
 
-  const token = jwt.sign(user, VITE_JWT_SECRET, {
-    expiresIn,
-  });
-
-  return token;
+  try {
+    const token = jwt.sign(user, VITE_JWT_SECRET, {expiresIn});
+    return token;
+  } catch (err) {
+    console.error("Error creating JWT token:", err);
+    throw new Error("Failed to create token");
+  }
 };
