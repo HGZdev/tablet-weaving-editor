@@ -18,15 +18,15 @@ export const Container = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("/images/pexels-karolina-grabowska-4219654.jpg");
+    background-image: url(${VITE_BASE_URL}/images/bgImage.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(5px); /* Adjust the blur amount as needed */
+    filter: blur(1px);
     z-index: -1;
+    opacity: 0.3;
   }
 `;
-
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
 

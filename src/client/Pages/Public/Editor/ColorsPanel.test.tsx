@@ -18,11 +18,13 @@ const mockDraftCtx: DraftContextType = {
   setSelectedColor: vi.fn(),
   onPaletteColorChange: vi.fn(),
   draft: {
+    // @ts-ignore
     fileName: undefined,
     tablets: [],
     holes: 0,
     picks: 0,
     skews: [],
+    // @ts-ignore
     paletteOfColors: [],
     dirsChanges: [],
   },

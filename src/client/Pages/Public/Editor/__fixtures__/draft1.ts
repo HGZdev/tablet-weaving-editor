@@ -1,4 +1,4 @@
-const draft1: Draft = {
+const draft1: Draft<16, 4, 16> = {
   fileName: "draft example 1",
   tablets: [
     ["black", "black", "black", "black"],

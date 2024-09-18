@@ -11,8 +11,8 @@ export type DraftContextType = {
   onSkewToggle: (col: number) => void;
   onDirChange: (col: number, row: number, isTurnPoint: boolean) => void;
   onColorChange: (col: number, row: number) => void;
-  onHolesChange: (newHoles: Holes) => void;
-  onPicksChange: (newPicks: Picks) => void;
+  onHolesChange: (newHoles: Draft["holes"]) => void;
+  onPicksChange: (newPicks: Draft["picks"]) => void;
   onTabletsChange: (newTabletsNum: number) => void;
   onPaletteColorChange: (color: string) => void;
 };
@@ -22,7 +22,7 @@ export const DraftContext = createContext<DraftContextType | undefined>(
 );
 
 export const DraftProvider: React.FC<{children: ReactNode}> = ({children}) => {
-  const [draft, setDraft] = useState<Draft>(initDraft);
+  const [draft, setDraft] = useState<Draft>(initDraft as Draft);
   const [selectedColor, setSelectedColor] = useState<number>(0);
   const [paletteOfColors, setPaletteOfColors] = useState<string[]>(
     draft.paletteOfColors
@@ -34,7 +34,7 @@ export const DraftProvider: React.FC<{children: ReactNode}> = ({children}) => {
   };
 
   const handleSkewToggle = (col: number) => {
-    const newSkews = draft.skews.slice();
+    const newSkews = draft.skews.slice() as typeof draft.skews;
     newSkews[col] = draft.skews[col] > 0 ? -1 : 1;
     if (!isEqual(draft.skews, newSkews))
       setDraft((d) => ({...d, skews: newSkews}));
@@ -48,28 +48,38 @@ export const DraftProvider: React.FC<{children: ReactNode}> = ({children}) => {
   };
 
   const handleColorChange = (col: number, row: number) => {
-    const newTablets = draft.tablets.slice();
+    const newTablets = draft.tablets.slice() as typeof draft.tablets;
     newTablets[col][row] = paletteOfColors[selectedColor];
     setDraft((d) => ({...d, tablets: newTablets}));
   };
 
-  const handleHolesChange = (newHoles: Holes) => {
+  const handleHolesChange = (newHoles: number) => {
     if (newHoles !== draft.holes) {
       const newTablets =
         newHoles > draft.holes
-          ? draft.tablets.map((t) => [...t, t.slice(-1)[0]])
-          : draft.tablets.map((t) => t.slice(0, -1));
+          ? (draft.tablets.map((t) => [
+              ...t,
+              t[t.length - 1],
+            ]) as unknown as typeof draft.tablets)
+          : (draft.tablets.map((t) =>
+              t.slice(0, newHoles)
+            ) as typeof draft.tablets);
 
       setDraft((d) => ({...d, holes: newHoles, tablets: newTablets}));
     }
   };
 
-  const handlePicksChange = (newPicks: Picks) => {
+  const handlePicksChange = (newPicks: number) => {
     if (newPicks !== draft.picks) {
       const newDirsChanges =
         newPicks > draft.picks
-          ? draft.dirsChanges.map((t) => [...t, 0 as MakeDirChange])
-          : draft.dirsChanges.map((t) => t.slice(0, -1));
+          ? (draft.dirsChanges.map((t) => [
+              ...t,
+              0 as MakeDirChange,
+            ]) as unknown as typeof draft.dirsChanges)
+          : (draft.dirsChanges.map((t) =>
+              t.slice(0, -1)
+            ) as typeof draft.dirsChanges);
 
       setDraft((d) => ({...d, picks: newPicks, dirsChanges: newDirsChanges}));
     }

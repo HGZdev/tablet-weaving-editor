@@ -11,11 +11,21 @@ import {findByTitle} from "../../../../tests/testing-library/helpers";
 // Mock data for the draft
 const mockDraftContext: DraftContextType = {
   draft: {
+    fileName: "fake",
     tablets: [
       ["#ff0000", "#00ff00", "#0000ff"],
       ["#ff0000", "#00ff00", "#0000ff"],
     ],
-    paletteOfColors: ["#ff0000", "#00ff00", "#0000ff"],
+    paletteOfColors: [
+      "#ff0000",
+      "#00ff00",
+      "#0000ff",
+      "#ff0000",
+      "#00ff00",
+      "#0000ff",
+      "#ff0000",
+      "#00ff00",
+    ],
     skews: [-1, 1],
     holes: 3,
     picks: 3,
