@@ -6,8 +6,11 @@ import {
   // ButtonSecondary,
 } from "../../Components/Buttons";
 import styled from "styled-components";
+const {VITE_BASE_URL, VITE_HASH_ROUTER} = import.meta.env;
 
-const Container = styled.div`
+const BASE_URL = VITE_HASH_ROUTER ? "" : VITE_BASE_URL;
+
+export const Container = styled.div`
   ::before {
     content: "";
     position: absolute;
@@ -39,21 +42,21 @@ const LandingPage: React.FC = () => {
         <div className="flex justify-center gap-4">
           <ButtonPrimary
             className=""
-            onClick={() => navigate("/editor")}
+            onClick={() => navigate(`${BASE_URL}/editor`)}
             aria-label="Editor"
           >
             Create new pattern
           </ButtonPrimary>
           {/* <ButtonSecondary
             className=""
-            onClick={() => navigate("/templates")}
+            onClick={() => navigate(`${BASE_URL}/templates`)}
             aria-label="Templates"
           >
             Use template
           </ButtonSecondary>
           <ButtonAccent
             className=""
-            onClick={() => navigate("/gallery")}
+            onClick={() => navigate(`${BASE_URL}/gallery`)}
             aria-label="Gallery"
           >
             Load your pattern

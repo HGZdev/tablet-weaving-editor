@@ -19,10 +19,26 @@ const {
   VITE_GRAPHQL_DIR,
 } = getViteConfig(process.env.NODE_ENV);
 
-const CLIENT_URL =
-  process.env.NODE_ENV === "production"
-    ? VITE_PROD_HOST_URL
-    : `${VITE_LOCAL_HOST_URL}:${VITE_LOCAL_PORT}`;
+const PROD = process.env.NODE_ENV === "production";
+
+if (!VITE_GRAPHQL_DIR)
+  throw new Error("express: VITE_GRAPHQL_DIR is undefined");
+
+if (PROD) {
+  if (!VITE_PROD_HOST_URL)
+    throw new Error("express: VITE_PROD_HOST_URL is undefined");
+} else {
+  if (!VITE_LOCAL_HOST_URL)
+    throw new Error("express: VITE_LOCAL_HOST_URL is undefined");
+  if (!VITE_LOCAL_PORT)
+    throw new Error("express: VITE_LOCAL_PORT is undefined");
+  if (!VITE_LOCAL_SERVER_PORT)
+    throw new Error("express: VITE_LOCAL_SERVER_PORT is undefined");
+}
+
+const CLIENT_URL = PROD
+  ? VITE_PROD_HOST_URL
+  : `${VITE_LOCAL_HOST_URL}:${VITE_LOCAL_PORT}`;
 
 const app = express();
 

@@ -12,11 +12,10 @@ export const getViteConfig = (
 
 const {VITE_JWT_SECRET} = getViteConfig(process.env.NODE_ENV);
 
-if (!VITE_JWT_SECRET) {
+if (!VITE_JWT_SECRET)
   throw new Error(
-    "VITE_JWT_SECRET is not defined. Please set it in the environment variables."
+    "getViteConfig: VITE_JWT_SECRET is not defined. Please set it in the environment variables."
   );
-}
 
 export const getUserFromToken = (token: string): UserRow | undefined => {
   if (!token) return;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+const {VITE_BASE_URL} = import.meta.env;
 
 const Img = styled("img")`
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
@@ -12,7 +13,7 @@ export const Avatar = ({
   return (
     <div className="avatar">
       <div className={className}>
-        <Img alt="avatar" src="./assets/favicon.ico" />
+        <Img alt="avatar" src={`${VITE_BASE_URL}/favicon.ico`} />
       </div>
     </div>
   );
@@ -26,7 +27,7 @@ export const MiniAvatar = ({
   return (
     <div className="avatar">
       <div className={className}>
-        <img alt="avatar" src="./assets/favicon.ico" />
+        <img alt="avatar" src={`${VITE_BASE_URL}/favicon.ico`} />
       </div>
     </div>
   );
