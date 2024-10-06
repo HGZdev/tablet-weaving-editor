@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import ControlPanel from "./ControlPanel";
 import ThreadsPanel from "./ThreadsPanel";
 import TabletsPanel from "./TabletsPanel";
+import {FiMenu, FiX} from "react-icons/fi";
 
 const drawerId = "my-drawer";
 
@@ -90,10 +91,48 @@ export const Body = () => {
 };
 
 const Editor: React.FC = () => {
+  const [isSidebarVisible, setSidebarVisible] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarVisible(!isSidebarVisible);
+  };
+
   return (
-    <div className="flex flex-col px-0">
-      <Navbar />
-      <Body />
+    <div
+      className={`relative h-screen grid grid-rows-[auto_1fr] grid-cols-[1fr] md:grid-cols-[auto_1fr]`}
+    >
+      {/* Navbar */}
+      <div className="grid-area-navbar bg-gray-200 row-start-1 col-start-1 col-end-3 flex justify-between items-center">
+        <button className="block md:hidden p-2" onClick={toggleSidebar}>
+          <FiMenu size={24} />
+        </button>
+        <span>Navbar</span>
+      </div>
+
+      {/* Left Sidebar */}
+      <div
+        className={`grid-area-sidebar bg-gray-300 transition-all duration-500 ease-in-out transform ${
+          isSidebarVisible
+            ? "translate-x-0 opacity-100"
+            : "-translate-x-full opacity-0 md:translate-x-0 md:opacity-100"
+        } absolute md:relative h-full z-20`}
+      >
+        <button className="block md:hidden p-2" onClick={toggleSidebar}>
+          <FiX size={24} />
+        </button>
+        Sidebar Content sdfafae aedgaer
+      </div>
+
+      {/* Main Content */}
+      <div className="grid-area-main bg-gray-400">Main Content</div>
+
+      {/* Black Overlay */}
+      {isSidebarVisible && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-500 ease-in-out z-10 md:hidden"
+          onClick={toggleSidebar}
+        ></div>
+      )}
     </div>
   );
 };

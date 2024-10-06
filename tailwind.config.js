@@ -1,12 +1,19 @@
 import daisyui from "daisyui";
+import tailwindcssGridAreas from "@savvywombat/tailwindcss-grid-areas";
 
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  plugins: [daisyui],
+  plugins: [daisyui, tailwindcssGridAreas],
   theme: {
     fontFamily: {
       sans: ["Dosis", "sans-serif"],
+    },
+    extend: {
+      gridTemplateAreas: {
+        editor: ["navbar navbar", "main main"],
+        "editor-sidebar": ["navbar navbar", "sidebar main"],
+      },
     },
   },
   daisyui: {
