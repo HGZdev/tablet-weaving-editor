@@ -21,6 +21,7 @@ const ColorsPanel: React.FC = () => {
 
   return (
     <div title="colors-panel" className="flex flex-col gap-2">
+      <h2 className="text-lg font-semibold">Palette</h2>
       <div className="flex gap-1">
         {paletteOfColors?.map((color, i) => (
           <button

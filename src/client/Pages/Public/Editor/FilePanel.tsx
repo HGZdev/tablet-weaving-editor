@@ -53,7 +53,11 @@ const FilePanel: React.FC = () => {
       fieldsToSave
     );
     const draftStr = JSON.stringify(draftToSave);
-    downLoadFile([draftStr], "application/json", `${fileName || "draft"}.json`);
+    downLoadFile(
+      [draftStr],
+      "application/json",
+      `${fileName || "my_draft"}.json`
+    );
   };
 
   const handleUploadClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -68,7 +72,17 @@ const FilePanel: React.FC = () => {
   const handleExampleDraftUpload = (draft: Draft) => onUploaded(draft);
 
   return (
-    <div title="file-panel">
+    <div title="file-panel" className="flex flex-col gap-2">
+      <div className="text-lg font-semibold">File storage</div>
+      <div className="flex gap-2">
+        <ButtonSecondary
+          className="file-upload-button"
+          onClick={handleDownload}
+        >
+          Save project
+        </ButtonSecondary>
+        <ButtonPrimary onClick={handleUploadClick}>Open</ButtonPrimary>
+      </div>
       <div className="flex gap-2">
         <div>
           <HiddenUploadInput
@@ -83,21 +97,13 @@ const FilePanel: React.FC = () => {
             className="file-upload-input input input-bordered input-sm rounded-none"
             type="text"
             name="File name"
+            placeholder="Insert project name"
             value={fileName}
             onChange={handleNameChange}
           />
         </div>
-        <div className="flex gap-2">
-          <ButtonSecondary
-            className="file-upload-button"
-            onClick={handleDownload}
-          >
-            Save project
-          </ButtonSecondary>
-          <ButtonPrimary onClick={handleUploadClick}>Open</ButtonPrimary>
-        </div>
       </div>
-      <div className="flex  gap-2 py-4">
+      <div className="flex gap-2 py-4">
         <span> Examples:</span>
 
         <button onClick={() => handleExampleDraftUpload(draft1 as Draft)}>

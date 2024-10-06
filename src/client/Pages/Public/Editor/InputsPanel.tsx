@@ -61,6 +61,7 @@ const InputsPanel: React.FC = () => {
 
   return (
     <div title="inputs-panel" className="flex flex-col gap-1">
+      <h2 className="text-lg font-semibold">Frame</h2>
       <NumberInput
         title="holes-input"
         label="Holes:"
