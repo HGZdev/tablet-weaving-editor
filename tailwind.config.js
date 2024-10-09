@@ -29,7 +29,7 @@ export default {
 
           primary: "#8A624B",
           secondary: "#B19175",
-          accent: "#77533f",
+          accent: "#f7f1ea",
           info: "#006cd5",
           success: "#00c000",
           warning: "#ff7f00",
