@@ -1,91 +1,71 @@
-import React, {useState} from "react";
+import React, {MouseEventHandler, useState} from "react";
 import ControlPanel from "./ControlPanel";
 import ThreadsPanel from "./ThreadsPanel";
 import TabletsPanel from "./TabletsPanel";
 import {FiMenu, FiX} from "react-icons/fi";
+import {useNavigate} from "react-router-dom";
+import {NavButton} from "../../../Components/Buttons";
 
-const drawerId = "my-drawer";
+const {VITE_BASE_URL, VITE_HASH_ROUTER} = import.meta.env;
+const BASE_URL = VITE_HASH_ROUTER ? "" : VITE_BASE_URL;
 
-export const HamburgerIcon = () => {
+export const Navbar: React.FC<{
+  onToggleSidebar: MouseEventHandler<HTMLButtonElement>;
+}> = ({onToggleSidebar}) => {
+  const navigate = useNavigate();
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      className="inline-block w-6 h-6 stroke-current"
+    <div
+      data-theme="navbar"
+      className=" flex justify-between items-center bg-primary "
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M4 6h16M4 12h16m-7 6h7"
-      ></path>
-    </svg>
-  );
-};
-
-export const MenuToggle = () => {
-  return (
-    <label
-      htmlFor={drawerId}
-      className="drawer-button btn btn-square btn-ghost "
-    >
-      <HamburgerIcon />
-    </label>
-  );
-};
-
-export const LogoButton = () => {
-  return (
-    <span className="btn btn-ghost text-xl font-bold ">
-      Tablet Weaving Editor
-    </span>
-  );
-};
-
-export const Navbar = () => {
-  return (
-    <nav className="navbar bg-base-100 p-0 min-h-0 shadow-lg z-10">
-      <div className="block lg:hidden">
-        <MenuToggle />
+      {/* open sidebar button */}
+      <NavButton onClick={onToggleSidebar} className="md:hidden">
+        <FiMenu size={24} />
+      </NavButton>
+      {/* logo button */}
+      <div className="flex flex-1 justify-start md:justify-start">
+        <NavButton onClick={() => navigate(`${BASE_URL}/`)} className="btn-lg">
+          Tablet Weaving Editor
+        </NavButton>
       </div>
-      <div className="flex flex-1 ">
-        <LogoButton />
-      </div>
-      <div className="">
+      <div className="px-4">
         <ul className="menu menu-horizontal p-0 mt-0">
           <li>
-            <a>Editor</a>
+            <NavButton onClick={() => navigate(`${BASE_URL}/editor`)}>
+              Editor
+            </NavButton>
           </li>
           <li>
-            <a>Gallery</a>
+            <NavButton disabled={true}>Gallery</NavButton>
+          </li>
+          <li>
+            <NavButton disabled={true}>About</NavButton>
           </li>
         </ul>
       </div>
-    </nav>
+    </div>
   );
 };
 
-export const Body = () => {
+const Sidebar: React.FC<{
+  onToggleSidebar: MouseEventHandler<HTMLButtonElement>;
+}> = ({onToggleSidebar}) => {
   return (
-    <div className="flex flex-1">
-      <div className="drawer lg:drawer-open">
-        <input id={drawerId} type="checkbox" className="drawer-toggle" />
-        <div className="drawer-side absolute items-stretch">
-          <label
-            htmlFor={drawerId}
-            aria-label="close sidebar"
-            className="drawer-overlay"
-          />
-          <ControlPanel />
-        </div>
-        <div className="drawer-content flex flex-col items-center justify-center">
-          <main className="flex flex-col flex-1 ">
-            <ThreadsPanel />
-            <TabletsPanel />
-          </main>
-        </div>
-      </div>
+    <div className="flex flex-col items-start bg-base-100 h-full">
+      {/* close sidebar button */}
+      <NavButton onClick={onToggleSidebar} className="md:hidden">
+        <FiX size={24} />
+      </NavButton>
+      <ControlPanel />
+    </div>
+  );
+};
+
+export const Main = () => {
+  return (
+    <div className="flex flex-col flex-1 bg-white justify-center">
+      <ThreadsPanel />
+      <TabletsPanel />
     </div>
   );
 };
@@ -102,29 +82,24 @@ const Editor: React.FC = () => {
       className={`relative h-screen grid grid-rows-[auto_1fr] grid-cols-[1fr] md:grid-cols-[auto_1fr]`}
     >
       {/* Navbar */}
-      <div className="grid-area-navbar bg-gray-200 row-start-1 col-start-1 col-end-3 flex justify-between items-center">
-        <button className="block md:hidden p-2" onClick={toggleSidebar}>
-          <FiMenu size={24} />
-        </button>
-        <span>Navbar</span>
-      </div>
-
+      <nav className="grid-area-navbar row-start-1 col-start-1 col-end-3 ">
+        <Navbar onToggleSidebar={toggleSidebar} />
+      </nav>
       {/* Left Sidebar */}
       <div
-        className={`grid-area-sidebar bg-gray-300 transition-all duration-500 ease-in-out transform ${
+        className={`grid-area-sidebar transition-all duration-500 ease-in-out transform ${
           isSidebarVisible
             ? "translate-x-0 opacity-100"
             : "-translate-x-full opacity-0 md:translate-x-0 md:opacity-100"
         } absolute md:relative h-full z-20`}
       >
-        <button className="block md:hidden p-2" onClick={toggleSidebar}>
-          <FiX size={24} />
-        </button>
-        Sidebar Content sdfafae aedgaer
+        <Sidebar onToggleSidebar={toggleSidebar} />
       </div>
 
       {/* Main Content */}
-      <div className="grid-area-main bg-gray-400">Main Content</div>
+      <main className="grid-area-main flex bg-gray-400">
+        <Main />
+      </main>
 
       {/* Black Overlay */}
       {isSidebarVisible && (

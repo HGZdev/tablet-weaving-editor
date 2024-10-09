@@ -56,7 +56,7 @@ const ThreadsPanel: React.FC = () => {
   const {picks, tablets} = draft;
 
   return (
-    <div title="threads-panel" className="inline-flex g-4 justify-center">
+    <div title="threads-panel" className="flex g-4 justify-center">
       <RowsLabels rows={picks} numeric reverse />
       {tablets?.map((_x, col) => (
         <Thread key={col} col={col} reverse />

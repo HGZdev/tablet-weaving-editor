@@ -75,33 +75,31 @@ const FilePanel: React.FC = () => {
     <div title="file-panel" className="flex flex-col gap-2">
       <div className="text-lg font-semibold">File storage</div>
       <div className="flex gap-2">
-        <ButtonSecondary
-          className="file-upload-button"
+        <ButtonPrimary
+          className="file-upload-button flex-1"
           onClick={handleDownload}
         >
           Save project
-        </ButtonSecondary>
-        <ButtonPrimary onClick={handleUploadClick}>Open</ButtonPrimary>
+        </ButtonPrimary>
+        <ButtonSecondary onClick={handleUploadClick}>Open</ButtonSecondary>
       </div>
-      <div className="flex gap-2">
-        <div>
-          <HiddenUploadInput
-            className="hidden-file-upload-input"
-            id={`file-input-${Date.now()}`}
-            type="file"
-            accept=".json"
-            ref={inputFile}
-            onChange={handleUpload}
-          />
-          <input
-            className="file-upload-input input input-bordered input-sm rounded-none"
-            type="text"
-            name="File name"
-            placeholder="Insert project name"
-            value={fileName}
-            onChange={handleNameChange}
-          />
-        </div>
+      <div className="gap-2">
+        <HiddenUploadInput
+          className="hidden-file-upload-input"
+          id={`file-input-${Date.now()}`}
+          type="file"
+          accept=".json"
+          ref={inputFile}
+          onChange={handleUpload}
+        />
+        <input
+          className="file-upload-input input input-bordered input-sm rounded-none bg-white w-full"
+          type="text"
+          name="File name"
+          placeholder="Insert project name"
+          value={fileName}
+          onChange={handleNameChange}
+        />
       </div>
       <div className="flex gap-2 py-4">
         <span> Examples:</span>

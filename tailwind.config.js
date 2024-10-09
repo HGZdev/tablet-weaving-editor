@@ -21,15 +21,15 @@ export default {
     themes: [
       {
         main: {
-          "base-100": "#fff", // Base color of page, used for blank backgrounds + "FOCUS" bg-color
+          "base-100": "#f7f1ea", // Base color of page, used for blank backgrounds + "FOCUS" bg-color
           // "base-content": "yellow", // Foreground content color to use on base color	optional + "FOCUS" color
 
           // neutral: "#000", // "ACTIVE" bg-color
           // "neutral-content": "#000", // "Click" "ACTIVE" color
 
-          primary: "#4573bc",
-          secondary: "#7E4FC8",
-          accent: "#69b281",
+          primary: "#8A624B",
+          secondary: "#B19175",
+          accent: "#77533f",
           info: "#006cd5",
           success: "#00c000",
           warning: "#ff7f00",
@@ -49,6 +49,7 @@ export default {
           },
         },
         navbar: {
+          "base-100": "#ededed",
           "base-content": "#fff", // "FOCUS" color
           "neutral-content": "#fff", // "Click" "ACTIVE" color
         },

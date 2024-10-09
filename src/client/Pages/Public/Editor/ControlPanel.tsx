@@ -4,7 +4,7 @@ import InputsPanel from "./InputsPanel";
 
 const ControlPanel: React.FC = () => {
   return (
-    <div title="control-panel" className="flex flex-col gap-4 p-4 bg-white ">
+    <div title="control-panel" className="flex flex-col h-full gap-4 p-4  ">
       <InputsPanel />
       <ColorsPanel />
       <FilePanel />

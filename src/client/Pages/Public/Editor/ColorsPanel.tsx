@@ -42,7 +42,7 @@ const ColorsPanel: React.FC = () => {
         <input
           title="color-input"
           type="text"
-          className="input input-bordered rounded-none input-sm w-full"
+          className="input input-bordered rounded-none input-sm w-full bg-white"
           value={inputColor || ""}
           onChange={(e) => setInputColor(e.target.value)}
         />

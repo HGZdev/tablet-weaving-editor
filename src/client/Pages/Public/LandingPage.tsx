@@ -35,8 +35,8 @@ const LandingPage: React.FC = () => {
       data-testid="LandingPage"
       className=" flex flex-col items-center justify-center h-screen p-2"
     >
-      <div className="flex flex-col bg-white px-12 py-8 gap-8 rounded-lg shadow-2xl">
-        <h2 className="text-6xl font-sans text-center">
+      <div className="flex flex-col bg-white px-4 md:px-12 py-8 gap-8 rounded-lg shadow-2xl">
+        <h2 className="text-5xl md:text-6xl font-sans text-center">
           Keep calm and weave the belt!
         </h2>
         <div className="flex justify-center gap-4">
