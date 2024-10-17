@@ -54,7 +54,7 @@ exports[`Editor Component > renders the Editor correctly 1`] = `
 }
 
 <div
-  class="inline-flex justify-center"
+  class="flex justify-center"
   title="tablets-panel"
 >
   <div>
@@ -394,7 +394,7 @@ exports[`Editor Component > renders the Editor correctly 2`] = `
 }
 
 <div
-  class="inline-flex g-4 justify-center"
+  class="flex g-4 justify-center"
   title="threads-panel"
 >
   <div>
@@ -878,56 +878,54 @@ exports[`Editor Component > renders the Editor correctly 3`] = `
 }
 
 <div
+  class="flex flex-col gap-4 p-4 bg-white rounded-md shadow-md"
   title="file-panel"
 >
   <div
-    class="flex gap-2"
+    class="text-xl font-semibold"
   >
-    <div>
-      <input
-        accept=".json"
-        class="c0 hidden-file-upload-input"
-        id="file-input-1704067200000"
-        type="file"
-      />
-      <input
-        class="file-upload-input input input-bordered input-sm rounded-none"
-        name="File name"
-        type="text"
-        value="draft example"
-      />
-    </div>
-    <div
-      class="flex gap-2"
+    File Storage
+  </div>
+  <button
+    class="btn shadow-md shadow-gray-300 transition-all duration-300 ease-in-out btn-secondary btn-sm rounded-none w-full "
+    type="button"
+  >
+    Load Template
+  </button>
+  <div
+    class="flex flex-col gap-2"
+  >
+    <button
+      class="btn shadow-md shadow-gray-300 transition-all duration-300 ease-in-out btn-secondary btn-sm rounded-none w-full "
+      type="button"
     >
-      <button
-        class="btn btn-sm  btn-secondary shadow-md shadow-gray-300 rounded-none file-upload-button "
-        type="button"
-      >
-        Save project
-      </button>
-      <button
-        class="btn btn-sm  btn-primary shadow-md shadow-gray-300 rounded-none  undefined"
-        type="button"
-      >
-        Open
-      </button>
-    </div>
+      Open Project
+    </button>
+    <input
+      accept=".json"
+      class="c0 hidden-file-upload-input"
+      type="file"
+    />
   </div>
   <div
-    class="flex  gap-2 py-4"
+    class="flex flex-col gap-2"
   >
-    <span>
-       Examples:
-    </span>
-    <button>
-      draft 1
-    </button>
-    <button>
-      draft 2
-    </button>
-    <button>
-      draft 3
+    <label
+      class="font-medium"
+    >
+      Project Name
+    </label>
+    <input
+      class="input input-bordered input-sm w-full rounded-none"
+      placeholder="Insert project name"
+      type="text"
+      value="my_draft"
+    />
+    <button
+      class="btn shadow-md shadow-gray-300 transition-all duration-300 ease-in-out btn btn-primary btn-sm rounded-none w-full"
+      type="button"
+    >
+      Save Project
     </button>
   </div>
 </div>
@@ -939,16 +937,18 @@ exports[`Editor Component > renders the Editor correctly 4`] = `
 }
 
 <div
-  class="inline-flex flex-col gap-4 "
+  class="flex flex-col h-full gap-4 p-4  "
   title="control-panel"
 >
-  <h2>
-    Control Panel
-  </h2>
   <div
-    class="flex flex-col gap-1"
+    class="flex flex-col gap-2 p-4 bg-white rounded-md shadow-md"
     title="inputs-panel"
   >
+    <h2
+      class="text-lg font-semibold"
+    >
+      Frame
+    </h2>
     <div
       class="flex gap-2"
     >
@@ -965,16 +965,18 @@ exports[`Editor Component > renders the Editor correctly 4`] = `
         value="4"
       />
       <button
-        class="btn btn-xs btn-neutral w-8 text-center"
+        class="btn shadow-md shadow-gray-300 transition-all duration-300 ease-in-out btn btn-secondary btn-xs w-8  text-center "
         title="holes-input decrement"
+        type="button"
       >
         <span>
           -
         </span>
       </button>
       <button
-        class="btn btn-xs btn-neutral w-8 text-center"
+        class="btn shadow-md shadow-gray-300 transition-all duration-300 ease-in-out btn btn-secondary btn-xs w-8  text-center"
         title="holes-input increment"
+        type="button"
       >
         <span>
           +
@@ -997,16 +999,18 @@ exports[`Editor Component > renders the Editor correctly 4`] = `
         value="8"
       />
       <button
-        class="btn btn-xs btn-neutral w-8 text-center"
+        class="btn shadow-md shadow-gray-300 transition-all duration-300 ease-in-out btn btn-secondary btn-xs w-8  text-center "
         title="picks-input decrement"
+        type="button"
       >
         <span>
           -
         </span>
       </button>
       <button
-        class="btn btn-xs btn-neutral w-8 text-center"
+        class="btn shadow-md shadow-gray-300 transition-all duration-300 ease-in-out btn btn-secondary btn-xs w-8  text-center"
         title="picks-input increment"
+        type="button"
       >
         <span>
           +
@@ -1029,16 +1033,18 @@ exports[`Editor Component > renders the Editor correctly 4`] = `
         value="4"
       />
       <button
-        class="btn btn-xs btn-neutral w-8 text-center"
+        class="btn shadow-md shadow-gray-300 transition-all duration-300 ease-in-out btn btn-secondary btn-xs w-8  text-center "
         title="tablets-input decrement"
+        type="button"
       >
         <span>
           -
         </span>
       </button>
       <button
-        class="btn btn-xs btn-neutral w-8 text-center"
+        class="btn shadow-md shadow-gray-300 transition-all duration-300 ease-in-out btn btn-secondary btn-xs w-8  text-center"
         title="tablets-input increment"
+        type="button"
       >
         <span>
           +
@@ -1047,9 +1053,14 @@ exports[`Editor Component > renders the Editor correctly 4`] = `
     </div>
   </div>
   <div
-    class="flex flex-col gap-2"
+    class="flex flex-col gap-4 p-4 bg-white rounded-md shadow-md"
     title="colors-panel"
   >
+    <h2
+      class="text-lg font-semibold"
+    >
+      Palette
+    </h2>
     <div
       class="flex gap-1"
     >
@@ -1098,13 +1109,13 @@ exports[`Editor Component > renders the Editor correctly 4`] = `
       class="flex gap-2 w-56"
     >
       <input
-        class="input input-bordered rounded-none input-sm w-full"
+        class="input input-bordered rounded-none input-sm w-full bg-white"
         title="color-input"
         type="text"
         value="#000000"
       />
       <button
-        class="btn btn-sm  btn-primary shadow-md shadow-gray-300 rounded-none  undefined"
+        class="btn shadow-md shadow-gray-300 transition-all duration-300 ease-in-out btn btn-primary btn-sm rounded-none undefined"
         type="submit"
       >
         Change color
@@ -1112,56 +1123,54 @@ exports[`Editor Component > renders the Editor correctly 4`] = `
     </div>
   </div>
   <div
+    class="flex flex-col gap-4 p-4 bg-white rounded-md shadow-md"
     title="file-panel"
   >
     <div
-      class="flex gap-2"
+      class="text-xl font-semibold"
     >
-      <div>
-        <input
-          accept=".json"
-          class="c0 hidden-file-upload-input"
-          id="file-input-1704067200000"
-          type="file"
-        />
-        <input
-          class="file-upload-input input input-bordered input-sm rounded-none"
-          name="File name"
-          type="text"
-          value="draft example"
-        />
-      </div>
-      <div
-        class="flex gap-2"
+      File Storage
+    </div>
+    <button
+      class="btn shadow-md shadow-gray-300 transition-all duration-300 ease-in-out btn-secondary btn-sm rounded-none w-full "
+      type="button"
+    >
+      Load Template
+    </button>
+    <div
+      class="flex flex-col gap-2"
+    >
+      <button
+        class="btn shadow-md shadow-gray-300 transition-all duration-300 ease-in-out btn-secondary btn-sm rounded-none w-full "
+        type="button"
       >
-        <button
-          class="btn btn-sm  btn-secondary shadow-md shadow-gray-300 rounded-none file-upload-button "
-          type="button"
-        >
-          Save project
-        </button>
-        <button
-          class="btn btn-sm  btn-primary shadow-md shadow-gray-300 rounded-none  undefined"
-          type="button"
-        >
-          Open
-        </button>
-      </div>
+        Open Project
+      </button>
+      <input
+        accept=".json"
+        class="c0 hidden-file-upload-input"
+        type="file"
+      />
     </div>
     <div
-      class="flex  gap-2 py-4"
+      class="flex flex-col gap-2"
     >
-      <span>
-         Examples:
-      </span>
-      <button>
-        draft 1
-      </button>
-      <button>
-        draft 2
-      </button>
-      <button>
-        draft 3
+      <label
+        class="font-medium"
+      >
+        Project Name
+      </label>
+      <input
+        class="input input-bordered input-sm w-full rounded-none"
+        placeholder="Insert project name"
+        type="text"
+        value="my_draft"
+      />
+      <button
+        class="btn shadow-md shadow-gray-300 transition-all duration-300 ease-in-out btn btn-primary btn-sm rounded-none w-full"
+        type="button"
+      >
+        Save Project
       </button>
     </div>
   </div>

@@ -49,7 +49,7 @@ const TabletsPanel: React.FC = () => {
   const {draft: {holes, tablets} = {}} = useDraft();
 
   return (
-    <div title="tablets-panel" className="inline-flex justify-center">
+    <div title="tablets-panel" className="flex justify-center">
       <RowsLabels rows={holes} />
       {tablets && <Tablets />}
       <RowsLabels rows={holes} />

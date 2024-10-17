@@ -2,11 +2,12 @@ import {useEffect, useRef, useState} from "react";
 import styled from "styled-components";
 import {downLoadFile, isJsonString} from "./helpers";
 import {isEqual, pick} from "lodash";
-import draft1 from "./__fixtures__/draft1";
-import draft2 from "./__fixtures__/draft2";
-import draft3 from "./__fixtures__/draft3";
 import {ButtonPrimary, ButtonSecondary} from "../../../Components/Buttons";
 import {useDraft} from "./DraftContext/useDraft";
+import {useNavigate} from "react-router-dom";
+
+const {VITE_BASE_URL, VITE_HASH_ROUTER} = import.meta.env;
+const BASE_URL = VITE_HASH_ROUTER ? "" : VITE_BASE_URL;
 
 const fieldsToSave: (keyof Draft)[] = [
   "fileName",
@@ -23,6 +24,7 @@ const HiddenUploadInput = styled.input`
 `;
 
 const FilePanel: React.FC = () => {
+  const navigate = useNavigate();
   const {draft, paletteOfColors, onUploaded} = useDraft();
 
   const inputFile = useRef<HTMLInputElement>(null);
@@ -53,7 +55,11 @@ const FilePanel: React.FC = () => {
       fieldsToSave
     );
     const draftStr = JSON.stringify(draftToSave);
-    downLoadFile([draftStr], "application/json", `${fileName || "draft"}.json`);
+    downLoadFile(
+      [draftStr],
+      "application/json",
+      `${fileName || "my_draft"}.json`
+    );
   };
 
   const handleUploadClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -65,50 +71,46 @@ const FilePanel: React.FC = () => {
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setFileName(e.target.value);
 
-  const handleExampleDraftUpload = (draft: Draft) => onUploaded(draft);
-
   return (
-    <div title="file-panel">
-      <div className="flex gap-2">
-        <div>
-          <HiddenUploadInput
-            className="hidden-file-upload-input"
-            id={`file-input-${Date.now()}`}
-            type="file"
-            accept=".json"
-            ref={inputFile}
-            onChange={handleUpload}
-          />
-          <input
-            className="file-upload-input input input-bordered input-sm rounded-none"
-            type="text"
-            name="File name"
-            value={fileName}
-            onChange={handleNameChange}
-          />
-        </div>
-        <div className="flex gap-2">
-          <ButtonSecondary
-            className="file-upload-button"
-            onClick={handleDownload}
-          >
-            Save project
-          </ButtonSecondary>
-          <ButtonPrimary onClick={handleUploadClick}>Open</ButtonPrimary>
-        </div>
-      </div>
-      <div className="flex  gap-2 py-4">
-        <span> Examples:</span>
+    <div
+      title="file-panel"
+      className="flex flex-col gap-4 p-4 bg-white rounded-md shadow-md"
+    >
+      <div className="text-xl font-semibold">File Storage</div>
 
-        <button onClick={() => handleExampleDraftUpload(draft1 as Draft)}>
-          draft 1
-        </button>
-        <button onClick={() => handleExampleDraftUpload(draft2 as Draft)}>
-          draft 2
-        </button>
-        <button onClick={() => handleExampleDraftUpload(draft3 as Draft)}>
-          draft 3
-        </button>
+      <ButtonSecondary
+        className="w-full"
+        onClick={() => navigate(`${BASE_URL}/templates`)}
+      >
+        Load Template
+      </ButtonSecondary>
+
+      {/* Open Project Section */}
+      <div className="flex flex-col gap-2">
+        <ButtonSecondary className="w-full" onClick={handleUploadClick}>
+          Open Project
+        </ButtonSecondary>
+        <HiddenUploadInput
+          className="hidden-file-upload-input"
+          type="file"
+          accept=".json"
+          ref={inputFile}
+          onChange={handleUpload}
+        />
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label className="font-medium">Project Name</label>
+        <input
+          className="input input-bordered input-sm w-full rounded-none"
+          type="text"
+          placeholder="Insert project name"
+          value={fileName}
+          onChange={handleNameChange}
+        />
+        <ButtonPrimary className="w-full" onClick={handleDownload}>
+          Save Project
+        </ButtonPrimary>
       </div>
     </div>
   );

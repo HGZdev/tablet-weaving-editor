@@ -3,7 +3,6 @@ import {useGetUserMe} from "../../_server/queries";
 import LoginModal from "./Modals/LoginModal";
 import {useNavigate} from "react-router-dom";
 import Loading from "./Loading";
-import Navbar from "./Navbar";
 
 interface PrivateRoute {
   Component: React.FC;
@@ -18,7 +17,6 @@ const PrivateRoute: React.FC<PrivateRoute> = ({Component}) => {
 
   return data?.getUserMe ? (
     <>
-      <Navbar />
       <Component />
     </>
   ) : (

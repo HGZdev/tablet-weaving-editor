@@ -1,5 +1,5 @@
 const draft0: Draft<4, 4, 8> = {
-  fileName: "draft example",
+  fileName: "my_draft",
   tablets: [
     ["black", "white", "black", "black"], // A
     ["black", "black", "white", "black"], // B

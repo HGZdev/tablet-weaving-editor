@@ -20,7 +20,11 @@ const ColorsPanel: React.FC = () => {
   }, [selectedColor]);
 
   return (
-    <div title="colors-panel" className="flex flex-col gap-2">
+    <div
+      title="colors-panel"
+      className="flex flex-col gap-4 p-4 bg-white rounded-md shadow-md"
+    >
+      <h2 className="text-lg font-semibold">Palette</h2>
       <div className="flex gap-1">
         {paletteOfColors?.map((color, i) => (
           <button
@@ -41,7 +45,7 @@ const ColorsPanel: React.FC = () => {
         <input
           title="color-input"
           type="text"
-          className="input input-bordered rounded-none input-sm w-full"
+          className="input input-bordered rounded-none input-sm w-full bg-white"
           value={inputColor || ""}
           onChange={(e) => setInputColor(e.target.value)}
         />

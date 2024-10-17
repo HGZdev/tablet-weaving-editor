@@ -1,3 +1,4 @@
+import {Button} from "../../../Components/Buttons";
 import {useDraft} from "./DraftContext/useDraft";
 
 export const NumberInput: React.FC<{
@@ -33,22 +34,22 @@ export const NumberInput: React.FC<{
         value={valueOrg}
         readOnly
       />
-      <button
+      <Button
         title={title + " decrement"}
-        className="btn btn-xs btn-neutral w-8 text-center"
+        className="btn btn-secondary btn-xs w-8  text-center "
         onClick={handleDecrement}
         disabled={min !== undefined && valueOrg <= min}
       >
         <span>-</span>
-      </button>
-      <button
+      </Button>
+      <Button
         title={title + " increment"}
-        className="btn btn-xs btn-neutral w-8 text-center"
+        className="btn btn-secondary btn-xs w-8  text-center"
         onClick={handleIncrement}
         disabled={max !== undefined && valueOrg >= max}
       >
         <span>+</span>
-      </button>
+      </Button>
     </div>
   );
 };
@@ -60,7 +61,11 @@ const InputsPanel: React.FC = () => {
   if (!tablets || tablets.length === 0) return null;
 
   return (
-    <div title="inputs-panel" className="flex flex-col gap-1">
+    <div
+      title="inputs-panel"
+      className="flex flex-col gap-2 p-4 bg-white rounded-md shadow-md"
+    >
+      <h2 className="text-lg font-semibold">Frame</h2>
       <NumberInput
         title="holes-input"
         label="Holes:"

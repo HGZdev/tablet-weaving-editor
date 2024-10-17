@@ -1,69 +1,41 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
-import {
-  // ButtonAccent,
-  ButtonPrimary,
-  // ButtonSecondary,
-} from "../../Components/Buttons";
-import styled from "styled-components";
+import {ButtonPrimary, ButtonSecondary} from "../../Components/Buttons";
+import BgContainer from "../../Components/BgContainer";
 const {VITE_BASE_URL, VITE_HASH_ROUTER} = import.meta.env;
 
 const BASE_URL = VITE_HASH_ROUTER ? "" : VITE_BASE_URL;
 
-export const Container = styled.div`
-  ::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(${VITE_BASE_URL}/images/bgImage.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: blur(1px);
-    z-index: -1;
-    opacity: 0.3;
-  }
-`;
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Container
-      data-testid="LandingPage"
-      className=" flex flex-col items-center justify-center h-screen p-2"
-    >
-      <div className="flex flex-col bg-white px-12 py-8 gap-8 rounded-lg shadow-2xl">
-        <h2 className="text-6xl font-sans text-center">
-          Keep calm and weave the belt!
-        </h2>
-        <div className="flex justify-center gap-4">
-          <ButtonPrimary
-            className=""
-            onClick={() => navigate(`${BASE_URL}/editor`)}
-            aria-label="Editor"
-          >
-            Create new pattern
-          </ButtonPrimary>
-          {/* <ButtonSecondary
-            className=""
-            onClick={() => navigate(`${BASE_URL}/templates`)}
-            aria-label="Templates"
-          >
-            Use template
-          </ButtonSecondary>
-          <ButtonAccent
-            className=""
-            onClick={() => navigate(`${BASE_URL}/gallery`)}
-            aria-label="Gallery"
-          >
-            Load your pattern
-          </ButtonAccent> */}
+    <BgContainer data-testid="LandingPage">
+      <div
+        style={{backgroundColor: "rgba(255, 255, 255, 0.3)"}}
+        className="relative flex flex-col items-center justify-center h-screen p-2 "
+      >
+        <div className="flex flex-col bg-white px-4 md:px-12 py-8 gap-8 rounded-lg shadow-2xl">
+          <h1 className="text-5xl md:text-6xl font-sans text-center">
+            Keep Calm and Weave the Belt! 🧶
+          </h1>
+          <div className="flex justify-center gap-4">
+            <ButtonPrimary
+              onClick={() => navigate(`${BASE_URL}/editor`)}
+              aria-label="Editor"
+            >
+              Create new pattern
+            </ButtonPrimary>
+            <ButtonSecondary
+              onClick={() => navigate(`${BASE_URL}/templates`)}
+              aria-label="Templates"
+            >
+              Load template
+            </ButtonSecondary>
+          </div>
         </div>
       </div>
-    </Container>
+    </BgContainer>
   );
 };
 

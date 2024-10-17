@@ -7,6 +7,7 @@ import {
   DraftContextType,
 } from "./DraftContext/DraftContextProvider";
 import {findByTitle} from "../../../../tests/testing-library/helpers";
+import {MemoryRouter} from "react-router-dom";
 
 // Mock data for the draft
 const mockDraftContext: DraftContextType = {
@@ -50,9 +51,11 @@ const mockDraftContext: DraftContextType = {
 describe("TabletsPanel Component", () => {
   test("renders TabletsPanel correctly", async () => {
     render(
-      <DraftContext.Provider value={mockDraftContext}>
-        <TabletsPanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={mockDraftContext}>
+          <TabletsPanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
     const tabletsPanel = await findByTitle("tablets-panel");
     expect(tabletsPanel).toBeTruthy();
@@ -64,9 +67,11 @@ describe("TabletsPanel Component", () => {
     const user = userEvent.setup();
 
     const {container} = render(
-      <DraftContext.Provider value={mockDraftContext}>
-        <TabletsPanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={mockDraftContext}>
+          <TabletsPanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
 
     const skewToggleBtn = container.querySelector(
@@ -81,9 +86,11 @@ describe("TabletsPanel Component", () => {
     const user = userEvent.setup();
 
     const {container} = render(
-      <DraftContext.Provider value={mockDraftContext}>
-        <TabletsPanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={mockDraftContext}>
+          <TabletsPanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
 
     const colorCell = container.querySelector(

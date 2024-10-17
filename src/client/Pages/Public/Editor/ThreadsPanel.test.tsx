@@ -6,6 +6,7 @@ import {
   DraftContextType,
   DraftContext,
 } from "./DraftContext/DraftContextProvider";
+import {MemoryRouter} from "react-router-dom";
 
 // Mock data for the draft
 const mockDraftCtx: DraftContextType = {
@@ -49,9 +50,11 @@ const mockDraftCtx: DraftContextType = {
 describe("ThreadsPanel Component", () => {
   test("renders ThreadsPanel correctly", async () => {
     const {findByTitle} = render(
-      <DraftContext.Provider value={mockDraftCtx}>
-        <ThreadsPanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={mockDraftCtx}>
+          <ThreadsPanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
 
     // Verify if the thread panel is rendered
@@ -63,9 +66,11 @@ describe("ThreadsPanel Component", () => {
     const user = userEvent.setup();
 
     const {container} = render(
-      <DraftContext.Provider value={mockDraftCtx}>
-        <ThreadsPanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={mockDraftCtx}>
+          <ThreadsPanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
 
     // Simulate clicking the first row of the first thread
@@ -95,9 +100,11 @@ describe("ThreadsPanel Component", () => {
     const user = userEvent.setup();
 
     const {container} = render(
-      <DraftContext.Provider value={mockDraftCtx}>
-        <ThreadsPanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={mockDraftCtx}>
+          <ThreadsPanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
 
     // Simulate clicking the skew toggle for the second column

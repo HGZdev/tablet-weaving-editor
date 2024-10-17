@@ -3,7 +3,7 @@ import {useLogout} from "../../_server/queries";
 import {useNavigate} from "react-router-dom";
 import {Link, LinkProps} from "react-router-dom";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   to?: string;
   href?: string;
@@ -12,7 +12,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button: React.FC<ButtonProps> = ({className, ...props}) => {
   const cmpProps: ButtonHTMLAttributes<HTMLButtonElement> = {
     ...props,
-    className: `btn btn-sm  ${className}`,
+    className: `btn shadow-md shadow-gray-300 transition-all duration-300 ease-in-out ${className}`,
   };
 
   if (props.to) return <Link {...(cmpProps as LinkProps)} />;
@@ -26,7 +26,7 @@ export const Button: React.FC<ButtonProps> = ({className, ...props}) => {
 export const ButtonPrimary: React.FC<ButtonProps> = ({className, ...props}) => (
   <Button
     {...props}
-    className={`btn-primary shadow-md shadow-gray-300 rounded-none  ${className}`}
+    className={`btn btn-primary btn-sm rounded-none ${className}`}
   />
 );
 
@@ -36,7 +36,7 @@ export const ButtonSecondary: React.FC<ButtonProps> = ({
 }) => (
   <Button
     {...props}
-    className={`btn-secondary shadow-md shadow-gray-300 rounded-none ${className} `}
+    className={`btn-secondary btn-sm rounded-none ${className} `}
   />
 );
 export const ButtonAccent: React.FC<ButtonProps> = ({
@@ -45,17 +45,14 @@ export const ButtonAccent: React.FC<ButtonProps> = ({
 }) => (
   <Button
     {...props}
-    className={`btn-accent shadow-md shadow-gray-300 rounded-none ${className} `}
+    className={`btn-accent btn-sm rounded-none ${className} `}
   />
 );
 
-export const NavButton: React.FC<ButtonProps> = ({
-  className = "",
-  ...props
-}) => (
-  <ButtonSecondary
+export const NavButton: React.FC<ButtonProps> = ({className, ...props}) => (
+  <Button
     {...props}
-    className={`btn-ghost shadow-none ${className} `}
+    className={`btn-ghost btn-md p-2 rounded-none shadow-none ${className}`}
   />
 );
 

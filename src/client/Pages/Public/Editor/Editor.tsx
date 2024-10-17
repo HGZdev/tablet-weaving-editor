@@ -1,27 +1,38 @@
 import React from "react";
-import ControlPanel from "./ControlPanel.tsx";
-import TabletsPanel from "./TabletsPanel.tsx";
-import ThreadsPanel from "./ThreadsPanel.tsx";
+import ControlPanel from "./ControlPanel";
+import ThreadsPanel from "./ThreadsPanel";
+import TabletsPanel from "./TabletsPanel";
+import {FiX} from "react-icons/fi";
+import {NavButton} from "../../../Components/Buttons";
+import PageFrame from "../../../Components/PageFrame";
 
-const EditorPanel: React.FC = () => {
+const Sidebar: React.FC<{
+  onToggleSidebar: () => void;
+}> = ({onToggleSidebar}) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div className="inline-flex flex-col-reverse md:flex-col">
-        <ThreadsPanel />
-        <TabletsPanel />
-      </div>
+    <div className="flex flex-col items-start bg-base-100 h-full ">
+      {/* close sidebar button */}
+      <NavButton onClick={onToggleSidebar} className="md:hidden">
+        <FiX size={24} />
+      </NavButton>
       <ControlPanel />
     </div>
   );
 };
 
-const Editor: React.FC = () => {
+export const Main = () => {
   return (
-    <div className="flex flex-col gap-4">
-      <h1>Tablet Weaving Editor</h1>
-      <EditorPanel />
+    <div className="flex w-full justify-center items-center ">
+      <div className="bg-white my-8 py-4 px-8 rounded-md">
+        <ThreadsPanel />
+        <TabletsPanel />
+      </div>
     </div>
   );
+};
+
+const Editor: React.FC = () => {
+  return <PageFrame {...{LeftBar: Sidebar, Main}} />;
 };
 
 export default Editor;

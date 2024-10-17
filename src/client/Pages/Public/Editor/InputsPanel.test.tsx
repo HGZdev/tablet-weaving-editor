@@ -7,6 +7,7 @@ import {
   DraftContextType,
 } from "./DraftContext/DraftContextProvider";
 import {findByTitle} from "../../../../tests/testing-library/helpers";
+import {MemoryRouter} from "react-router-dom";
 
 // Mock draft data
 const mockDraftCtx: DraftContextType = {
@@ -44,9 +45,11 @@ const mockDraftCtx: DraftContextType = {
 describe("InputsPanel Component", () => {
   test("renders InputsPanel correctly", async () => {
     render(
-      <DraftContext.Provider value={mockDraftCtx}>
-        <InputsPanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={mockDraftCtx}>
+          <InputsPanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
 
     // Verify if the inputs panel is rendered
@@ -58,9 +61,11 @@ describe("InputsPanel Component", () => {
     const user = userEvent.setup();
 
     render(
-      <DraftContext.Provider value={mockDraftCtx}>
-        <InputsPanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={mockDraftCtx}>
+          <InputsPanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
 
     const holesInput = await findByTitle("holes-input");
@@ -85,9 +90,11 @@ describe("InputsPanel Component", () => {
     const user = userEvent.setup();
 
     render(
-      <DraftContext.Provider value={mockDraftCtx}>
-        <InputsPanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={mockDraftCtx}>
+          <InputsPanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
 
     const picksInput = await findByTitle("picks-input");
@@ -114,9 +121,11 @@ describe("InputsPanel Component", () => {
     const user = userEvent.setup();
 
     render(
-      <DraftContext.Provider value={mockDraftCtx}>
-        <InputsPanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={mockDraftCtx}>
+          <InputsPanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
 
     const tabletsInput = await findByTitle("tablets-input");

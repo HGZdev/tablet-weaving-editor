@@ -12,7 +12,7 @@
     "preview": "NODE_ENV=production vite preview",
     "prod": "vite build && vite preview",
     "test": "NODE_ENV=testing vitest",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint . --ext .ts,.tsx --report-unused-disable-directives --max-warnings 0"
   },
   "engines": {
     "node": ">=18"
@@ -37,6 +37,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
+    "react-icons": "^5.3.0",
     "react-router-dom": "^6.26.1",
     "react-snowfall": "^2.1.0",
     "sqlite": "^5.1.1",
