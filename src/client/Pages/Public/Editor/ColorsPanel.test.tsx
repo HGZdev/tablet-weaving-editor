@@ -10,6 +10,7 @@ import {
   DraftContext,
   DraftContextType,
 } from "./DraftContext/DraftContextProvider";
+import {MemoryRouter} from "react-router-dom";
 
 // Mocking DraftContext values
 const mockDraftCtx: DraftContextType = {
@@ -40,9 +41,11 @@ const mockDraftCtx: DraftContextType = {
 describe("ColorsPanel Component", () => {
   test("renders ColorsPanel correctly", async () => {
     render(
-      <DraftContext.Provider value={mockDraftCtx}>
-        <ColorsPanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={mockDraftCtx}>
+          <ColorsPanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
 
     // Check if the colors are rendered as buttons
@@ -55,9 +58,11 @@ describe("ColorsPanel Component", () => {
     const user = userEvent.setup();
 
     render(
-      <DraftContext.Provider value={mockDraftCtx}>
-        <ColorsPanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={mockDraftCtx}>
+          <ColorsPanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
 
     // Simulate selecting the second color
@@ -73,9 +78,11 @@ describe("ColorsPanel Component", () => {
     const user = userEvent.setup();
 
     render(
-      <DraftContext.Provider value={mockDraftCtx}>
-        <ColorsPanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={mockDraftCtx}>
+          <ColorsPanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
 
     const colorInput = await findByTitle("color-input");
@@ -95,9 +102,11 @@ describe("ColorsPanel Component", () => {
     };
 
     render(
-      <DraftContext.Provider value={outOfBoundsContext}>
-        <ColorsPanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={outOfBoundsContext}>
+          <ColorsPanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
 
     const colorInput = await findByTitle("color-input");

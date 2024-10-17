@@ -6,16 +6,19 @@ import {
   findByTitle,
 } from "../../../../tests/testing-library/helpers";
 import {DraftProvider} from "./DraftContext/DraftContextProvider";
+import {MemoryRouter} from "react-router-dom";
 
 describe("ControlPanel Component", () => {
   test("renders ControlPanel correctly", async () => {
     render(
-      <DraftProvider>
-        <ControlPanel />
-      </DraftProvider>
+      <MemoryRouter>
+        <DraftProvider>
+          <ControlPanel />
+        </DraftProvider>
+      </MemoryRouter>
     );
 
-    expect(await findByText("Control Panel"));
+    expect(await findByText("Frame"));
     expect(await findByTitle("file-panel"));
     expect(await findByTitle("inputs-panel"));
     expect(await findByTitle("colors-panel"));

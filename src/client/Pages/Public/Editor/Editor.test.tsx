@@ -6,6 +6,7 @@ import {
   findByTitle,
 } from "../../../../tests/testing-library/helpers";
 import {DraftProvider} from "./DraftContext/DraftContextProvider";
+import {MemoryRouter} from "react-router-dom";
 
 describe("Editor Component", () => {
   beforeEach(() => {
@@ -14,9 +15,11 @@ describe("Editor Component", () => {
   });
   test("renders the Editor correctly", async () => {
     render(
-      <DraftProvider>
-        <Editor />
-      </DraftProvider>
+      <MemoryRouter>
+        <DraftProvider>
+          <Editor />
+        </DraftProvider>
+      </MemoryRouter>
     );
 
     // Check if the heading is rendered
@@ -28,7 +31,6 @@ describe("Editor Component", () => {
     expect(await findByTitle("file-panel")).toMatchSnapshot();
     expect(await findByTitle("control-panel")).toMatchSnapshot();
 
-    expect(await findByText("Control Panel"));
-    expect(await findByText("Save project"));
+    expect(await findByText("Save Project"));
   });
 });

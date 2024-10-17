@@ -8,26 +8,37 @@ export default {
     fontFamily: {
       sans: ["Dosis", "sans-serif"],
     },
+    extend: {
+      boxShadow: {
+        "text-shadow": "2px 2px 5px rgba(0, 0, 0, 0.3)",
+      },
+    },
   },
   daisyui: {
     // base: false, // applies background color and foreground color for root element by default
     themes: [
       {
         main: {
-          "base-100": "#fff", // Base color of page, used for blank backgrounds + "FOCUS" bg-color
-          // "base-content": "yellow", // Foreground content color to use on base color	optional + "FOCUS" color
-
+          "base-100": "#ededed", // Base color of page, used for blank backgrounds + "FOCUS" bg-color
+          "base-content": "#3C3C3C", // Foreground content color to use on base color	optional + "FOCUS" color
           // neutral: "#000", // "ACTIVE" bg-color
           // "neutral-content": "#000", // "Click" "ACTIVE" color
+          primary: "#D17A44",
+          "primary-content": "#FAF7F2",
+          secondary: "#DEAC80",
+          "secondary-content": "#3C3C3C",
+          accent: "#8FB986",
+          "accent-content": "#3C3C3C",
 
-          primary: "#4573bc",
-          secondary: "#7E4FC8",
-          accent: "#69b281",
           info: "#006cd5",
           success: "#00c000",
           warning: "#ff7f00",
           error: "#e12154",
 
+          ".btn-xs": {
+            height: "1.5rem",
+            "min-height": "1.5rem",
+          },
           ".btn-sm": {
             height: "2rem",
             "min-height": "2rem",
@@ -42,6 +53,7 @@ export default {
           },
         },
         navbar: {
+          "base-100": "#ededed",
           "base-content": "#fff", // "FOCUS" color
           "neutral-content": "#fff", // "Click" "ACTIVE" color
         },

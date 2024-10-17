@@ -8,12 +8,15 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import LandingPage from "./Pages/Public/LandingPage.tsx";
-import {Helmet} from "react-helmet";
 import ErrorPage from "./Pages/Public/ErrorPage.tsx";
 import {makeApolloProvider} from "../../lib/apollo/ApolloClient.tsx";
 import GlobalStyles from "../styles/GlobalStyles.ts";
 import Editor from "./Pages/Public/Editor/Editor.tsx";
 import {DraftProvider} from "./Pages/Public/Editor/DraftContext/DraftContextProvider.tsx";
+import About from "./Pages/Public/About.tsx";
+import Manual from "./Pages/Public/Manual.tsx";
+import Templates from "./Pages/Public/Templates.tsx";
+import Metadata from "./Components/Metadata.tsx";
 
 export const ApolloProvider = makeApolloProvider(import.meta.env);
 
@@ -28,8 +31,9 @@ export const RoutesConfig = (
       errorElement={<ErrorPage />}
     />
     <Route path={`${BASE_URL}/editor`} element={<Editor />} />
-    {/* <Route path={`${BASE_URL}/templates`} element={<Templates />} /> */}
-    {/* <Route path={`${BASE_URL}/gallery`} element={<PrivateRoute Component={Gallery} />} /> */}
+    <Route path={`${BASE_URL}/templates`} element={<Templates />} />
+    <Route path={`${BASE_URL}/about`} element={<About />} />
+    <Route path={`${BASE_URL}/manual`} element={<Manual />} />
     <Route path="*" element={<ErrorPage />} />
   </>
 );
@@ -47,16 +51,7 @@ const Root: React.FC = () => {
   if (!VITE_APP_NAME) throw new Error("root: VITE_APP_NAME is undefined");
   return (
     <>
-      <Helmet>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{VITE_APP_NAME}</title>
-        <link
-          rel="icon"
-          type="image/png"
-          href={`${VITE_BASE_URL}/favicon.ico`}
-        />
-      </Helmet>
+      <Metadata />
       <ApolloProvider>
         <DraftProvider>
           <GlobalStyles />

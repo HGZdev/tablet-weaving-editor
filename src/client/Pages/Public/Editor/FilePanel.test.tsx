@@ -8,6 +8,7 @@ import {
 } from "./DraftContext/DraftContextProvider";
 import {findByText} from "../../../../tests/testing-library/helpers";
 import draft1 from "./__fixtures__/draft1";
+import {MemoryRouter} from "react-router-dom";
 
 const mockDraftCtx: DraftContextType = {
   draft: {
@@ -55,14 +56,15 @@ describe("FilePanel Component", () => {
 
   test("renders FilePanel correctly", async () => {
     render(
-      <DraftContext.Provider value={mockDraftCtx}>
-        <FilePanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={mockDraftCtx}>
+          <FilePanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
 
-    // Check if the "Save project" and "Open" buttons are rendered
-    expect(await findByText("Save project")).toBeTruthy();
-    expect(await findByText("Open")).toBeTruthy();
+    expect(await findByText("Save Project")).toBeTruthy();
+    expect(await findByText("Open Project")).toBeTruthy();
 
     // Check if the file name input is rendered with the correct value
     const fileNameInput = screen.getByDisplayValue("mockDraft");
@@ -73,12 +75,14 @@ describe("FilePanel Component", () => {
     const user = userEvent.setup();
 
     const {container} = render(
-      <DraftContext.Provider value={mockDraftCtx}>
-        <FilePanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={mockDraftCtx}>
+          <FilePanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
 
-    const openButton = await findByText("Open");
+    const openButton = await findByText("Open Project");
     await user.click(openButton);
 
     const input = container.querySelector(
@@ -107,30 +111,16 @@ describe("FilePanel Component", () => {
     const user = userEvent.setup();
 
     render(
-      <DraftContext.Provider value={mockDraftCtx}>
-        <FilePanel />
-      </DraftContext.Provider>
+      <MemoryRouter>
+        <DraftContext.Provider value={mockDraftCtx}>
+          <FilePanel />
+        </DraftContext.Provider>
+      </MemoryRouter>
     );
 
-    const saveButton = await findByText("Save project");
+    const saveButton = await findByText("Save Project");
     await user.click(saveButton);
 
     expect(mockDownload).toHaveBeenCalled();
-  });
-
-  test("handles example draft upload", async () => {
-    const user = userEvent.setup();
-
-    render(
-      <DraftContext.Provider value={mockDraftCtx}>
-        <FilePanel />
-      </DraftContext.Provider>
-    );
-
-    const exampleDraftButton = await findByText("draft 1");
-    expect(exampleDraftButton).toBeTruthy();
-    await user.click(exampleDraftButton);
-
-    expect(mockDraftCtx.onUploaded).toHaveBeenCalledWith(draft1);
   });
 });

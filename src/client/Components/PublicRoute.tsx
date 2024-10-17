@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "./Navbar";
 
 interface PublicRoute {
   Component: React.FC;
@@ -8,7 +7,6 @@ interface PublicRoute {
 const PublicRoute: React.FC<PublicRoute> = ({Component}) => {
   return (
     <>
-      <Navbar />
       <Component />
     </>
   );
