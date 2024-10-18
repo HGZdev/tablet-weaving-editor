@@ -8,9 +8,9 @@ Read more about tablet weaving technique: https://en.wikipedia.org/wiki/Tablet_w
 
 ## Tech stack:
 
-- HTML5
-- Styled Components
-- JavaScript (ES6)
+- Typescript
 - React.js
 - Node.js (express.js)
-- Webpack
+- Vite
+- Vitest
+- Tailwind / styled-components
