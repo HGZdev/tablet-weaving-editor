@@ -21,22 +21,25 @@ interface Template {
 const templates: Template[] = [
   {
     id: 1,
-    title: "Viking Belt Pattern",
-    description: "A clean, basic stripe pattern for beginners.",
-    imageUrl: `${VITE_BASE_URL}/images/draft1.png`,
-    file: draft1,
-  },
-  {
-    id: 2,
     title: "Spiral Pattern",
-    description: "A complex geometric pattern for advanced weavers.",
+    description:
+      "A clean, basic geometric pattern ideal for beginners. It features interlocking shapes with a bold blue and black color scheme, forming a continuous spiral effect. This pattern is straightforward, making it a good starting point for novice weavers to practice geometric designs.",
     imageUrl: `${VITE_BASE_URL}/images/draft2.png`,
     file: draft2,
   },
   {
+    id: 2,
+    title: "Floral Pattern",
+    description:
+      "A floral pattern recommended for advanced weavers. The design uses a complex arrangement of shapes and colors, with greens, yellows, and blacks forming a detailed, symmetrical floral motif. The level of detail and color usage make this pattern challenging but rewarding for experienced weavers looking to create floral designs.",
+    imageUrl: `${VITE_BASE_URL}/images/draft1.png`,
+    file: draft1,
+  },
+  {
     id: 3,
-    title: "Knots Pattern",
-    description: "A delicate floral pattern perfect for belts.",
+    title: "Viking Belt Pattern",
+    description:
+      "A pattern inspired by traditional Viking belt designs, featuring knot-like shapes and earthy tones. This template is suitable for weaving belts or straps with a historical aesthetic. Great for intermediate to advanced weavers, this pattern allows for the creation of strong, decorative bands, perfect for historical or themed projects.",
     imageUrl: `${VITE_BASE_URL}/images/draft3.png`,
     file: draft3,
   },
@@ -61,7 +64,7 @@ const TemplateCard: React.FC<{template: Template}> = ({template}) => {
           className="object-cover w-[80%] h-full rounded"
         />
       </div>
-      <div className="flex-1 flex flex-col justify-between pr-4">
+      <div className="flex-1 flex flex-col justify-between md:pr-4">
         <div>
           <h3 className="text-xl font-semibold mb-2">{title}</h3>
           <p className="text-gray-700 mb-4">{description}</p>
