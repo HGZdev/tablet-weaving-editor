@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer"; // Import Footer component
 import BgContainer from "./BgContainer";
