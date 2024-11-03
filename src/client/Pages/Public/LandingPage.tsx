@@ -10,10 +10,10 @@ const LandingPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <BgContainer data-testid="LandingPage">
+    <BgContainer data-testid="LandingPage" className="md:bg-fixed">
       <div
-        style={{backgroundColor: "rgba(255, 255, 255, 0.3)"}}
         className="relative flex flex-col items-center justify-center h-screen p-2 "
+        style={{backgroundColor: "rgba(255, 255, 255, 0.3)"}}
       >
         <div className="flex flex-col bg-white px-4 md:px-12 py-8 gap-8 rounded-lg shadow-2xl">
           <h1 className="text-5xl md:text-6xl font-sans text-center">

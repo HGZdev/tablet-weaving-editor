@@ -9,21 +9,15 @@ const BASE_URL = VITE_HASH_ROUTER ? "" : VITE_BASE_URL;
 
 const Navbar: React.FC<{
   onToggleSidebar: MouseEventHandler<HTMLButtonElement>;
-}> = ({onToggleSidebar}) => {
+  hasSidebar: boolean;
+}> = ({onToggleSidebar, hasSidebar}) => {
   const navigate = useNavigate();
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === `${BASE_URL}${path}`;
 
   return (
-    <div
-      // data-theme="navbar"
-      className="flex justify-between items-center bg-base-100"
-    >
-      <NavButton onClick={onToggleSidebar} className="md:hidden">
-        <FiMenu size={24} />
-      </NavButton>
-
+    <div className="flex justify-between items-center bg-base-100">
       <div className="flex flex-1 justify-start md:justify-start">
         <NavButton onClick={() => navigate(`${BASE_URL}/`)} className="btn-lg">
           <Logo className="w-5" />
@@ -31,7 +25,7 @@ const Navbar: React.FC<{
         </NavButton>
       </div>
 
-      <div className="px-4">
+      <div>
         <ul className="flex p-0 mt-0">
           <li>
             <NavButton
@@ -67,6 +61,11 @@ const Navbar: React.FC<{
           </li>
         </ul>
       </div>
+      {hasSidebar && (
+        <NavButton onClick={onToggleSidebar} className="md:hidden">
+          <FiMenu size={24} />
+        </NavButton>
+      )}
     </div>
   );
 };

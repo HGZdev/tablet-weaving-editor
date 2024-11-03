@@ -52,11 +52,7 @@ export default {
             minHeight: "3rem",
           },
         },
-        navbar: {
-          "base-100": "#ededed",
-          "base-content": "#fff", // "FOCUS" color
-          "neutral-content": "#fff", // "Click" "ACTIVE" color
-        },
+        navbar: {},
         form: {},
       },
       "dark",
