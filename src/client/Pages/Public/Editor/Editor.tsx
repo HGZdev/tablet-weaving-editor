@@ -6,6 +6,7 @@ import {FiX} from "react-icons/fi";
 import {NavButton} from "../../../Components/Buttons";
 import PageFrame from "../../../Components/PageFrame";
 import useOverflowDetection from "../../../hooks.ts/useOverflowDetection";
+import FloatingButton from "../../../Components/FloatingButton";
 
 const Sidebar: React.FC<{
   onToggleSidebar: () => void;

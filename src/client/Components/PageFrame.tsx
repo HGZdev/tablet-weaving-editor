@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer"; // Import Footer component
 import BgContainer from "./BgContainer";
+import FloatingButton from "./FloatingButton";
 
 interface PageFrameProps {
   Main: React.ComponentType;
@@ -66,6 +67,9 @@ const PageFrame: React.FC<PageFrameProps> = ({
           className="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-500 ease-in-out md:hidden"
           onClick={toggleSidebar}
         ></div>
+      )}
+      {!!Sidebar && !isSidebarVisible && (
+        <FloatingButton onClick={toggleSidebar} />
       )}
     </BgContainer>
   );
