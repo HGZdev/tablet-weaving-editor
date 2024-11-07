@@ -1,4 +1,3 @@
-// Root.tsx
 import React from "react";
 import {
   Route,
@@ -17,6 +16,7 @@ import About from "./Pages/Public/About.tsx";
 import Manual from "./Pages/Public/Manual.tsx";
 import Templates from "./Pages/Public/Templates.tsx";
 import Metadata from "./Components/Metadata.tsx";
+import ScrollToTopRoute from "./Components/ScrollToTopRoute.tsx";
 
 export const ApolloProvider = makeApolloProvider(import.meta.env);
 
@@ -25,22 +25,24 @@ const BASE_URL = VITE_HASH_ROUTER ? "" : VITE_BASE_URL;
 
 export const RoutesConfig = (
   <>
-    <Route
-      path={`${BASE_URL}/`}
-      element={<LandingPage />}
-      errorElement={<ErrorPage />}
-    />
-    <Route path={`${BASE_URL}/editor`} element={<Editor />} />
-    <Route path={`${BASE_URL}/templates`} element={<Templates />} />
-    <Route path={`${BASE_URL}/about`} element={<About />} />
-    <Route path={`${BASE_URL}/manual`} element={<Manual />} />
-    <Route path="*" element={<ErrorPage />} />
+    <Route element={<ScrollToTopRoute />}>
+      <Route
+        path={`${BASE_URL}/`}
+        element={<LandingPage />}
+        errorElement={<ErrorPage />}
+      />
+      <Route path={`${BASE_URL}/editor`} element={<Editor />} />
+      <Route path={`${BASE_URL}/templates`} element={<Templates />} />
+      <Route path={`${BASE_URL}/about`} element={<About />} />
+      <Route path={`${BASE_URL}/manual`} element={<Manual />} />
+      <Route path="*" element={<ErrorPage />} />
+    </Route>
   </>
 );
 
 const routes = createRoutesFromElements(RoutesConfig);
 
-// Hash router for Github Pages
+// Hash router for GitHub Pages
 const router =
   VITE_HASH_ROUTER === "true"
     ? createHashRouter(routes)
@@ -49,6 +51,7 @@ const router =
 const Root: React.FC = () => {
   if (!VITE_BASE_URL) throw new Error("root: VITE_BASE_URL is undefined");
   if (!VITE_APP_NAME) throw new Error("root: VITE_APP_NAME is undefined");
+
   return (
     <>
       <Metadata />
