@@ -13,7 +13,6 @@ import GlobalStyles from "../styles/GlobalStyles.ts";
 import Editor from "./Pages/Public/Editor/Editor.tsx";
 import {DraftProvider} from "./Pages/Public/Editor/DraftContext/DraftContextProvider.tsx";
 import About from "./Pages/Public/About.tsx";
-import Manual from "./Pages/Public/Manual.tsx";
 import Templates from "./Pages/Public/Templates.tsx";
 import Metadata from "./Components/Metadata.tsx";
 import ScrollToTopRoute from "./Components/ScrollToTopRoute.tsx";
@@ -34,7 +33,6 @@ export const RoutesConfig = (
       <Route path={`${BASE_URL}/editor`} element={<Editor />} />
       <Route path={`${BASE_URL}/templates`} element={<Templates />} />
       <Route path={`${BASE_URL}/about`} element={<About />} />
-      <Route path={`${BASE_URL}/manual`} element={<Manual />} />
       <Route path="*" element={<ErrorPage />} />
     </Route>
   </>

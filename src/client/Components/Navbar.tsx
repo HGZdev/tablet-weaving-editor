@@ -3,6 +3,8 @@ import {FiMenu} from "react-icons/fi";
 import {useNavigate, useLocation} from "react-router-dom";
 import {NavButton} from "./Buttons";
 import Logo from "./Logo";
+import {MdAutoStories, MdGridOn} from "react-icons/md";
+import {BsPencilSquare} from "react-icons/bs";
 
 const {VITE_BASE_URL, VITE_HASH_ROUTER} = import.meta.env;
 const BASE_URL = VITE_HASH_ROUTER ? "" : VITE_BASE_URL;
@@ -31,32 +33,30 @@ const Navbar: React.FC<{
             <NavButton
               onClick={() => navigate(`${BASE_URL}/editor`)}
               className={isActive("/editor") ? "text-primary" : ""}
+              title="Editor"
             >
-              Editor
+              <BsPencilSquare className="lg:hidden" size={24} />
+              <span className="hidden lg:inline">Editor</span>
             </NavButton>
           </li>
           <li>
             <NavButton
               onClick={() => navigate(`${BASE_URL}/templates`)}
               className={isActive("/templates") ? "text-primary" : ""}
+              title="Templates"
             >
-              Templates
-            </NavButton>
-          </li>
-          <li>
-            <NavButton
-              onClick={() => navigate(`${BASE_URL}/manual`)}
-              className={isActive("/manual") ? "text-primary" : ""}
-            >
-              Manual
+              <MdGridOn className="lg:hidden" size={24} />
+              <span className="hidden lg:inline">Templates</span>
             </NavButton>
           </li>
           <li>
             <NavButton
               onClick={() => navigate(`${BASE_URL}/about`)}
               className={isActive("/about") ? "text-primary" : ""}
+              title="About"
             >
-              About
+              <MdAutoStories className="lg:hidden" size={24} />
+              <span className="hidden lg:inline">About</span>
             </NavButton>
           </li>
         </ul>
