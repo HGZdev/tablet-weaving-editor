@@ -15,16 +15,19 @@ import {DraftProvider} from "./Pages/Public/Editor/DraftContext/DraftContextProv
 import About from "./Pages/Public/About.tsx";
 import Templates from "./Pages/Public/Templates.tsx";
 import Metadata from "./Components/Metadata.tsx";
-import ScrollToTopRoute from "./Components/ScrollToTopRoute.tsx";
+import WrapRoute from "./Components/WrapRoute.tsx";
+import {GoogleAnalyticsProvider} from "../../lib/GoogleAnalytics";
+import ReactConsentBanner from "./Components/ReactConsentBanner.tsx";
 
 export const ApolloProvider = makeApolloProvider(import.meta.env);
 
-const {VITE_BASE_URL, VITE_APP_NAME, VITE_HASH_ROUTER} = import.meta.env;
+const {VITE_BASE_URL, VITE_APP_NAME, VITE_HASH_ROUTER, VITE_GA_TOKEN} =
+  import.meta.env;
 const BASE_URL = VITE_HASH_ROUTER ? "" : VITE_BASE_URL;
 
 export const RoutesConfig = (
   <>
-    <Route element={<ScrollToTopRoute />}>
+    <Route element={<WrapRoute />}>
       <Route
         path={`${BASE_URL}/`}
         element={<LandingPage />}
@@ -55,8 +58,16 @@ const Root: React.FC = () => {
       <Metadata />
       <ApolloProvider>
         <DraftProvider>
-          <GlobalStyles />
-          <RouterProvider router={router} future={{v7_startTransition: true}} />
+          <GoogleAnalyticsProvider
+            measurementId={VITE_GA_TOKEN}
+            ConsentBanner={ReactConsentBanner}
+          >
+            <GlobalStyles />
+            <RouterProvider
+              router={router}
+              future={{v7_startTransition: true}}
+            />
+          </GoogleAnalyticsProvider>
         </DraftProvider>
       </ApolloProvider>
     </>

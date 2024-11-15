@@ -46,6 +46,7 @@ jobs:
       - name: Build the project
         env:
           VITE_JWT_SECRET: ${{ secrets.VITE_JWT_SECRET }}
+          VITE_GA_TOKEN: ${{ secrets.VITE_GA_TOKEN }}
           VITE_HASH_ROUTER: ${{ vars.VITE_HASH_ROUTER }}
           VITE_BASE_URL: ${{ vars.VITE_BASE_URL }}
           VITE_PROD_HOST_URL: ${{ vars.VITE_PROD_HOST_URL }}
