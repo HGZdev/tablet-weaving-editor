@@ -1,4 +1,4 @@
-# tablet-weaving-editor
+# Tablet Weaving Editor 🧶
 
 **Link:** https://hgzdev.github.io/tablet-weaving-editor
 
@@ -10,7 +10,9 @@ Read more about tablet weaving technique: https://en.wikipedia.org/wiki/Tablet_w
 
 - Typescript
 - React.js
-- Node.js (express.js)
-- Vite
-- Vitest
 - Tailwind / styled-components
+- Node.js (express.js)
+- Vite/Vitest
+- Testing Library
+
+
