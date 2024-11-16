@@ -76,7 +76,7 @@ const FilePanel: React.FC = () => {
       title="file-panel"
       className="flex flex-col gap-4 p-4 bg-white rounded-md shadow-md"
     >
-      <div className="text-xl font-semibold">File Storage</div>
+      <h2 className="text-xl font-semibold">File Storage</h2>
 
       <ButtonSecondary
         className="w-full"

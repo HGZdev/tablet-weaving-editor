@@ -18,55 +18,69 @@ const Navbar: React.FC<{
 
   const isActive = (path: string) => location.pathname === `${BASE_URL}${path}`;
 
+  const navItems = [
+    {
+      path: "/editor",
+      label: "Editor",
+      icon: <BsPencilSquare className="lg:hidden" size={24} />,
+    },
+    {
+      path: "/templates",
+      label: "Templates",
+      icon: <MdGridOn className="lg:hidden" size={24} />,
+    },
+    {
+      path: "/about",
+      label: "About",
+      icon: <MdAutoStories className="lg:hidden" size={24} />,
+    },
+  ];
+
   return (
-    <div className="flex justify-between items-center bg-base-100">
+    <nav
+      className="flex justify-between items-center bg-base-100"
+      role="navigation"
+      aria-label="Main Navigation"
+    >
       <div className="flex flex-1 justify-start md:justify-start">
-        <NavButton onClick={() => navigate(`${BASE_URL}/`)} className="btn-lg">
+        <NavButton
+          onClick={() => navigate(`${BASE_URL}/`)}
+          className="btn-lg"
+          aria-label="Home"
+        >
           <Logo className="w-5" />
           <span className="hidden md:inline-block">Tablet Weaving Editor</span>
         </NavButton>
       </div>
 
       <div>
-        <ul className="flex p-0 mt-0">
-          <li>
-            <NavButton
-              onClick={() => navigate(`${BASE_URL}/editor`)}
-              className={isActive("/editor") ? "text-primary" : ""}
-              title="Editor"
-            >
-              <BsPencilSquare className="lg:hidden" size={24} />
-              <span className="hidden lg:inline">Editor</span>
-            </NavButton>
-          </li>
-          <li>
-            <NavButton
-              onClick={() => navigate(`${BASE_URL}/templates`)}
-              className={isActive("/templates") ? "text-primary" : ""}
-              title="Templates"
-            >
-              <MdGridOn className="lg:hidden" size={24} />
-              <span className="hidden lg:inline">Templates</span>
-            </NavButton>
-          </li>
-          <li>
-            <NavButton
-              onClick={() => navigate(`${BASE_URL}/about`)}
-              className={isActive("/about") ? "text-primary" : ""}
-              title="About"
-            >
-              <MdAutoStories className="lg:hidden" size={24} />
-              <span className="hidden lg:inline">About</span>
-            </NavButton>
-          </li>
+        <ul className="flex p-0 mt-0" role="menubar">
+          {navItems.map((item) => (
+            <li key={item.path} role="none">
+              <NavButton
+                onClick={() => navigate(`${BASE_URL}${item.path}`)}
+                className={isActive(item.path) ? "text-primary" : ""}
+                aria-current={isActive(item.path) ? "page" : undefined}
+                title={item.label}
+                role="menuitem"
+              >
+                {item.icon}
+                <span className="hidden lg:inline">{item.label}</span>
+              </NavButton>
+            </li>
+          ))}
         </ul>
       </div>
       {hasSidebar && (
-        <NavButton onClick={onToggleSidebar} className="md:hidden">
+        <NavButton
+          onClick={onToggleSidebar}
+          className="md:hidden"
+          aria-label="Toggle Sidebar"
+        >
           <FiMenu size={24} />
         </NavButton>
       )}
-    </div>
+    </nav>
   );
 };
 
