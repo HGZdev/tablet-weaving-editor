@@ -1,18 +1,19 @@
 # Tablet Weaving Editor 🧶
 
-**Link:** https://hgzdev.github.io/tablet-weaving-editor
+Welcome to the Tablet Weaving Editor—a free, browser-based drafting tool designed for tablet weaving enthusiasts.
 
-Tablet Weaving Editor is a free, browser-based tablet weaving drafting tool.
+**Live Site:** [hgzdev.github.io/tablet-weaving-editor](https://hgzdev.github.io/tablet-weaving-editor)
 
-Read more about tablet weaving technique: https://en.wikipedia.org/wiki/Tablet_weaving
+## Technologies Used
 
-## Tech stack:
+- **TypeScript**
+- **React.js**
+- **Tailwind CSS** and **Styled Components**
+- **Vite** for development and **Vitest** for testing
+- **Testing Library** for unit and integration tests
 
-- Typescript
-- React.js
-- Tailwind / styled-components
-- Node.js (express.js)
-- Vite/Vitest
-- Testing Library
+## Features
 
-
+- **Interactive Drafting Tools:** Allows users to create and edit weaving patterns seamlessly.
+- **Responsive Design:** Ensures optimal viewing across various devices.
+- **Export/Import Options:** Enables saving (and loading) patterns on yor device.
