@@ -1,10 +1,23 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import TopNavigation from "../shared/components/layout/TopNavigation";
 
-const renderWithRouter = (component: React.ReactElement) => {
-  return render(<BrowserRouter>{component}</BrowserRouter>);
+const renderWithRouter = (
+  component: React.ReactElement,
+  initialRoute = "/editor"
+) => {
+  return render(
+    <MemoryRouter
+      initialEntries={[initialRoute]}
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}
+    >
+      {component}
+    </MemoryRouter>
+  );
 };
 
 describe("TopNavigation", () => {
@@ -33,12 +46,32 @@ describe("TopNavigation", () => {
         <TopNavigation
           onToggleDrawer={mockOnToggleDrawer}
           isDrawerOpen={false}
-        />
+        />,
+        "/editor"
       );
 
-      // Check if Editor link is active (since we're on root path)
+      // Check if Editor link is active (since we're on /editor path)
       const editorLink = screen.getByText("Editor").closest("a");
       expect(editorLink).toHaveClass("bg-primary-100", "text-primary-700");
+    });
+
+    it("does not highlight inactive navigation links", () => {
+      renderWithRouter(
+        <TopNavigation
+          onToggleDrawer={mockOnToggleDrawer}
+          isDrawerOpen={false}
+        />,
+        "/gallery"
+      );
+
+      // Check if Gallery link is active
+      const galleryLink = screen.getByText("Gallery").closest("a");
+      expect(galleryLink).toHaveClass("bg-primary-100", "text-primary-700");
+
+      // Check if Editor link is not active
+      const editorLink = screen.getByText("Editor").closest("a");
+      expect(editorLink).not.toHaveClass("bg-primary-100", "text-primary-700");
+      expect(editorLink).toHaveClass("text-neutral-600");
     });
 
     it("renders logo and title", () => {
