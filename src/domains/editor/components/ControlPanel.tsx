@@ -1,0 +1,41 @@
+import React from "react";
+import ColorsPanel from "./ColorsPanel";
+import FilePanel from "./FilePanel";
+import InputsPanel from "./InputsPanel";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerDescription,
+} from "../../../shared/components/ui/drawer";
+
+interface ControlPanelProps {
+  isOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
+}
+
+const ControlPanel: React.FC<ControlPanelProps> = ({
+  isOpen,
+  onOpenChange,
+}) => {
+  return (
+    <Drawer open={isOpen} onOpenChange={onOpenChange}>
+      <DrawerContent className="max-h-[80vh]">
+        <DrawerHeader>
+          <DrawerTitle>Control Panel</DrawerTitle>
+          <DrawerDescription>
+            Configure your tablet weaving parameters
+          </DrawerDescription>
+        </DrawerHeader>
+        <div className="flex flex-col gap-4 p-4 overflow-y-auto">
+          <InputsPanel />
+          <ColorsPanel />
+          <FilePanel />
+        </div>
+      </DrawerContent>
+    </Drawer>
+  );
+};
+
+export default ControlPanel;

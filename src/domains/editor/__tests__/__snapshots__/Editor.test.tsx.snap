@@ -1,0 +1,850 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Editor Component > renders the Editor correctly 1`] = `
+<div
+  class="flex justify-center"
+  title="tablets-panel"
+>
+  <div>
+    <div
+      class="sc-hvigdm eoLXMj"
+    />
+    <div
+      class="sc-hvigdm eoLXMj row-A"
+      title="hole name"
+    >
+      <span>
+        A
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-B"
+      title="hole name"
+    >
+      <span>
+        B
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-C"
+      title="hole name"
+    >
+      <span>
+        C
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-D"
+      title="hole name"
+    >
+      <span>
+        D
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj"
+    />
+  </div>
+  <div>
+    <div
+      class="sc-hvigdm eoLXMj col-0"
+      title="column number"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-3 change-color"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-2 change-color"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-1 change-color"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv zsNMr"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-0 change-color"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj col-0 toggle-skew skew-S"
+      title="toggle skew"
+    >
+      <span>
+        S
+      </span>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sc-hvigdm eoLXMj col-1"
+      title="column number"
+    >
+      <span>
+        2
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-3 change-color"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-2 change-color"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv zsNMr"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-1 change-color"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-0 change-color"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj col-1 toggle-skew skew-S"
+      title="toggle skew"
+    >
+      <span>
+        S
+      </span>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sc-hvigdm eoLXMj col-2"
+      title="column number"
+    >
+      <span>
+        3
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-3 change-color"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-2 change-color"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv fNRczG"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-1 change-color"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-0 change-color"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj col-2 toggle-skew skew-Z"
+      title="toggle skew"
+    >
+      <span>
+        Z
+      </span>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sc-hvigdm eoLXMj col-3"
+      title="column number"
+    >
+      <span>
+        4
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-3 change-color"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-2 change-color"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-1 change-color"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv fNRczG"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-0 change-color"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj col-3 toggle-skew skew-Z"
+      title="toggle skew"
+    >
+      <span>
+        Z
+      </span>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sc-hvigdm eoLXMj"
+    />
+    <div
+      class="sc-hvigdm eoLXMj row-A"
+      title="hole name"
+    >
+      <span>
+        A
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-B"
+      title="hole name"
+    >
+      <span>
+        B
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-C"
+      title="hole name"
+    >
+      <span>
+        C
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-D"
+      title="hole name"
+    >
+      <span>
+        D
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj"
+    />
+  </div>
+</div>
+`;
+
+exports[`Editor Component > renders the Editor correctly 2`] = `
+<div
+  class="flex g-4 justify-center"
+  title="threads-panel"
+>
+  <div>
+    <div
+      class="sc-hvigdm eoLXMj"
+    />
+    <div
+      class="sc-hvigdm eoLXMj row-7"
+      title="row number"
+    >
+      <span>
+        8
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-6"
+      title="row number"
+    >
+      <span>
+        7
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-5"
+      title="row number"
+    >
+      <span>
+        6
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-4"
+      title="row number"
+    >
+      <span>
+        5
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-3"
+      title="row number"
+    >
+      <span>
+        4
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-2"
+      title="row number"
+    >
+      <span>
+        3
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-1"
+      title="row number"
+    >
+      <span>
+        2
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-0"
+      title="row number"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj"
+    />
+  </div>
+  <div>
+    <div
+      class="sc-hvigdm eoLXMj col-0"
+      title="column number"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-7 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-6 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-5 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv zsNMr"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-4 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-3 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-2 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-1 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv zsNMr"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-0 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj col-0 toggle-skew skew-S"
+      title="toggle skew"
+    >
+      <span>
+        S
+      </span>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sc-hvigdm eoLXMj col-1"
+      title="column number"
+    >
+      <span>
+        2
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-7 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-6 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv zsNMr"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-5 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-4 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-3 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-2 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv zsNMr"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-1 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-0 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv jYDZqP"
+      />
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj col-1 toggle-skew skew-S"
+      title="toggle skew"
+    >
+      <span>
+        S
+      </span>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sc-hvigdm eoLXMj col-2"
+      title="column number"
+    >
+      <span>
+        3
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-7 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-6 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv fNRczG"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-5 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-4 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-3 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-2 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv fNRczG"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-1 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-0 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj col-2 toggle-skew skew-Z"
+      title="toggle skew"
+    >
+      <span>
+        Z
+      </span>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sc-hvigdm eoLXMj col-3"
+      title="column number"
+    >
+      <span>
+        4
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-7 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-6 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-5 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv fNRczG"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-4 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-3 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-2 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-1 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv fNRczG"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-0 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv egFPkC"
+      />
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj col-3 toggle-skew skew-Z"
+      title="toggle skew"
+    >
+      <span>
+        Z
+      </span>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sc-hvigdm eoLXMj"
+    />
+    <div
+      class="sc-hvigdm eoLXMj row-7"
+      title="row number"
+    >
+      <span>
+        8
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-6"
+      title="row number"
+    >
+      <span>
+        7
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-5"
+      title="row number"
+    >
+      <span>
+        6
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-4"
+      title="row number"
+    >
+      <span>
+        5
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-3"
+      title="row number"
+    >
+      <span>
+        4
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-2"
+      title="row number"
+    >
+      <span>
+        3
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-1"
+      title="row number"
+    >
+      <span>
+        2
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj row-0"
+      title="row number"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj"
+    />
+  </div>
+</div>
+`;
+
+exports[`Editor Component > renders the Editor correctly 3`] = `
+<div
+  class="flex flex-col gap-4 p-4 bg-white rounded-md shadow-md"
+  title="file-panel"
+>
+  <h2
+    class="text-xl font-semibold"
+  >
+    File Storage
+  </h2>
+  <button
+    class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 w-full"
+  >
+    Load Template
+  </button>
+  <div
+    class="flex flex-col gap-2"
+  >
+    <button
+      class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 w-full"
+    >
+      Open Project
+    </button>
+    <input
+      accept=".json"
+      class="sc-bRKDuR inHswM hidden-file-upload-input"
+      type="file"
+    />
+  </div>
+  <div
+    class="flex flex-col gap-2"
+  >
+    <label
+      class="font-medium"
+    >
+      Project Name
+    </label>
+    <input
+      class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
+      placeholder="Insert project name"
+      type="text"
+      value="my_draft"
+    />
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full"
+    >
+      Save Project
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Editor Component > renders the Editor correctly 4`] = `
+<button
+  class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full justify-start gap-2"
+  title="control-panel"
+>
+  <svg
+    fill="none"
+    height="20"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+    viewBox="0 0 24 24"
+    width="20"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      cx="12"
+      cy="12"
+      r="3"
+    />
+    <path
+      d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+    />
+  </svg>
+  Control Panel
+</button>
+`;
