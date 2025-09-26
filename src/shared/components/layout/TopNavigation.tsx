@@ -14,7 +14,7 @@ const TopNavigation: React.FC<TopNavigationProps> = ({
   const location = useLocation();
 
   const navItems = [
-    { path: "/", label: "Editor", icon: Home },
+    { path: "/editor", label: "Editor", icon: Home },
     { path: "/gallery", label: "Gallery", icon: Image },
     { path: "/help", label: "Help", icon: HelpCircle },
   ];

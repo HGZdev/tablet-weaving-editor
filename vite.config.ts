@@ -5,6 +5,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/tablet-weaving-editor/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
