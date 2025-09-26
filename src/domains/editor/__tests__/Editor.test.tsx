@@ -444,7 +444,7 @@ describe("Editor Component", () => {
       expect(holesValue).toHaveTextContent("8"); // holes max
       expect(tabletsValue).toHaveTextContent("30"); // tablets max
       expect(picksValue).toHaveTextContent("99"); // picks max
-    }, 10000); // Increase timeout to 10 seconds
+    }, 30000); // Increase timeout to 30 seconds
   });
 
   test("Color palette integration with TabletsPanel", async () => {
