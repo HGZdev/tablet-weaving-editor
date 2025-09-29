@@ -1,0 +1,1048 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Editor Component > renders the Editor correctly 1`] = `
+<div
+  aria-describedby="tablets-description"
+  aria-label="Tablet weaving editor"
+  class="flex justify-center"
+  role="region"
+  title="tablets-panel"
+>
+  <div
+    class="sr-only"
+    id="tablets-description"
+  >
+    Interactive tablet weaving editor. Click on individual holes to change colors, use skew buttons to change tablet orientation.
+  </div>
+  <div
+    aria-label="Hole labels"
+    role="columnheader"
+  >
+    <div
+      class="sc-hvigdm eoLXMj"
+    />
+    <div
+      aria-label="Hole A"
+      class="sc-hvigdm eoLXMj row-A"
+      role="text"
+      title="hole name"
+    >
+      <span>
+        A
+      </span>
+    </div>
+    <div
+      aria-label="Hole B"
+      class="sc-hvigdm eoLXMj row-B"
+      role="text"
+      title="hole name"
+    >
+      <span>
+        B
+      </span>
+    </div>
+    <div
+      aria-label="Hole C"
+      class="sc-hvigdm eoLXMj row-C"
+      role="text"
+      title="hole name"
+    >
+      <span>
+        C
+      </span>
+    </div>
+    <div
+      aria-label="Hole D"
+      class="sc-hvigdm eoLXMj row-D"
+      role="text"
+      title="hole name"
+    >
+      <span>
+        D
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj"
+    />
+  </div>
+  <div
+    aria-label="Tablet 1"
+    role="group"
+  >
+    <div
+      aria-label="Column 1"
+      class="sc-hvigdm eoLXMj col-0"
+      role="text"
+      title="column number"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      aria-label="Change color for tablet 1, hole 4"
+      class="sc-hvigdm kHmewL col-0 row-3 change-color"
+      role="button"
+      tabindex="0"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      aria-label="Change color for tablet 1, hole 3"
+      class="sc-hvigdm kHmewL col-0 row-2 change-color"
+      role="button"
+      tabindex="0"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      aria-label="Change color for tablet 1, hole 2"
+      class="sc-hvigdm kHmewL col-0 row-1 change-color"
+      role="button"
+      tabindex="0"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv kcYTFH"
+      />
+    </div>
+    <div
+      aria-label="Change color for tablet 1, hole 1"
+      class="sc-hvigdm kHmewL col-0 row-0 change-color"
+      role="button"
+      tabindex="0"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      aria-label="Toggle skew for column 1, current: S"
+      class="sc-hvigdm eoLXMj col-0 toggle-skew skew-S"
+      role="button"
+      tabindex="0"
+      title="toggle skew"
+    >
+      <span>
+        S
+      </span>
+    </div>
+  </div>
+  <div
+    aria-label="Tablet 2"
+    role="group"
+  >
+    <div
+      aria-label="Column 2"
+      class="sc-hvigdm eoLXMj col-1"
+      role="text"
+      title="column number"
+    >
+      <span>
+        2
+      </span>
+    </div>
+    <div
+      aria-label="Change color for tablet 2, hole 4"
+      class="sc-hvigdm kHmewL col-1 row-3 change-color"
+      role="button"
+      tabindex="0"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      aria-label="Change color for tablet 2, hole 3"
+      class="sc-hvigdm kHmewL col-1 row-2 change-color"
+      role="button"
+      tabindex="0"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv kcYTFH"
+      />
+    </div>
+    <div
+      aria-label="Change color for tablet 2, hole 2"
+      class="sc-hvigdm kHmewL col-1 row-1 change-color"
+      role="button"
+      tabindex="0"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      aria-label="Change color for tablet 2, hole 1"
+      class="sc-hvigdm kHmewL col-1 row-0 change-color"
+      role="button"
+      tabindex="0"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      aria-label="Toggle skew for column 2, current: S"
+      class="sc-hvigdm eoLXMj col-1 toggle-skew skew-S"
+      role="button"
+      tabindex="0"
+      title="toggle skew"
+    >
+      <span>
+        S
+      </span>
+    </div>
+  </div>
+  <div
+    aria-label="Tablet 3"
+    role="group"
+  >
+    <div
+      aria-label="Column 3"
+      class="sc-hvigdm eoLXMj col-2"
+      role="text"
+      title="column number"
+    >
+      <span>
+        3
+      </span>
+    </div>
+    <div
+      aria-label="Change color for tablet 3, hole 4"
+      class="sc-hvigdm kHmewL col-2 row-3 change-color"
+      role="button"
+      tabindex="0"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      aria-label="Change color for tablet 3, hole 3"
+      class="sc-hvigdm kHmewL col-2 row-2 change-color"
+      role="button"
+      tabindex="0"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv dSUbwi"
+      />
+    </div>
+    <div
+      aria-label="Change color for tablet 3, hole 2"
+      class="sc-hvigdm kHmewL col-2 row-1 change-color"
+      role="button"
+      tabindex="0"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      aria-label="Change color for tablet 3, hole 1"
+      class="sc-hvigdm kHmewL col-2 row-0 change-color"
+      role="button"
+      tabindex="0"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      aria-label="Toggle skew for column 3, current: Z"
+      class="sc-hvigdm eoLXMj col-2 toggle-skew skew-Z"
+      role="button"
+      tabindex="0"
+      title="toggle skew"
+    >
+      <span>
+        Z
+      </span>
+    </div>
+  </div>
+  <div
+    aria-label="Tablet 4"
+    role="group"
+  >
+    <div
+      aria-label="Column 4"
+      class="sc-hvigdm eoLXMj col-3"
+      role="text"
+      title="column number"
+    >
+      <span>
+        4
+      </span>
+    </div>
+    <div
+      aria-label="Change color for tablet 4, hole 4"
+      class="sc-hvigdm kHmewL col-3 row-3 change-color"
+      role="button"
+      tabindex="0"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      aria-label="Change color for tablet 4, hole 3"
+      class="sc-hvigdm kHmewL col-3 row-2 change-color"
+      role="button"
+      tabindex="0"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      aria-label="Change color for tablet 4, hole 2"
+      class="sc-hvigdm kHmewL col-3 row-1 change-color"
+      role="button"
+      tabindex="0"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv dSUbwi"
+      />
+    </div>
+    <div
+      aria-label="Change color for tablet 4, hole 1"
+      class="sc-hvigdm kHmewL col-3 row-0 change-color"
+      role="button"
+      tabindex="0"
+      title="change color"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      aria-label="Toggle skew for column 4, current: Z"
+      class="sc-hvigdm eoLXMj col-3 toggle-skew skew-Z"
+      role="button"
+      tabindex="0"
+      title="toggle skew"
+    >
+      <span>
+        Z
+      </span>
+    </div>
+  </div>
+  <div
+    aria-label="Hole labels"
+    role="columnheader"
+  >
+    <div
+      class="sc-hvigdm eoLXMj"
+    />
+    <div
+      aria-label="Hole A"
+      class="sc-hvigdm eoLXMj row-A"
+      role="text"
+      title="hole name"
+    >
+      <span>
+        A
+      </span>
+    </div>
+    <div
+      aria-label="Hole B"
+      class="sc-hvigdm eoLXMj row-B"
+      role="text"
+      title="hole name"
+    >
+      <span>
+        B
+      </span>
+    </div>
+    <div
+      aria-label="Hole C"
+      class="sc-hvigdm eoLXMj row-C"
+      role="text"
+      title="hole name"
+    >
+      <span>
+        C
+      </span>
+    </div>
+    <div
+      aria-label="Hole D"
+      class="sc-hvigdm eoLXMj row-D"
+      role="text"
+      title="hole name"
+    >
+      <span>
+        D
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj"
+    />
+  </div>
+</div>
+`;
+
+exports[`Editor Component > renders the Editor correctly 2`] = `
+<div
+  aria-describedby="threads-description"
+  aria-label="Thread pattern display"
+  class="flex g-4 justify-center"
+  role="region"
+  title="threads-panel"
+>
+  <div
+    class="sr-only"
+    id="threads-description"
+  >
+    Visual representation of the woven thread pattern based on current tablet configuration.
+  </div>
+  <div
+    aria-label="Row numbers"
+    role="columnheader"
+  >
+    <div
+      class="sc-hvigdm eoLXMj"
+    />
+    <div
+      aria-label="Row 8"
+      class="sc-hvigdm eoLXMj row-7"
+      role="text"
+      title="row number"
+    >
+      <span>
+        8
+      </span>
+    </div>
+    <div
+      aria-label="Row 7"
+      class="sc-hvigdm eoLXMj row-6"
+      role="text"
+      title="row number"
+    >
+      <span>
+        7
+      </span>
+    </div>
+    <div
+      aria-label="Row 6"
+      class="sc-hvigdm eoLXMj row-5"
+      role="text"
+      title="row number"
+    >
+      <span>
+        6
+      </span>
+    </div>
+    <div
+      aria-label="Row 5"
+      class="sc-hvigdm eoLXMj row-4"
+      role="text"
+      title="row number"
+    >
+      <span>
+        5
+      </span>
+    </div>
+    <div
+      aria-label="Row 4"
+      class="sc-hvigdm eoLXMj row-3"
+      role="text"
+      title="row number"
+    >
+      <span>
+        4
+      </span>
+    </div>
+    <div
+      aria-label="Row 3"
+      class="sc-hvigdm eoLXMj row-2"
+      role="text"
+      title="row number"
+    >
+      <span>
+        3
+      </span>
+    </div>
+    <div
+      aria-label="Row 2"
+      class="sc-hvigdm eoLXMj row-1"
+      role="text"
+      title="row number"
+    >
+      <span>
+        2
+      </span>
+    </div>
+    <div
+      aria-label="Row 1"
+      class="sc-hvigdm eoLXMj row-0"
+      role="text"
+      title="row number"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj"
+    />
+  </div>
+  <div>
+    <div
+      aria-label="Column 1"
+      class="sc-hvigdm eoLXMj col-0"
+      role="text"
+      title="column number"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-7 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-6 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-5 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv kcYTFH"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-4 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-3 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-2 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-1 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv kcYTFH"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-0 row-0 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      aria-label="Toggle skew for column 1, current: S"
+      class="sc-hvigdm eoLXMj col-0 toggle-skew skew-S"
+      role="button"
+      tabindex="0"
+      title="toggle skew"
+    >
+      <span>
+        S
+      </span>
+    </div>
+  </div>
+  <div>
+    <div
+      aria-label="Column 2"
+      class="sc-hvigdm eoLXMj col-1"
+      role="text"
+      title="column number"
+    >
+      <span>
+        2
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-7 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-6 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv kcYTFH"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-5 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-4 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-3 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-2 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv kcYTFH"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-1 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-1 row-0 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv eqIIML"
+      />
+    </div>
+    <div
+      aria-label="Toggle skew for column 2, current: S"
+      class="sc-hvigdm eoLXMj col-1 toggle-skew skew-S"
+      role="button"
+      tabindex="0"
+      title="toggle skew"
+    >
+      <span>
+        S
+      </span>
+    </div>
+  </div>
+  <div>
+    <div
+      aria-label="Column 3"
+      class="sc-hvigdm eoLXMj col-2"
+      role="text"
+      title="column number"
+    >
+      <span>
+        3
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-7 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-6 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv dSUbwi"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-5 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-4 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-3 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-2 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv dSUbwi"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-1 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-2 row-0 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      aria-label="Toggle skew for column 3, current: Z"
+      class="sc-hvigdm eoLXMj col-2 toggle-skew skew-Z"
+      role="button"
+      tabindex="0"
+      title="toggle skew"
+    >
+      <span>
+        Z
+      </span>
+    </div>
+  </div>
+  <div>
+    <div
+      aria-label="Column 4"
+      class="sc-hvigdm eoLXMj col-3"
+      role="text"
+      title="column number"
+    >
+      <span>
+        4
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-7 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-6 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-5 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv dSUbwi"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-4 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-3 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-2 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-1 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv dSUbwi"
+      />
+    </div>
+    <div
+      class="sc-hvigdm kHmewL col-3 row-0 toggle-rotation-direction dir-forward"
+      title="toggle rotation direction"
+    >
+      <div
+        class="sc-fhHczv dscrsy"
+      />
+    </div>
+    <div
+      aria-label="Toggle skew for column 4, current: Z"
+      class="sc-hvigdm eoLXMj col-3 toggle-skew skew-Z"
+      role="button"
+      tabindex="0"
+      title="toggle skew"
+    >
+      <span>
+        Z
+      </span>
+    </div>
+  </div>
+  <div
+    aria-label="Row numbers"
+    role="columnheader"
+  >
+    <div
+      class="sc-hvigdm eoLXMj"
+    />
+    <div
+      aria-label="Row 8"
+      class="sc-hvigdm eoLXMj row-7"
+      role="text"
+      title="row number"
+    >
+      <span>
+        8
+      </span>
+    </div>
+    <div
+      aria-label="Row 7"
+      class="sc-hvigdm eoLXMj row-6"
+      role="text"
+      title="row number"
+    >
+      <span>
+        7
+      </span>
+    </div>
+    <div
+      aria-label="Row 6"
+      class="sc-hvigdm eoLXMj row-5"
+      role="text"
+      title="row number"
+    >
+      <span>
+        6
+      </span>
+    </div>
+    <div
+      aria-label="Row 5"
+      class="sc-hvigdm eoLXMj row-4"
+      role="text"
+      title="row number"
+    >
+      <span>
+        5
+      </span>
+    </div>
+    <div
+      aria-label="Row 4"
+      class="sc-hvigdm eoLXMj row-3"
+      role="text"
+      title="row number"
+    >
+      <span>
+        4
+      </span>
+    </div>
+    <div
+      aria-label="Row 3"
+      class="sc-hvigdm eoLXMj row-2"
+      role="text"
+      title="row number"
+    >
+      <span>
+        3
+      </span>
+    </div>
+    <div
+      aria-label="Row 2"
+      class="sc-hvigdm eoLXMj row-1"
+      role="text"
+      title="row number"
+    >
+      <span>
+        2
+      </span>
+    </div>
+    <div
+      aria-label="Row 1"
+      class="sc-hvigdm eoLXMj row-0"
+      role="text"
+      title="row number"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="sc-hvigdm eoLXMj"
+    />
+  </div>
+</div>
+`;
+
+exports[`Editor Component > renders the Editor correctly 3`] = `
+<div
+  aria-labelledby="file-storage-heading"
+  class="flex flex-col gap-4 p-4 bg-white rounded-md shadow-md"
+  role="region"
+  title="file-panel"
+>
+  <h2
+    class="text-xl font-semibold"
+    id="file-storage-heading"
+  >
+    File Storage
+  </h2>
+  <button
+    aria-label="Load template from gallery"
+    class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 w-full"
+  >
+    Load Template
+  </button>
+  <div
+    aria-label="Open project"
+    class="flex flex-col gap-2"
+    role="group"
+  >
+    <button
+      aria-label="Open existing project file"
+      class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 w-full"
+    >
+      Open Project
+    </button>
+    <input
+      accept=".json"
+      aria-label="Select project file to upload"
+      class="sc-bRKDuR inHswM hidden-file-upload-input"
+      type="file"
+    />
+  </div>
+  <div
+    aria-label="Save project"
+    class="flex flex-col gap-2"
+    role="group"
+  >
+    <label
+      class="font-medium"
+      for="project-name-input"
+    >
+      Project Name
+    </label>
+    <input
+      aria-describedby="save-project-button"
+      aria-label="Project name"
+      class="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
+      id="project-name-input"
+      placeholder="Insert project name"
+      type="text"
+      value="Plain Chevron Pattern"
+    />
+    <button
+      aria-label="Save current project"
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full"
+      id="save-project-button"
+    >
+      Save Project
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Editor Component > renders the Editor correctly 4`] = `
+<button
+  aria-controls="control-drawer"
+  aria-expanded="false"
+  aria-label="Open control panel"
+  class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full justify-start gap-2"
+  title="control-panel"
+>
+  <svg
+    aria-hidden="true"
+    fill="none"
+    height="20"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+    viewBox="0 0 24 24"
+    width="20"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      cx="12"
+      cy="12"
+      r="3"
+    />
+    <path
+      d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+    />
+  </svg>
+  Control Panel
+</button>
+`;
