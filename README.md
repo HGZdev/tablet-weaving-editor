@@ -12,13 +12,14 @@ Tablet weaving is a traditional craft where square cards (tablets) with holes ar
 
 - **Visual Pattern Editor**: Interactive grid-based editor for designing tablet weaving patterns
 - **Color Management**: Comprehensive color palette with custom color support
-- **Pattern Gallery**: Browse and download community-created patterns
+- **Pattern Gallery**: Browse and download community-created patterns with built-in sample patterns
 - **Responsive Design**: Works seamlessly on desktop and mobile devices
 - **Export/Import**: Save and load patterns in various formats
 - **Real-time Preview**: See your pattern as you design it
 - **Mobile-First Design**: Optimized for touch interactions on tablets and phones
 - **Multi-page Navigation**: Editor, Gallery, and Help sections
-- **Accessibility**: Full keyboard navigation and screen reader support
+- **Accessibility**: Full keyboard navigation, skip links, and screen reader support
+- **Built-in Patterns**: Pre-loaded sample patterns including braid, diamond weave, ocean spirals, and chevron designs
 
 ## Technology Stack
 
@@ -33,9 +34,10 @@ Tablet weaving is a traditional craft where square cards (tablets) with holes ar
 ### UI & Styling
 
 - **Component Library**: Custom components with Radix UI primitives
-- **Icons**: Lucide React + React Icons
+- **Icons**: React Icons
 - **Styling Utilities**: Tailwind Merge, Class Variance Authority
 - **CSS-in-JS**: Styled Components (legacy components)
+- **Accessibility**: Skip links and keyboard navigation hooks
 
 ### Forms & Validation
 
@@ -46,6 +48,7 @@ Tablet weaving is a traditional craft where square cards (tablets) with holes ar
 
 - **Testing Framework**: Vitest with React Testing Library
 - **Test Utilities**: MSW (Mock Service Worker), Jest DOM matchers
+- **Test Structure**: Organized test files in dedicated `tests/` directory
 - **Linting**: ESLint with TypeScript and React rules
 - **Type Safety**: Strict TypeScript configuration
 
@@ -186,18 +189,28 @@ npm run deploy
 
 ```
 src/
+├── assets/                  # Static assets and sample patterns
+│   └── drafts/             # Built-in pattern templates
 ├── domains/                 # Domain-based architecture
 │   ├── editor/             # Pattern editor domain
 │   │   ├── components/     # Editor-specific components
 │   │   ├── context/        # Draft context provider
-│   │   ├── pages/          # Editor pages
-│   │   └── __tests__/      # Editor tests
+│   │   └── pages/          # Editor pages
 │   ├── gallery/            # Pattern gallery domain
+│   │   ├── components/     # Gallery components
+│   │   ├── data/          # Gallery data and storage
+│   │   ├── pages/         # Gallery pages
+│   │   └── services/      # Gallery services
 │   └── help/               # Help documentation domain
 ├── shared/                  # Shared components and utilities
 │   ├── components/         # Reusable UI components
-│   ├── hooks/              # Custom React hooks
-│   └── types/              # TypeScript type definitions
+│   │   ├── layout/        # Layout components
+│   │   └── ui/            # UI primitives and components
+│   └── hooks/              # Custom React hooks
+├── tests/                   # Test files and utilities
+│   ├── components/         # Component tests
+│   ├── fixtures/          # Test data and fixtures
+│   └── helpers.ts         # Test utilities
 ├── styles/                  # Global styles
 ├── App.tsx                 # Main app component
 └── main.tsx                # App entry point
@@ -212,12 +225,24 @@ src/
 3. **Design Pattern**: Click on holes in the grid to assign colors
 4. **Save Pattern**: Use the save button to store your pattern
 
+### Built-in Patterns
+
+The application includes several pre-designed patterns to get you started:
+
+- **Braid Pattern**: Classic diagonal braid design
+- **Diamond Weave**: Intricate diamond-shaped pattern
+- **Ocean Spirals**: Flowing spiral design inspired by ocean waves
+- **Plain Chevron**: Simple chevron pattern perfect for beginners
+
+These patterns can be accessed through the Gallery section and serve as both inspiration and starting points for your own designs.
+
 ### Pattern Design Tips
 
 - Start with simple geometric patterns
 - Use high contrast colors for bold effects
 - Consider threading direction when designing
 - Test patterns with small samples first
+- Study the built-in patterns to understand design principles
 
 ## Development
 
@@ -240,7 +265,8 @@ The project uses Vitest and React Testing Library for testing:
 - **Unit Tests**: Component logic and utilities
 - **Integration Tests**: Component interactions
 - **Test Coverage**: Aim for high coverage on critical paths
-- **Test Files**: Located in `__tests__` directories
+- **Test Files**: Located in `tests/` directory with organized structure
+- **Test Fixtures**: Reusable test data and mock objects
 
 ### Code Quality
 
@@ -275,10 +301,12 @@ For questions or support, please:
 
 ## Status
 
-- ✅ **Tests**: All 63 tests passing
+- ✅ **Tests**: Comprehensive test suite with organized structure
 - ✅ **Deployment**: Automatic deployment to GitHub Pages
 - ✅ **Build**: Production build working
 - ✅ **Responsive**: Mobile and desktop optimized
+- ✅ **Accessibility**: Keyboard navigation and screen reader support
+- ✅ **Patterns**: Built-in sample patterns available
 
 ## Acknowledgments
 
