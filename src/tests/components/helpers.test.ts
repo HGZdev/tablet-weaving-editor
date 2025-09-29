@@ -11,17 +11,17 @@ import type {
 } from "../../domains/editor/components/types";
 import { dc1, matrix1, tablets } from "../fixtures/testMatrices";
 
-describe("Editor helpers", () => {
+describe("Editor Helper Functions", () => {
   describe("genDirsMatrix", () => {
-    test("generates the correct matrix", () => {
+    test("generates the correct direction matrix from direction changes", () => {
       expect(genDirsMatrix(dc1)).toEqual(matrix1);
     });
 
-    test("with empty input", () => {
+    test("handles empty input array correctly", () => {
       expect(genDirsMatrix([])).toEqual([]);
     });
 
-    test("with single element arrays", () => {
+    test("handles single element arrays correctly", () => {
       const dirsChanges: MakeDirChange[][] = [[1], [0]];
       const expectedMatrix: DirChangeTurn[][] = [[0], [1]];
       expect(genDirsMatrix(dirsChanges)).toEqual(expectedMatrix);
@@ -29,7 +29,7 @@ describe("Editor helpers", () => {
   });
 
   describe("genSqrt", () => {
-    test("generates the correct square root values", () => {
+    test("generates correct square root values for various positions", () => {
       const tests: [
         {
           tablets: Tablet[];
@@ -82,7 +82,7 @@ describe("Editor helpers", () => {
       }
     });
 
-    test("on first row", () => {
+    test("handles first row correctly", () => {
       const result = genSqrt({
         tablets,
         row: 0,
@@ -92,7 +92,7 @@ describe("Editor helpers", () => {
       expect(result).toEqual({ bg: "lightblue", dir: 1, isTurnPoint: false });
     });
 
-    test("on last row", () => {
+    test("handles last row correctly", () => {
       const result = genSqrt({
         tablets,
         row: 9,
@@ -104,7 +104,7 @@ describe("Editor helpers", () => {
   });
 
   describe("genThread", () => {
-    test("generates correct thread", () => {
+    test("generates correct thread with proper colors and directions", () => {
       const thread = genThread({ col: 0, picks: 4, dirsChanges: dc1, tablets });
       // genThread now uses the actual length of dirsChanges[col] instead of picks parameter
       expect(thread.map(({ bg }) => bg)).toEqual([
@@ -124,7 +124,7 @@ describe("Editor helpers", () => {
       ]);
     });
 
-    test("correctly integrates genThread & genDraft", () => {
+    test("correctly integrates genThread with genDraft for complex patterns", () => {
       const thread = genThread({
         col: 2,
         picks: 10,
