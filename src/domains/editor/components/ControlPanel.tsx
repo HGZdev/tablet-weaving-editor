@@ -21,14 +21,18 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
 }) => {
   return (
     <Drawer open={isOpen} onOpenChange={onOpenChange}>
-      <DrawerContent className="max-h-[80vh]">
+      <DrawerContent className="max-h-[80vh]" id="control-drawer">
         <DrawerHeader>
           <DrawerTitle>Control Panel</DrawerTitle>
           <DrawerDescription>
             Configure your tablet weaving parameters
           </DrawerDescription>
         </DrawerHeader>
-        <div className="flex flex-col gap-4 p-4 overflow-y-auto">
+        <div
+          className="flex flex-col gap-4 p-4 overflow-y-auto"
+          role="region"
+          aria-label="Control panel settings"
+        >
           <InputsPanel />
           <ColorsPanel />
           <FilePanel />

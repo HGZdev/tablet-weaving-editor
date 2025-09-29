@@ -30,6 +30,7 @@ export type Draft<
   PicksNumber extends number = number
 > = {
   fileName: string;
+  description?: string; // Optional description of the pattern
   tablets: FixedLengthArray<Tablet<HolesNumber>, TabletsNumber>; // Number of elements in `tablets`, each tablet has a length equal to `holes`
   holes: HolesNumber; // Number of holes in paper card. Number of holes determines the length of inner arrays in `tablets`
   picks: PicksNumber; // number of iterations made on a loom

@@ -1,6 +1,6 @@
 import React, { createContext, useState, ReactNode, useCallback } from "react";
 import { cloneDeep, isEqual } from "lodash";
-import initDraft from "./__fixtures__/draft0";
+import initDraft from "../../../../tests/fixtures/initialDraft";
 import type {
   Draft,
   ThreadColor,

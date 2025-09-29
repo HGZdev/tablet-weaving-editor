@@ -1,5 +1,5 @@
 import React from "react";
-import { X } from "lucide-react";
+import { HiX } from "react-icons/hi";
 import InputsPanel from "../../../domains/editor/components/InputsPanel";
 import ColorsPanel from "../../../domains/editor/components/ColorsPanel";
 
@@ -41,7 +41,7 @@ const ControlDrawer: React.FC<ControlDrawerProps> = ({ isOpen, onClose }) => {
               className="btn btn-ghost btn-sm lg:hidden"
               aria-label="Close panel"
             >
-              <X size={16} />
+              <HiX size={16} />
             </button>
           </div>
 

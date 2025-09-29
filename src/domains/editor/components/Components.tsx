@@ -48,13 +48,18 @@ export const RowsLabels: React.FC<{
       key={row}
       className={`row-${numeric ? row : holeNames[row]}`}
       title={numeric ? "row number" : "hole name"}
+      role="text"
+      aria-label={numeric ? `Row ${row + 1}` : `Hole ${holeNames[row]}`}
     >
       <span>{numeric ? row + 1 : holeNames[row]}</span>
     </Sqrt>
   ));
 
   return (
-    <div>
+    <div
+      role="columnheader"
+      aria-label={numeric ? "Row numbers" : "Hole labels"}
+    >
       <Sqrt />
       {reverse ? rowsArr.reverse() : rowsArr}
       <Sqrt />
@@ -65,7 +70,13 @@ export const RowsLabels: React.FC<{
 export const ColLabel: React.FC<{
   col: number;
 }> = ({ col }) => (
-  <Sqrt key={col} className={`col-${col}`} title="column number">
+  <Sqrt
+    key={col}
+    className={`col-${col}`}
+    title="column number"
+    role="text"
+    aria-label={`Column ${col + 1}`}
+  >
     <span>{col + 1}</span>
   </Sqrt>
 );
@@ -83,6 +94,15 @@ export const ColSkewButton: React.FC<{
       title="toggle skew"
       key={col}
       onClick={() => onSkewToggle(col)}
+      role="button"
+      tabIndex={0}
+      aria-label={`Toggle skew for column ${col + 1}, current: ${skewLabel}`}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onSkewToggle(col);
+        }
+      }}
     >
       <span>{skewLabel}</span>
     </Sqrt>

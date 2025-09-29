@@ -21,8 +21,11 @@ const Sidebar: React.FC<{
           onClick={() => setIsControlPanelOpen(true)}
           className="w-full justify-start gap-2"
           title="control-panel"
+          aria-label="Open control panel"
+          aria-expanded={isControlPanelOpen}
+          aria-controls="control-drawer"
         >
-          <FiSettings size={20} />
+          <FiSettings size={20} aria-hidden="true" />
           Control Panel
         </NavButton>
       </DrawerTrigger>
