@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useDraft } from "../context/DraftContext/useDraft";
 
 export const NumberInput: React.FC<{
@@ -8,7 +8,8 @@ export const NumberInput: React.FC<{
   min?: number;
   max?: number;
   onChange: (value: number) => void;
-}> = ({ label, title, value: valueOrg, min, max, onChange }) => {
+  testId?: string;
+}> = ({ label, title, value: valueOrg, min, max, onChange, testId }) => {
   const handleIncrement = () => {
     if (max === undefined || valueOrg < max) {
       onChange(valueOrg + 1);
@@ -30,6 +31,7 @@ export const NumberInput: React.FC<{
       className="flex gap-2"
       role="group"
       aria-labelledby={`${inputId}-label`}
+      data-testid={testId}
     >
       <label
         id={`${inputId}-label`}
@@ -102,6 +104,7 @@ const InputsPanel: React.FC = () => {
           min={3}
           max={8}
           onChange={(v) => updateHoles(v)}
+          testId="holes-input"
         />
         <NumberInput
           title="picks"
@@ -110,6 +113,7 @@ const InputsPanel: React.FC = () => {
           min={1}
           max={99}
           onChange={(v) => updatePicks(v)}
+          testId="picks-input"
         />
         <NumberInput
           title="tablets"
@@ -118,6 +122,7 @@ const InputsPanel: React.FC = () => {
           min={2}
           max={30}
           onChange={(v) => updateTablets(v)}
+          testId="tablets-input"
         />
       </div>
     );

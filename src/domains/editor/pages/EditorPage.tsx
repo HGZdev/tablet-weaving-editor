@@ -14,10 +14,10 @@ const EditorContent: React.FC = () => {
   const handleResetPattern = () => {
     // Reset to original black and white pattern
     const originalTablets = [
-      ["black", "white", "black", "black"], // A
-      ["black", "black", "white", "black"], // B
-      ["black", "black", "white", "black"], // C
-      ["black", "white", "black", "black"], // D
+      ["#000000", "#FFFFFF", "#000000", "#000000"], // A
+      ["#000000", "#000000", "#FFFFFF", "#000000"], // B
+      ["#000000", "#000000", "#FFFFFF", "#000000"], // C
+      ["#000000", "#FFFFFF", "#000000", "#000000"], // D
     ];
     const originalSkews: Skew[] = [1, 1, -1, -1];
     const originalDirsChanges: MakeDirChange[][] = [

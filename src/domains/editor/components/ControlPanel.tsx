@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import ColorsPanel from "./ColorsPanel";
 import FilePanel from "./FilePanel";
 import InputsPanel from "./InputsPanel";
@@ -13,14 +13,16 @@ import {
 interface ControlPanelProps {
   isOpen?: boolean;
   onOpenChange?: (open: boolean) => void;
+  testId?: string;
 }
 
 const ControlPanel: React.FC<ControlPanelProps> = ({
   isOpen,
   onOpenChange,
+  testId,
 }) => {
   return (
-    <Drawer open={isOpen} onOpenChange={onOpenChange}>
+    <Drawer open={isOpen} onOpenChange={onOpenChange} testId={testId}>
       <DrawerContent className="max-h-[80vh]" id="control-drawer">
         <DrawerHeader>
           <DrawerTitle>Control Panel</DrawerTitle>

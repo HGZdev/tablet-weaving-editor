@@ -4,6 +4,7 @@ interface DrawerProps {
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
   children: React.ReactNode;
+  testId?: string;
 }
 
 interface DrawerContentProps {
@@ -33,6 +34,7 @@ export const Drawer: React.FC<DrawerProps> = ({
   open,
   onOpenChange,
   children,
+  testId,
 }) => {
   return (
     <div
@@ -40,6 +42,7 @@ export const Drawer: React.FC<DrawerProps> = ({
       role="dialog"
       aria-modal="true"
       aria-hidden={!open}
+      data-testid={testId}
     >
       {open && (
         <div
