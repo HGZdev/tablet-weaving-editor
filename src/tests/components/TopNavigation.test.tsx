@@ -1,25 +1,10 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import React from "react";
+import { describe, test, expect, vi, beforeEach } from "vitest";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MemoryRouter } from "react-router-dom";
 import TopNavigation from "../../shared/components/layout/TopNavigation";
-
-const renderWithRouter = (
-  component: React.ReactElement,
-  initialRoute = "/editor"
-) => {
-  return render(
-    <MemoryRouter
-      initialEntries={[initialRoute]}
-      future={{
-        v7_startTransition: true,
-        v7_relativeSplatPath: true,
-      }}
-    >
-      {component}
-    </MemoryRouter>
-  );
-};
+import { renderWithRouter } from "../helpers";
 
 describe("TopNavigation", () => {
   const mockOnToggleDrawer = vi.fn();
@@ -29,7 +14,7 @@ describe("TopNavigation", () => {
   });
 
   describe("Navigation Links", () => {
-    it("renders navigation links correctly", () => {
+    test("renders all navigation links correctly", () => {
       renderWithRouter(
         <TopNavigation
           onToggleDrawer={mockOnToggleDrawer}
@@ -44,7 +29,7 @@ describe("TopNavigation", () => {
       expect(screen.getAllByRole("link", { name: /help/i })).toHaveLength(2); // Desktop and mobile
     });
 
-    it("highlights active navigation link", () => {
+    test("highlights active navigation link correctly", () => {
       renderWithRouter(
         <TopNavigation
           onToggleDrawer={mockOnToggleDrawer}
@@ -59,7 +44,7 @@ describe("TopNavigation", () => {
       expect(editorLinks[0]).toHaveClass("bg-primary-100", "text-primary-700");
     });
 
-    it("does not highlight inactive navigation links", () => {
+    test("does not highlight inactive navigation links", () => {
       renderWithRouter(
         <TopNavigation
           onToggleDrawer={mockOnToggleDrawer}
@@ -82,27 +67,7 @@ describe("TopNavigation", () => {
       expect(editorLinks[0]).toHaveClass("text-neutral-600");
     });
 
-    it("does not highlight inactive navigation links", () => {
-      renderWithRouter(
-        <TopNavigation
-          onToggleDrawer={mockOnToggleDrawer}
-          isDrawerOpen={false}
-          showDrawerToggle={true}
-        />,
-        "/gallery"
-      );
-
-      // Check if Gallery link is active
-      const galleryLink = screen.getByText("Gallery").closest("a");
-      expect(galleryLink).toHaveClass("bg-primary-100", "text-primary-700");
-
-      // Check if Editor link is not active
-      const editorLink = screen.getByText("Editor").closest("a");
-      expect(editorLink).not.toHaveClass("bg-primary-100", "text-primary-700");
-      expect(editorLink).toHaveClass("text-neutral-600");
-    });
-
-    it("renders logo and title", () => {
+    test("renders logo and title correctly", () => {
       renderWithRouter(
         <TopNavigation
           onToggleDrawer={mockOnToggleDrawer}
@@ -120,7 +85,7 @@ describe("TopNavigation", () => {
   });
 
   describe("Drawer Toggle Button", () => {
-    it("renders drawer toggle button correctly when closed", () => {
+    test("renders drawer toggle button correctly when closed", () => {
       renderWithRouter(
         <TopNavigation
           onToggleDrawer={mockOnToggleDrawer}
@@ -136,7 +101,7 @@ describe("TopNavigation", () => {
       expect(toggleButton).toHaveAttribute("title", "Open panel");
     });
 
-    it("renders drawer toggle button correctly when open", () => {
+    test("renders drawer toggle button correctly when open", () => {
       renderWithRouter(
         <TopNavigation
           onToggleDrawer={mockOnToggleDrawer}
@@ -152,7 +117,7 @@ describe("TopNavigation", () => {
       expect(toggleButton).toHaveAttribute("title", "Close panel");
     });
 
-    it("calls onToggleDrawer when clicked", async () => {
+    test("calls onToggleDrawer when clicked", async () => {
       const user = userEvent.setup();
 
       renderWithRouter(
@@ -173,7 +138,7 @@ describe("TopNavigation", () => {
   });
 
   describe("Mobile Navigation", () => {
-    it("renders mobile navigation icons", () => {
+    test("renders mobile navigation icons correctly", () => {
       renderWithRouter(
         <TopNavigation
           onToggleDrawer={mockOnToggleDrawer}
@@ -195,7 +160,7 @@ describe("TopNavigation", () => {
   });
 
   describe("Accessibility", () => {
-    it("has proper ARIA labels and roles", () => {
+    test("has proper ARIA labels and roles", () => {
       renderWithRouter(
         <TopNavigation
           onToggleDrawer={mockOnToggleDrawer}
@@ -216,7 +181,7 @@ describe("TopNavigation", () => {
       expect(toggleButton).toHaveAttribute("aria-label");
     });
 
-    it("has proper titles for tooltips", () => {
+    test("has proper titles for tooltips", () => {
       renderWithRouter(
         <TopNavigation
           onToggleDrawer={mockOnToggleDrawer}
@@ -231,7 +196,7 @@ describe("TopNavigation", () => {
       expect(toggleButton).toHaveAttribute("title", "Open panel");
     });
 
-    it("supports keyboard navigation", async () => {
+    test("supports keyboard navigation", async () => {
       const user = userEvent.setup();
 
       renderWithRouter(

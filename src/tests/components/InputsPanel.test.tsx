@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import React from "react";
+import { screen } from "@testing-library/react";
 import { describe, test, expect, vi, beforeEach } from "vitest";
 import userEvent from "@testing-library/user-event";
 import InputsPanel from "../../domains/editor/components/InputsPanel";
@@ -6,7 +7,7 @@ import {
   DraftContext,
   DraftContextType,
 } from "../../domains/editor/context/DraftContext/DraftContextProvider";
-import { MemoryRouter } from "react-router-dom";
+import { renderWithRouter } from "../helpers";
 
 // Mock draft data with mutable state
 let mockDraft = {
@@ -75,108 +76,108 @@ describe("InputsPanel Component", () => {
     vi.clearAllMocks();
   });
 
-  test("renders InputsPanel correctly", async () => {
-    render(
-      <MemoryRouter>
+  describe("Component Rendering", () => {
+    test("renders inputs panel correctly", async () => {
+      renderWithRouter(
         <DraftContext.Provider value={mockDraftCtx}>
           <InputsPanel />
         </DraftContext.Provider>
-      </MemoryRouter>
-    );
+      );
 
-    // Verify if the inputs panel is rendered
-    const inputsPanel = screen.getByTitle("inputs-panel");
-    expect(inputsPanel).toBeTruthy();
+      // Verify if the inputs panel is rendered
+      const inputsPanel = screen.getByTitle("inputs-panel");
+      expect(inputsPanel).toBeTruthy();
+    });
   });
 
-  test("handles holes increment/decrement interaction", async () => {
-    const user = userEvent.setup();
+  describe("Input Interactions", () => {
+    test("handles holes increment/decrement interaction correctly", async () => {
+      const user = userEvent.setup();
 
-    render(
-      <MemoryRouter>
+      renderWithRouter(
         <DraftContext.Provider value={mockDraftCtx}>
           <InputsPanel />
         </DraftContext.Provider>
-      </MemoryRouter>
-    );
+      );
 
-    const holesInput = screen.getByRole("spinbutton", { name: "holes value" });
+      const holesInput = screen.getByRole("spinbutton", {
+        name: "holes value",
+      });
 
-    // Verify initial value
-    expect(holesInput.textContent).toEqual("4");
+      // Verify initial value
+      expect(holesInput.textContent).toEqual("4");
 
-    // Simulate clicking the increment button
-    const incrementBtn = screen.getByLabelText("Increase holes");
-    expect(incrementBtn).toBeTruthy();
+      // Simulate clicking the increment button
+      const incrementBtn = screen.getByLabelText("Increase holes");
+      expect(incrementBtn).toBeTruthy();
 
-    await user.click(incrementBtn);
-    expect(mockDraftCtx.updateHoles).toHaveBeenCalledWith(5);
+      await user.click(incrementBtn);
+      expect(mockDraftCtx.updateHoles).toHaveBeenCalledWith(5);
 
-    // Simulate clicking the decrement button
-    const decrementBtn = screen.getByLabelText("Decrease holes");
-    await user.click(decrementBtn);
-    expect(mockDraftCtx.updateHoles).toHaveBeenCalledWith(3);
-  });
-
-  test("handles picks increment/decrement interaction", async () => {
-    const user = userEvent.setup();
-
-    render(
-      <MemoryRouter>
-        <DraftContext.Provider value={mockDraftCtx}>
-          <InputsPanel />
-        </DraftContext.Provider>
-      </MemoryRouter>
-    );
-
-    const picksInput = screen.getByRole("spinbutton", { name: "picks value" });
-
-    // Verify initial value
-    expect(picksInput.textContent).toEqual("5");
-
-    // Simulate clicking the increment button
-    const incrementBtn = screen.getByLabelText("Increase picks");
-    expect(incrementBtn).toBeTruthy();
-
-    await user.click(incrementBtn);
-    expect(mockDraftCtx.updatePicks).toHaveBeenCalledWith(6);
-
-    // Simulate clicking the decrement button
-    const decrementBtn = screen.getByLabelText("Decrease picks");
-    expect(decrementBtn).toBeTruthy();
-
-    await user.click(decrementBtn);
-    expect(mockDraftCtx.updatePicks).toHaveBeenCalledWith(4);
-  });
-
-  test("handles tablets increment/decrement interaction", async () => {
-    const user = userEvent.setup();
-
-    render(
-      <MemoryRouter>
-        <DraftContext.Provider value={mockDraftCtx}>
-          <InputsPanel />
-        </DraftContext.Provider>
-      </MemoryRouter>
-    );
-
-    const tabletsInput = screen.getByRole("spinbutton", {
-      name: "tablets value",
+      // Simulate clicking the decrement button
+      const decrementBtn = screen.getByLabelText("Decrease holes");
+      await user.click(decrementBtn);
+      expect(mockDraftCtx.updateHoles).toHaveBeenCalledWith(3);
     });
 
-    // Verify initial value
-    expect(tabletsInput.textContent).toEqual("2");
+    test("handles picks increment/decrement interaction correctly", async () => {
+      const user = userEvent.setup();
 
-    // Simulate clicking the increment button
-    const incrementBtn = screen.getByLabelText("Increase tablets");
-    expect(incrementBtn).toBeTruthy();
+      renderWithRouter(
+        <DraftContext.Provider value={mockDraftCtx}>
+          <InputsPanel />
+        </DraftContext.Provider>
+      );
 
-    await user.click(incrementBtn);
-    expect(mockDraftCtx.updateTablets).toHaveBeenCalledWith(3);
+      const picksInput = screen.getByRole("spinbutton", {
+        name: "picks value",
+      });
 
-    // Test that decrement button is disabled at minimum value
-    const decrementBtn = screen.getByLabelText("Decrease tablets");
-    expect(decrementBtn).toBeTruthy();
-    expect(decrementBtn).toBeDisabled();
+      // Verify initial value
+      expect(picksInput.textContent).toEqual("5");
+
+      // Simulate clicking the increment button
+      const incrementBtn = screen.getByLabelText("Increase picks");
+      expect(incrementBtn).toBeTruthy();
+
+      await user.click(incrementBtn);
+      expect(mockDraftCtx.updatePicks).toHaveBeenCalledWith(6);
+
+      // Simulate clicking the decrement button
+      const decrementBtn = screen.getByLabelText("Decrease picks");
+      expect(decrementBtn).toBeTruthy();
+
+      await user.click(decrementBtn);
+      expect(mockDraftCtx.updatePicks).toHaveBeenCalledWith(4);
+    });
+
+    test("handles tablets increment/decrement interaction correctly", async () => {
+      const user = userEvent.setup();
+
+      renderWithRouter(
+        <DraftContext.Provider value={mockDraftCtx}>
+          <InputsPanel />
+        </DraftContext.Provider>
+      );
+
+      const tabletsInput = screen.getByRole("spinbutton", {
+        name: "tablets value",
+      });
+
+      // Verify initial value
+      expect(tabletsInput.textContent).toEqual("2");
+
+      // Simulate clicking the increment button
+      const incrementBtn = screen.getByLabelText("Increase tablets");
+      expect(incrementBtn).toBeTruthy();
+
+      await user.click(incrementBtn);
+      expect(mockDraftCtx.updateTablets).toHaveBeenCalledWith(3);
+
+      // Test that decrement button is disabled at minimum value
+      const decrementBtn = screen.getByLabelText("Decrease tablets");
+      expect(decrementBtn).toBeTruthy();
+      expect(decrementBtn).toBeDisabled();
+    });
   });
 });

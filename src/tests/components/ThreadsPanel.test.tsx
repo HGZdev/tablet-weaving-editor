@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import React from "react";
 import { describe, test, expect, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
 import ThreadsPanel from "../../domains/editor/components/ThreadsPanel";
@@ -6,7 +6,8 @@ import {
   DraftContextType,
   DraftContext,
 } from "../../domains/editor/context/DraftContext/DraftContextProvider";
-import { MemoryRouter } from "react-router-dom";
+import "@testing-library/jest-dom";
+import { renderWithRouter } from "../helpers";
 
 // Mock data for the draft
 const mockDraftCtx: DraftContextType = {
@@ -56,73 +57,71 @@ const mockDraftCtx: DraftContextType = {
 };
 
 describe("ThreadsPanel Component", () => {
-  test("renders ThreadsPanel correctly", async () => {
-    const { findByTitle } = render(
-      <MemoryRouter>
+  describe("Component Rendering", () => {
+    test("renders threads panel correctly", async () => {
+      const { findByTitle } = renderWithRouter(
         <DraftContext.Provider value={mockDraftCtx}>
           <ThreadsPanel />
         </DraftContext.Provider>
-      </MemoryRouter>
-    );
+      );
 
-    // Verify if the thread panel is rendered
-    const threadPanel = await findByTitle("threads-panel");
-    expect(threadPanel).toBeTruthy();
+      // Verify if the thread panel is rendered
+      const threadPanel = await findByTitle("threads-panel");
+      expect(threadPanel).toBeTruthy();
+    });
   });
 
-  test("handles direction change interaction", async () => {
-    const user = userEvent.setup();
+  describe("User Interactions", () => {
+    test("handles direction change interaction correctly", async () => {
+      const user = userEvent.setup();
 
-    const { container } = render(
-      <MemoryRouter>
+      const { container } = renderWithRouter(
         <DraftContext.Provider value={mockDraftCtx}>
           <ThreadsPanel />
         </DraftContext.Provider>
-      </MemoryRouter>
-    );
+      );
 
-    // Simulate clicking the first row of the first thread
-    const cell00 = container.querySelector(
-      ".col-0.row-0.toggle-rotation-direction"
-    ) as Element;
-    expect(cell00).toBeTruthy();
-    expect(cell00.getAttribute("class")).toContain("dir-forward");
+      // Simulate clicking the first row of the first thread
+      const cell00 = container.querySelector(
+        ".col-0.row-0.toggle-rotation-direction"
+      ) as Element;
+      expect(cell00).toBeTruthy();
+      expect(cell00.getAttribute("class")).toContain("dir-forward");
 
-    await user.click(cell00);
+      await user.click(cell00);
 
-    expect(mockDraftCtx.onDirChange).toHaveBeenCalledWith(0, 0, false);
+      expect(mockDraftCtx.onDirChange).toHaveBeenCalledWith(0, 0, false);
 
-    // Simulate clicking the first row of the second thread
-    const cell11 = container.querySelector(
-      ".col-1.row-1.toggle-rotation-direction"
-    ) as Element;
-    expect(cell11.getAttribute("class")).toContain("dir-back");
-    expect(cell11).toBeTruthy();
+      // Simulate clicking the first row of the second thread
+      const cell11 = container.querySelector(
+        ".col-1.row-1.toggle-rotation-direction"
+      ) as Element;
+      expect(cell11.getAttribute("class")).toContain("dir-back");
+      expect(cell11).toBeTruthy();
 
-    await user.click(cell11);
+      await user.click(cell11);
 
-    expect(mockDraftCtx.onDirChange).toHaveBeenCalledWith(1, 1, false);
-  });
+      expect(mockDraftCtx.onDirChange).toHaveBeenCalledWith(1, 1, false);
+    });
 
-  test("handles skew toggle interaction", async () => {
-    const user = userEvent.setup();
+    test("handles skew toggle interaction correctly", async () => {
+      const user = userEvent.setup();
 
-    const { container } = render(
-      <MemoryRouter>
+      const { container } = renderWithRouter(
         <DraftContext.Provider value={mockDraftCtx}>
           <ThreadsPanel />
         </DraftContext.Provider>
-      </MemoryRouter>
-    );
+      );
 
-    // Simulate clicking the skew toggle for the second column
-    const skewToggleBtn = container.querySelector(
-      ".col-1.toggle-skew"
-    ) as Element;
-    expect(skewToggleBtn).toBeTruthy();
+      // Simulate clicking the skew toggle for the second column
+      const skewToggleBtn = container.querySelector(
+        ".col-1.toggle-skew"
+      ) as Element;
+      expect(skewToggleBtn).toBeTruthy();
 
-    await user.click(skewToggleBtn);
+      await user.click(skewToggleBtn);
 
-    expect(mockDraftCtx.onSkewToggle).toHaveBeenCalledWith(1);
+      expect(mockDraftCtx.onSkewToggle).toHaveBeenCalledWith(1);
+    });
   });
 });

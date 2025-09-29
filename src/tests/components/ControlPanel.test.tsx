@@ -1,37 +1,36 @@
-import { render, screen } from "@testing-library/react";
+import React from "react";
+import { screen } from "@testing-library/react";
 import { describe, test, expect } from "vitest";
 import ControlPanel from "../../domains/editor/components/ControlPanel";
 import { findByText, findByTitle } from "../helpers";
 import { DraftProvider } from "../../domains/editor/context/DraftContext/DraftContextProvider";
-import { MemoryRouter } from "react-router-dom";
+import { renderWithRouter } from "../helpers";
 import userEvent from "@testing-library/user-event";
 
 describe("ControlPanel Component", () => {
-  test("renders ControlPanel correctly", async () => {
-    render(
-      <MemoryRouter>
+  describe("Component Rendering", () => {
+    test("renders all control panel sections correctly", async () => {
+      renderWithRouter(
         <DraftProvider>
           <ControlPanel />
         </DraftProvider>
-      </MemoryRouter>
-    );
+      );
 
-    expect(await findByText("Frame"));
-    expect(await findByTitle("file-panel"));
-    expect(await findByTitle("inputs-panel"));
-    expect(await findByTitle("colors-panel"));
+      expect(await findByText("Frame"));
+      expect(await findByTitle("file-panel"));
+      expect(await findByTitle("inputs-panel"));
+      expect(await findByTitle("colors-panel"));
+    });
   });
 
   describe("Input Controls", () => {
-    test("Holes input has correct range (3-8)", async () => {
+    test("holes input has correct range (3-8) and boundary behavior", async () => {
       const user = userEvent.setup();
 
-      render(
-        <MemoryRouter>
-          <DraftProvider>
-            <ControlPanel />
-          </DraftProvider>
-        </MemoryRouter>
+      renderWithRouter(
+        <DraftProvider>
+          <ControlPanel />
+        </DraftProvider>
       );
 
       const holesIncrement = await screen.findByTitle("Increase holes");
@@ -54,15 +53,13 @@ describe("ControlPanel Component", () => {
       expect(holesIncrement).toBeDisabled();
     });
 
-    test("Tablets input has correct range (2-30)", async () => {
+    test("tablets input has correct range (2-30) and boundary behavior", async () => {
       const user = userEvent.setup();
 
-      render(
-        <MemoryRouter>
-          <DraftProvider>
-            <ControlPanel />
-          </DraftProvider>
-        </MemoryRouter>
+      renderWithRouter(
+        <DraftProvider>
+          <ControlPanel />
+        </DraftProvider>
       );
 
       const tabletsIncrement = await screen.findByTitle("Increase tablets");
@@ -86,15 +83,13 @@ describe("ControlPanel Component", () => {
       expect(tabletsIncrement).toBeDisabled();
     });
 
-    test("Picks input has correct range (1-99)", async () => {
+    test("picks input has correct range (1-99) and boundary behavior", async () => {
       const user = userEvent.setup();
 
-      render(
-        <MemoryRouter>
-          <DraftProvider>
-            <ControlPanel />
-          </DraftProvider>
-        </MemoryRouter>
+      renderWithRouter(
+        <DraftProvider>
+          <ControlPanel />
+        </DraftProvider>
       );
 
       const picksIncrement = await screen.findByTitle("Increase picks");
@@ -119,15 +114,13 @@ describe("ControlPanel Component", () => {
       expect(picksIncrement).toBeDisabled();
     });
 
-    test("Input controls don't block on rapid clicks", async () => {
+    test("input controls handle rapid clicks without blocking", async () => {
       const user = userEvent.setup();
 
-      render(
-        <MemoryRouter>
-          <DraftProvider>
-            <ControlPanel />
-          </DraftProvider>
-        </MemoryRouter>
+      renderWithRouter(
+        <DraftProvider>
+          <ControlPanel />
+        </DraftProvider>
       );
 
       const holesIncrement = await screen.findByTitle("Increase holes");
@@ -147,15 +140,13 @@ describe("ControlPanel Component", () => {
       await expect(rapidClicks()).resolves.not.toThrow();
     });
 
-    test("Input controls maintain state consistency", async () => {
+    test("input controls maintain state consistency across changes", async () => {
       const user = userEvent.setup();
 
-      render(
-        <MemoryRouter>
-          <DraftProvider>
-            <ControlPanel />
-          </DraftProvider>
-        </MemoryRouter>
+      renderWithRouter(
+        <DraftProvider>
+          <ControlPanel />
+        </DraftProvider>
       );
 
       const holesIncrement = await screen.findByTitle("Increase holes");
@@ -189,13 +180,11 @@ describe("ControlPanel Component", () => {
   });
 
   describe("Panel Structure", () => {
-    test("contains all required panels", async () => {
-      render(
-        <MemoryRouter>
-          <DraftProvider>
-            <ControlPanel />
-          </DraftProvider>
-        </MemoryRouter>
+    test("contains all required panels and sections", async () => {
+      renderWithRouter(
+        <DraftProvider>
+          <ControlPanel />
+        </DraftProvider>
       );
 
       // Check for main sections
@@ -209,35 +198,36 @@ describe("ControlPanel Component", () => {
       expect(await findByTitle("file-panel"));
     });
 
-    test("drawer opens and closes correctly", async () => {
+    test("drawer opens and closes with correct visibility states", async () => {
       // Test closed state
-      const { rerender } = render(
-        <MemoryRouter>
-          <DraftProvider>
-            <ControlPanel isOpen={false} />
-          </DraftProvider>
-        </MemoryRouter>
+      renderWithRouter(
+        <DraftProvider>
+          <ControlPanel isOpen={false} testId="control-drawer-closed" />
+        </DraftProvider>
       );
 
       // Check that the drawer container is hidden
-      const drawerContainer = document.querySelector(".fixed.inset-0.z-50");
-      expect(drawerContainer).toHaveClass("hidden");
+      const closedDrawer = screen.getByTestId("control-drawer-closed");
+      expect(closedDrawer).toHaveClass("hidden");
 
-      // Open the drawer
-      rerender(
-        <MemoryRouter>
-          <DraftProvider>
-            <ControlPanel isOpen={true} />
-          </DraftProvider>
-        </MemoryRouter>
+      // Test open state with a separate render
+      renderWithRouter(
+        <DraftProvider>
+          <ControlPanel isOpen={true} testId="control-drawer-open" />
+        </DraftProvider>
       );
 
       // Check that the drawer container is visible
-      expect(drawerContainer).toHaveClass("block");
-      expect(drawerContainer).not.toHaveClass("hidden");
+      const openDrawer = screen.getByTestId("control-drawer-open");
+      expect(openDrawer).toHaveClass("block");
+      expect(openDrawer).not.toHaveClass("hidden");
 
-      // Now we should see the content
-      expect(await screen.findByText("Frame"));
+      // Now we should see the content in the open drawer
+      const openDrawerContent = openDrawer.querySelector(
+        '[title="inputs-panel"]'
+      );
+      expect(openDrawerContent).toBeTruthy();
+      expect(openDrawerContent).toHaveTextContent("Frame");
     });
   });
 
@@ -246,11 +236,7 @@ describe("ControlPanel Component", () => {
       // This test would need to be implemented if we want to test error boundaries
       // For now, we'll just ensure the component doesn't crash
       expect(() => {
-        render(
-          <MemoryRouter>
-            <ControlPanel />
-          </MemoryRouter>
-        );
+        renderWithRouter(<ControlPanel />);
       }).toThrow(); // Should throw because DraftProvider is missing
     });
   });
