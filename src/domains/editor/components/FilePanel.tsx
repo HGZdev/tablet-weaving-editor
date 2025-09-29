@@ -79,19 +79,32 @@ const FilePanel: React.FC = () => {
     <div
       title="file-panel"
       className="flex flex-col gap-4 p-4 bg-white rounded-md shadow-md"
+      role="region"
+      aria-labelledby="file-storage-heading"
     >
-      <h2 className="text-xl font-semibold">File Storage</h2>
+      <h2 id="file-storage-heading" className="text-xl font-semibold">
+        File Storage
+      </h2>
 
       <ButtonSecondary
         className="w-full"
         onClick={() => navigate(`${BASE_URL}/templates`)}
+        aria-label="Load template from gallery"
       >
         Load Template
       </ButtonSecondary>
 
       {/* Open Project Section */}
-      <div className="flex flex-col gap-2">
-        <ButtonSecondary className="w-full" onClick={handleUploadClick}>
+      <div
+        className="flex flex-col gap-2"
+        role="group"
+        aria-label="Open project"
+      >
+        <ButtonSecondary
+          className="w-full"
+          onClick={handleUploadClick}
+          aria-label="Open existing project file"
+        >
           Open Project
         </ButtonSecondary>
         <HiddenUploadInput
@@ -100,19 +113,34 @@ const FilePanel: React.FC = () => {
           accept=".json"
           ref={inputFile}
           onChange={handleUpload}
+          aria-label="Select project file to upload"
         />
       </div>
 
-      <div className="flex flex-col gap-2">
-        <label className="font-medium">Project Name</label>
+      <div
+        className="flex flex-col gap-2"
+        role="group"
+        aria-label="Save project"
+      >
+        <label htmlFor="project-name-input" className="font-medium">
+          Project Name
+        </label>
         <Input
+          id="project-name-input"
           className="w-full"
           type="text"
           placeholder="Insert project name"
           value={fileName}
           onChange={handleNameChange}
+          aria-label="Project name"
+          aria-describedby="save-project-button"
         />
-        <ButtonPrimary className="w-full" onClick={handleDownload}>
+        <ButtonPrimary
+          id="save-project-button"
+          className="w-full"
+          onClick={handleDownload}
+          aria-label="Save current project"
+        >
           Save Project
         </ButtonPrimary>
       </div>

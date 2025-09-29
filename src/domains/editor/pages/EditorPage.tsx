@@ -3,7 +3,7 @@ import ThreadsPanel from "../components/ThreadsPanel";
 import TabletsPanel from "../components/TabletsPanel";
 import { useDraft } from "../context/DraftContext/useDraft";
 import { galleryStorage } from "../../gallery/services/galleryStorage";
-import { RotateCcw, Download, Upload, BookmarkPlus } from "lucide-react";
+import { HiRefresh, HiDownload, HiUpload, HiBookmark } from "react-icons/hi";
 import type { Skew, MakeDirChange } from "../components/types";
 
 const EditorContent: React.FC = () => {
@@ -141,7 +141,7 @@ const EditorContent: React.FC = () => {
                 className="btn btn-outline btn-sm cursor-pointer flex items-center gap-2"
                 title="Reset Pattern"
               >
-                <RotateCcw size={16} />
+                <HiRefresh size={16} />
                 <span className="hidden sm:inline">Reset</span>
               </button>
 
@@ -158,7 +158,7 @@ const EditorContent: React.FC = () => {
                   className="btn btn-outline btn-sm cursor-pointer flex items-center gap-2"
                   title="Import Project"
                 >
-                  <Upload size={16} />
+                  <HiUpload size={16} />
                   <span className="hidden sm:inline">Import</span>
                 </label>
               </div>
@@ -168,7 +168,7 @@ const EditorContent: React.FC = () => {
                 className="btn btn-outline btn-sm cursor-pointer flex items-center gap-2"
                 title="Export Project"
               >
-                <Download size={16} />
+                <HiDownload size={16} />
                 <span className="hidden sm:inline">Export</span>
               </button>
 
@@ -177,7 +177,7 @@ const EditorContent: React.FC = () => {
                 className="btn btn-primary btn-sm cursor-pointer flex items-center gap-2"
                 title="Save to Gallery"
               >
-                <BookmarkPlus size={16} />
+                <HiBookmark size={16} />
                 <span className="hidden sm:inline">Save to Gallery</span>
               </button>
             </div>

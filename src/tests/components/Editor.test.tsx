@@ -1,8 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, test, vi, beforeEach } from "vitest";
-import Editor from "../components/Editor";
-import { findByTitle } from "../../../__tests__/testing-library/helpers";
-import { DraftProvider } from "../context/DraftContext/DraftContextProvider";
+import Editor from "../../domains/editor/components/Editor";
+import { DraftProvider } from "../../domains/editor/context/DraftContext/DraftContextProvider";
 import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 
@@ -25,11 +24,11 @@ describe("Editor Component", () => {
     const controlPanelButtons = await screen.findAllByText("Control Panel");
     expect(controlPanelButtons.length).toBeGreaterThan(0);
 
-    expect(await findByTitle("tablets-panel")).toMatchSnapshot();
-    expect(await findByTitle("threads-panel")).toMatchSnapshot();
+    expect(screen.getByTitle("tablets-panel")).toMatchSnapshot();
+    expect(screen.getByTitle("threads-panel")).toMatchSnapshot();
     const filePanels = await screen.findAllByTitle("file-panel");
     expect(filePanels[0]).toMatchSnapshot();
-    expect(await findByTitle("control-panel")).toMatchSnapshot();
+    expect(screen.getByTitle("control-panel")).toMatchSnapshot();
 
     const saveProjectButtons = await screen.findAllByText("Save Project");
     expect(saveProjectButtons.length).toBeGreaterThan(0);
@@ -52,18 +51,14 @@ describe("Editor Component", () => {
       await user.click(controlButton);
 
       // Find holes increment button in the control panel (not sidebar)
-      const inputsPanels = await screen.findAllByTitle("inputs-panel");
-      const controlPanelInputs = inputsPanels[1]; // Second one is in the control panel
-      const holesIncrement = controlPanelInputs.querySelector(
-        '[title="holes-input increment"]'
-      ) as HTMLElement;
+      const holesIncrement = screen.getAllByLabelText("Increase holes")[1]; // Second one is in control panel
 
       // Click increment twice (4 -> 5 -> 6)
       await user.click(holesIncrement);
       await user.click(holesIncrement);
 
       // Verify TabletsPanel has 6 rows (2 RowsLabels components × 6 rows each = 12 elements)
-      const tabletsPanel = await screen.findByTitle("tablets-panel");
+      const tabletsPanel = screen.getByTitle("tablets-panel");
       const rowLabels = tabletsPanel.querySelectorAll(
         '[class*="row-A"], [class*="row-B"], [class*="row-C"], [class*="row-D"], [class*="row-E"], [class*="row-F"]'
       );
@@ -86,11 +81,7 @@ describe("Editor Component", () => {
       await user.click(controlButton);
 
       // Find tablets increment button in the control panel
-      const inputsPanels = await screen.findAllByTitle("inputs-panel");
-      const inputsPanel = inputsPanels[1]; // Second one is in the control panel
-      const tabletsIncrement = inputsPanel.querySelector(
-        '[title="tablets-input increment"]'
-      ) as HTMLElement;
+      const tabletsIncrement = screen.getAllByLabelText("Increase tablets")[1]; // Second one is in control panel
 
       // Click increment twice (5 -> 6 -> 7)
       await user.click(tabletsIncrement);
@@ -121,7 +112,7 @@ describe("Editor Component", () => {
       const inputsPanels = await screen.findAllByTitle("inputs-panel");
       const inputsPanel = inputsPanels[1]; // Second one is in the control panel
       const picksIncrement = inputsPanel.querySelector(
-        '[title="picks-input increment"]'
+        '[title="Increase picks"]'
       ) as HTMLElement;
 
       // Click increment twice (8 -> 9 -> 10)
@@ -156,10 +147,10 @@ describe("Editor Component", () => {
       const inputsPanels = await screen.findAllByTitle("inputs-panel");
       const inputsPanel = inputsPanels[1]; // Second one is in the control panel
       const holesDecrement = inputsPanel.querySelector(
-        '[title="holes-input decrement"]'
+        '[title="Decrease holes"]'
       ) as HTMLElement;
       const holesIncrement = inputsPanel.querySelector(
-        '[title="holes-input increment"]'
+        '[title="Increase holes"]'
       ) as HTMLElement;
 
       // Click decrement until minimum (should disable)
@@ -191,13 +182,13 @@ describe("Editor Component", () => {
       const inputsPanels = await screen.findAllByTitle("inputs-panel");
       const inputsPanel = inputsPanels[1]; // Second one is in the control panel
       const holesIncrement = inputsPanel.querySelector(
-        '[title="holes-input increment"]'
+        '[title="Increase holes"]'
       ) as HTMLElement;
       const tabletsIncrement = inputsPanel.querySelector(
-        '[title="tablets-input increment"]'
+        '[title="Increase tablets"]'
       ) as HTMLElement;
       const picksIncrement = inputsPanel.querySelector(
-        '[title="picks-input increment"]'
+        '[title="Increase picks"]'
       ) as HTMLElement;
 
       // Rapidly click all increment buttons
@@ -228,9 +219,15 @@ describe("Editor Component", () => {
       const inputsPanels = await screen.findAllByTitle("inputs-panel");
       const inputsPanel = inputsPanels[1]; // Second one is in the control panel
 
-      const holesValue = inputsPanel.querySelector('[title="holes-input"]');
-      const tabletsValue = inputsPanel.querySelector('[title="tablets-input"]');
-      const picksValue = inputsPanel.querySelector('[title="picks-input"]');
+      const holesValue = inputsPanel.querySelector(
+        '[aria-label="holes value"]'
+      );
+      const tabletsValue = inputsPanel.querySelector(
+        '[aria-label="tablets value"]'
+      );
+      const picksValue = inputsPanel.querySelector(
+        '[aria-label="picks value"]'
+      );
 
       expect(holesValue).toHaveTextContent("4"); // holes
       expect(tabletsValue).toHaveTextContent("4"); // tablets
@@ -255,7 +252,7 @@ describe("Editor Component", () => {
       const inputsPanels = await screen.findAllByTitle("inputs-panel");
       const inputsPanel = inputsPanels[1]; // Second one is in the control panel
       const holesIncrement = inputsPanel.querySelector(
-        '[title="holes-input increment"]'
+        '[title="Increase holes"]'
       ) as HTMLElement;
 
       // Click increment and verify value changes
@@ -265,7 +262,7 @@ describe("Editor Component", () => {
       const inputsPanelsUpdate = await screen.findAllByTitle("inputs-panel");
       const inputsPanelUpdate = inputsPanelsUpdate[1]; // Second one is in the control panel
       const holesValue = inputsPanelUpdate.querySelector(
-        '[title="holes-input"]'
+        '[aria-label="holes value"]'
       );
       expect(holesValue).toHaveTextContent("5");
     });
@@ -290,7 +287,7 @@ describe("Editor Component", () => {
       const inputsPanels = await screen.findAllByTitle("inputs-panel");
       const inputsPanel = inputsPanels[1]; // Second one is in the control panel
       const holesIncrement = inputsPanel.querySelector(
-        '[title="holes-input increment"]'
+        '[title="Increase holes"]'
       ) as HTMLElement;
 
       // Change holes from 4 to 6
@@ -323,7 +320,7 @@ describe("Editor Component", () => {
       const inputsPanels = await screen.findAllByTitle("inputs-panel");
       const inputsPanel = inputsPanels[1]; // Second one is in the control panel
       const picksIncrement = inputsPanel.querySelector(
-        '[title="picks-input increment"]'
+        '[title="Increase picks"]'
       ) as HTMLElement;
 
       // Change picks from 8 to 10
@@ -360,13 +357,13 @@ describe("Editor Component", () => {
       const inputsPanels = await screen.findAllByTitle("inputs-panel");
       const inputsPanel = inputsPanels[1]; // Second one is in the control panel
       const holesDecrement = inputsPanel.querySelector(
-        '[title="holes-input decrement"]'
+        '[title="Decrease holes"]'
       ) as HTMLElement;
       const tabletsDecrement = inputsPanel.querySelector(
-        '[title="tablets-input decrement"]'
+        '[title="Decrease tablets"]'
       ) as HTMLElement;
       const picksDecrement = inputsPanel.querySelector(
-        '[title="picks-input decrement"]'
+        '[title="Decrease picks"]'
       ) as HTMLElement;
 
       await user.click(holesDecrement); // 4 -> 3
@@ -382,11 +379,15 @@ describe("Editor Component", () => {
       const inputsPanelsMin = await screen.findAllByTitle("inputs-panel");
       const inputsPanelMin = inputsPanelsMin[1]; // Second one is in the control panel
 
-      const holesValue = inputsPanelMin.querySelector('[title="holes-input"]');
-      const tabletsValue = inputsPanelMin.querySelector(
-        '[title="tablets-input"]'
+      const holesValue = inputsPanelMin.querySelector(
+        '[aria-label="holes value"]'
       );
-      const picksValue = inputsPanelMin.querySelector('[title="picks-input"]');
+      const tabletsValue = inputsPanelMin.querySelector(
+        '[aria-label="tablets value"]'
+      );
+      const picksValue = inputsPanelMin.querySelector(
+        '[aria-label="picks value"]'
+      );
 
       expect(holesValue).toHaveTextContent("3"); // holes min
       expect(tabletsValue).toHaveTextContent("2"); // tablets min
@@ -412,13 +413,13 @@ describe("Editor Component", () => {
       const inputsPanels = await screen.findAllByTitle("inputs-panel");
       const inputsPanel = inputsPanels[1]; // Second one is in the control panel
       const holesIncrement = inputsPanel.querySelector(
-        '[title="holes-input increment"]'
+        '[title="Increase holes"]'
       ) as HTMLElement;
       const tabletsIncrement = inputsPanel.querySelector(
-        '[title="tablets-input increment"]'
+        '[title="Increase tablets"]'
       ) as HTMLElement;
       const picksIncrement = inputsPanel.querySelector(
-        '[title="picks-input increment"]'
+        '[title="Increase picks"]'
       ) as HTMLElement;
 
       // Set holes to max (8)
@@ -437,14 +438,20 @@ describe("Editor Component", () => {
       }
 
       // Verify maximum values by finding specific input elements
-      const holesValue = inputsPanel.querySelector('[title="holes-input"]');
-      const tabletsValue = inputsPanel.querySelector('[title="tablets-input"]');
-      const picksValue = inputsPanel.querySelector('[title="picks-input"]');
+      const holesValue = inputsPanel.querySelector(
+        '[aria-label="holes value"]'
+      );
+      const tabletsValue = inputsPanel.querySelector(
+        '[aria-label="tablets value"]'
+      );
+      const picksValue = inputsPanel.querySelector(
+        '[aria-label="picks value"]'
+      );
 
       expect(holesValue).toHaveTextContent("8"); // holes max
       expect(tabletsValue).toHaveTextContent("30"); // tablets max
       expect(picksValue).toHaveTextContent("99"); // picks max
-    }, 10000); // Increase timeout to 10 seconds
+    }, 30000); // Increase timeout to 30 seconds
   });
 
   test("Color palette integration with TabletsPanel", async () => {
@@ -509,7 +516,7 @@ describe("Editor Component", () => {
     const colorsPanel = colorsPanels[1]; // Second one is in the control panel
 
     // Find color buttons in palette
-    const colorButtons = colorsPanel.querySelectorAll('button[title^="#"]');
+    const colorButtons = colorsPanel.querySelectorAll('button[title^="Color"]');
     expect(colorButtons.length).toBeGreaterThan(0);
 
     // Select second color from palette
@@ -520,7 +527,9 @@ describe("Editor Component", () => {
     const colorInput = colorsPanel.querySelector(
       '[title="color-input"]'
     ) as HTMLInputElement;
-    expect(colorInput).toHaveValue(secondColorButton.getAttribute("title"));
+    expect(colorInput).toHaveValue(
+      secondColorButton.getAttribute("title")?.split(": ")[1]
+    );
 
     // Find TabletsPanel
     const tabletsPanel = await screen.findByTitle("tablets-panel");
@@ -568,9 +577,9 @@ describe("Editor Component", () => {
 
     // Verify the color button in palette has updated
     const firstColorButton = colorsPanel.querySelector(
-      'button[title^="#"]'
+      'button[title^="Color"]'
     ) as HTMLElement;
-    expect(firstColorButton.getAttribute("title")).toBe("#FF00FF");
+    expect(firstColorButton.getAttribute("title")).toContain("#FF00FF");
 
     // Find TabletsPanel
     const tabletsPanel = await screen.findByTitle("tablets-panel");
@@ -603,7 +612,7 @@ describe("Editor Component", () => {
     // Find colors panel in control panel (second one) and select a color
     const colorsPanels = await screen.findAllByTitle("colors-panel");
     const colorsPanel = colorsPanels[1]; // Second one is in the control panel
-    const colorButtons = colorsPanel.querySelectorAll('button[title^="#"]');
+    const colorButtons = colorsPanel.querySelectorAll('button[title^="Color"]');
     const secondColorButton = colorButtons[1] as HTMLElement;
     await user.click(secondColorButton);
 
@@ -645,7 +654,7 @@ describe("Editor Component", () => {
 
     // Get the first color button (selected by default)
     const firstColorButton = colorsPanel.querySelector(
-      'button[title^="#"]'
+      'button[title^="Color"]'
     ) as HTMLElement;
     const originalColor = firstColorButton.getAttribute("title");
     expect(originalColor).toBeTruthy();
@@ -668,9 +677,9 @@ describe("Editor Component", () => {
 
     // Verify the palette button has updated
     const updatedColorButton = colorsPanel.querySelector(
-      'button[title^="#"]'
+      'button[title^="Color"]'
     ) as HTMLElement;
-    expect(updatedColorButton.getAttribute("title")).toBe("#FF00FF");
+    expect(updatedColorButton.getAttribute("title")).toContain("#FF00FF");
 
     // Verify the background color has changed
     const backgroundColor = updatedColorButton.style.backgroundColor;

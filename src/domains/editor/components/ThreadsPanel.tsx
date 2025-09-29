@@ -70,7 +70,17 @@ const ThreadsPanel: React.FC = () => {
   const { picks, tablets } = draft;
 
   return (
-    <div title="threads-panel" className="flex g-4 justify-center">
+    <div
+      title="threads-panel"
+      className="flex g-4 justify-center"
+      role="region"
+      aria-label="Thread pattern display"
+      aria-describedby="threads-description"
+    >
+      <div id="threads-description" className="sr-only">
+        Visual representation of the woven thread pattern based on current
+        tablet configuration.
+      </div>
       <RowsLabels rows={picks} numeric reverse />
       {tablets?.map((_x, col) => (
         <Thread key={col} col={col} reverse />

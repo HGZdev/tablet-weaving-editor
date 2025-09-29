@@ -1,12 +1,12 @@
 import { render } from "@testing-library/react";
 import { describe, test, expect, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
-import TabletsPanel from "../components/TabletsPanel";
+import TabletsPanel from "../../domains/editor/components/TabletsPanel";
 import {
   DraftContext,
   DraftContextType,
-} from "../context/DraftContext/DraftContextProvider";
-import { findByTitle } from "../../../__tests__/testing-library/helpers";
+} from "../../domains/editor/context/DraftContext/DraftContextProvider";
+import { findByTitle } from "../helpers";
 import { MemoryRouter } from "react-router-dom";
 
 // Mock data for the draft

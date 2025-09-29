@@ -1,27 +1,15 @@
 import { describe, expect, test } from "vitest";
-import { genDirsMatrix, genSqrt, genThread } from "./helpers";
-import type { MakeDirChange, DirChangeTurn, Tablet } from "./types";
-
-const dc1: MakeDirChange[][] = [
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0],
-  [0, 0, 0, 1, 0, 0, 1, 0, 0, 0],
-  [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-];
-
-const matrix1: DirChangeTurn[][] = [
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 0, -1, -1, -1, -1, -1, -1, 0, 1],
-  [1, 1, 1, 0, -1, -1, 0, 1, 1, 1],
-  [1, 0, -1, -1, -1, 0, 1, 1, 1, 1],
-];
-
-const tablets: Tablet[] = [
-  ["lightblue", "violet", "orange", "yellow"], // A
-  ["lightblue", "violet", "orange", "yellow"], // B
-  ["lightblue", "violet", "orange", "yellow"], // C
-  ["lightblue", "violet", "orange", "yellow"], // D
-];
+import {
+  genDirsMatrix,
+  genSqrt,
+  genThread,
+} from "../../domains/editor/components/helpers";
+import type {
+  MakeDirChange,
+  DirChangeTurn,
+  Tablet,
+} from "../../domains/editor/components/types";
+import { dc1, matrix1, tablets } from "../fixtures/testMatrices";
 
 describe("Editor helpers", () => {
   describe("genDirsMatrix", () => {

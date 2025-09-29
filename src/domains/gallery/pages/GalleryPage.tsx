@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Download, Play, Heart, Trash2, Edit3 } from "lucide-react";
-import { galleryDrafts } from "../data/galleryDrafts";
+import { HiDownload, HiPlay, HiHeart, HiTrash, HiPencil } from "react-icons/hi";
+import { patternMetadata } from "../../../assets/drafts";
 import { useDraft } from "../../editor/context/DraftContext/useDraft";
 import PatternThumbnail from "../components/PatternThumbnail";
 import { galleryStorage, CustomDraft } from "../services/galleryStorage";
@@ -21,27 +21,19 @@ const GalleryPage: React.FC = () => {
     setCustomDrafts(galleryStorage.getCustomDrafts());
   }, []);
 
-  // Convert gallery drafts to pattern format
-  const galleryPatterns = galleryDrafts.map((draft, index) => {
-    const descriptions = [
-      "Traditional Celtic-inspired design with intricate knotwork patterns. Perfect for decorative borders and historical recreations.",
-      "Flowing wave pattern in blue and white tones. Creates beautiful ocean-like movement perfect for scarves and shawls.",
-      "Elegant golden spiral pattern with warm earth tones. Ideal for jewelry, belts, and luxury accessories.",
-    ];
-
-    return {
-      id: `gallery-${index + 1}`,
-      name: draft.fileName,
-      description:
-        descriptions[index] ||
-        `Tablet weaving pattern with ${draft.tablets.length} tablets and ${draft.picks} picks`,
-      draft: draft,
-      downloads: Math.floor(Math.random() * 100) + 10,
-      likes: Math.floor(Math.random() * 50) + 5,
-      author: "Gallery",
-      isCustom: false,
-    };
-  });
+  // Convert gallery drafts to pattern format using metadata from JSON files
+  const galleryPatterns = patternMetadata.map((metadata) => ({
+    id: metadata.id,
+    name: metadata.name,
+    description: metadata.description,
+    draft: metadata.draft,
+    downloads: Math.floor(Math.random() * 100) + 10,
+    likes: Math.floor(Math.random() * 50) + 5,
+    author: "Gallery",
+    isCustom: false,
+    category: metadata.category,
+    difficulty: metadata.difficulty,
+  }));
 
   // Convert custom drafts to pattern format
   const customPatterns = customDrafts.map((draft) => ({
@@ -248,7 +240,7 @@ const GalleryPage: React.FC = () => {
                               className="btn btn-ghost btn-xs text-blue-600 hover:text-blue-700"
                               title="Edit name"
                             >
-                              <Edit3 size={12} />
+                              <HiPencil size={12} />
                             </button>
                             <button
                               onClick={() =>
@@ -257,7 +249,7 @@ const GalleryPage: React.FC = () => {
                               className="btn btn-ghost btn-xs text-red-600 hover:text-red-700"
                               title="Delete pattern"
                             >
-                              <Trash2 size={12} />
+                              <HiTrash size={12} />
                             </button>
                           </>
                         )}
@@ -273,11 +265,11 @@ const GalleryPage: React.FC = () => {
                     <span>by {pattern.author}</span>
                     <div className="flex items-center space-x-3">
                       <span className="flex items-center">
-                        <Download size={12} className="mr-1" />
+                        <HiDownload size={12} className="mr-1" />
                         {pattern.downloads}
                       </span>
                       <span className="flex items-center">
-                        <Heart size={12} className="mr-1" />
+                        <HiHeart size={12} className="mr-1" />
                         {pattern.likes}
                       </span>
                     </div>
@@ -289,14 +281,14 @@ const GalleryPage: React.FC = () => {
                       onClick={() => handleUsePattern(pattern)}
                       className="btn btn-primary btn-sm flex-1 flex items-center gap-2"
                     >
-                      <Play size={14} />
+                      <HiPlay size={14} />
                       Use
                     </button>
                     <button
                       onClick={() => handleDownloadPattern(pattern)}
                       className="btn btn-outline btn-sm flex-1 flex items-center gap-2"
                     >
-                      <Download size={14} />
+                      <HiDownload size={14} />
                       Download
                     </button>
                   </div>

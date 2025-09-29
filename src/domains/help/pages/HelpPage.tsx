@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import {
-  ChevronDown,
-  ChevronRight,
-  BookOpen,
-  Video,
-  MessageCircle,
-  Mail,
-} from "lucide-react";
+  HiChevronDown,
+  HiChevronRight,
+  HiBookOpen,
+  HiVideoCamera,
+  HiChatAlt2,
+  HiMail,
+} from "react-icons/hi";
 
 const HelpPage: React.FC = () => {
   const [expandedSections, setExpandedSections] = useState<Set<string>>(
@@ -142,7 +142,7 @@ const HelpPage: React.FC = () => {
           </div>
           <div className="flex items-center space-x-2">
             <button className="btn btn-outline btn-sm">
-              <MessageCircle size={16} className="mr-2" />
+              <HiChatAlt2 size={16} className="mr-2" />
               Contact Support
             </button>
           </div>
@@ -155,7 +155,7 @@ const HelpPage: React.FC = () => {
           {/* Quick Start */}
           <div className="card p-6 mb-6">
             <h3 className="text-lg font-semibold text-neutral-800 mb-4 flex items-center">
-              <BookOpen size={20} className="mr-2" />
+              <HiBookOpen size={20} className="mr-2" />
               Quick Start Guide
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
@@ -196,9 +196,9 @@ const HelpPage: React.FC = () => {
                     {item.title}
                   </h3>
                   {expandedSections.has(item.id) ? (
-                    <ChevronDown size={20} className="text-neutral-500" />
+                    <HiChevronDown size={20} className="text-neutral-500" />
                   ) : (
-                    <ChevronRight size={20} className="text-neutral-500" />
+                    <HiChevronRight size={20} className="text-neutral-500" />
                   )}
                 </button>
                 {expandedSections.has(item.id) && (
@@ -211,7 +211,10 @@ const HelpPage: React.FC = () => {
           {/* Resources */}
           <div className="mt-8 grid md:grid-cols-3 gap-4">
             <div className="card p-4 text-center">
-              <Video size={32} className="text-primary-500 mx-auto mb-2" />
+              <HiVideoCamera
+                size={32}
+                className="text-primary-500 mx-auto mb-2"
+              />
               <h4 className="font-medium text-neutral-800 mb-1">
                 Video Tutorials
               </h4>
@@ -221,7 +224,7 @@ const HelpPage: React.FC = () => {
               <button className="btn btn-outline btn-sm">Watch Videos</button>
             </div>
             <div className="card p-4 text-center">
-              <BookOpen size={32} className="text-primary-500 mx-auto mb-2" />
+              <HiBookOpen size={32} className="text-primary-500 mx-auto mb-2" />
               <h4 className="font-medium text-neutral-800 mb-1">
                 Pattern Library
               </h4>
@@ -233,10 +236,7 @@ const HelpPage: React.FC = () => {
               </button>
             </div>
             <div className="card p-4 text-center">
-              <MessageCircle
-                size={32}
-                className="text-primary-500 mx-auto mb-2"
-              />
+              <HiChatAlt2 size={32} className="text-primary-500 mx-auto mb-2" />
               <h4 className="font-medium text-neutral-800 mb-1">
                 Community Forum
               </h4>
@@ -262,7 +262,7 @@ const HelpPage: React.FC = () => {
                   to help.
                 </p>
                 <button className="btn btn-primary btn-sm">
-                  <Mail size={16} className="mr-2" />
+                  <HiMail size={16} className="mr-2" />
                   Contact Support
                 </button>
               </div>

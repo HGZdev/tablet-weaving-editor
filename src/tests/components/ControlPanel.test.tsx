@@ -1,11 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { describe, test, expect } from "vitest";
-import ControlPanel from "../components/ControlPanel";
-import {
-  findByText,
-  findByTitle,
-} from "../../../__tests__/testing-library/helpers";
-import { DraftProvider } from "../context/DraftContext/DraftContextProvider";
+import ControlPanel from "../../domains/editor/components/ControlPanel";
+import { findByText, findByTitle } from "../helpers";
+import { DraftProvider } from "../../domains/editor/context/DraftContext/DraftContextProvider";
 import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 
@@ -37,9 +34,9 @@ describe("ControlPanel Component", () => {
         </MemoryRouter>
       );
 
-      const holesIncrement = await screen.findByTitle("holes-input increment");
-      const holesDecrement = await screen.findByTitle("holes-input decrement");
-      const holesValue = await screen.findByTitle("holes-input");
+      const holesIncrement = await screen.findByTitle("Increase holes");
+      const holesDecrement = await screen.findByTitle("Decrease holes");
+      const holesValue = await screen.findByLabelText("holes value");
 
       // Test initial value
       expect(holesValue).toHaveTextContent("4");
@@ -68,13 +65,9 @@ describe("ControlPanel Component", () => {
         </MemoryRouter>
       );
 
-      const tabletsIncrement = await screen.findByTitle(
-        "tablets-input increment"
-      );
-      const tabletsDecrement = await screen.findByTitle(
-        "tablets-input decrement"
-      );
-      const tabletsValue = await screen.findByTitle("tablets-input");
+      const tabletsIncrement = await screen.findByTitle("Increase tablets");
+      const tabletsDecrement = await screen.findByTitle("Decrease tablets");
+      const tabletsValue = await screen.findByLabelText("tablets value");
 
       // Test initial value
       expect(tabletsValue).toHaveTextContent("4");
@@ -104,9 +97,9 @@ describe("ControlPanel Component", () => {
         </MemoryRouter>
       );
 
-      const picksIncrement = await screen.findByTitle("picks-input increment");
-      const picksDecrement = await screen.findByTitle("picks-input decrement");
-      const picksValue = await screen.findByTitle("picks-input");
+      const picksIncrement = await screen.findByTitle("Increase picks");
+      const picksDecrement = await screen.findByTitle("Decrease picks");
+      const picksValue = await screen.findByLabelText("picks value");
 
       // Test initial value
       expect(picksValue).toHaveTextContent("8");
@@ -137,11 +130,9 @@ describe("ControlPanel Component", () => {
         </MemoryRouter>
       );
 
-      const holesIncrement = await screen.findByTitle("holes-input increment");
-      const tabletsIncrement = await screen.findByTitle(
-        "tablets-input increment"
-      );
-      const picksIncrement = await screen.findByTitle("picks-input increment");
+      const holesIncrement = await screen.findByTitle("Increase holes");
+      const tabletsIncrement = await screen.findByTitle("Increase tablets");
+      const picksIncrement = await screen.findByTitle("Increase picks");
 
       // Rapidly click all increment buttons
       const rapidClicks = async () => {
@@ -167,11 +158,9 @@ describe("ControlPanel Component", () => {
         </MemoryRouter>
       );
 
-      const holesIncrement = await screen.findByTitle("holes-input increment");
-      const tabletsIncrement = await screen.findByTitle(
-        "tablets-input increment"
-      );
-      const picksIncrement = await screen.findByTitle("picks-input increment");
+      const holesIncrement = await screen.findByTitle("Increase holes");
+      const tabletsIncrement = await screen.findByTitle("Increase tablets");
+      const picksIncrement = await screen.findByTitle("Increase picks");
 
       // Make several changes
       await user.click(holesIncrement); // 4 -> 5
@@ -179,9 +168,9 @@ describe("ControlPanel Component", () => {
       await user.click(picksIncrement); // 8 -> 9
 
       // Verify values are consistent
-      const holesValue = await screen.findByTitle("holes-input");
-      const tabletsValue = await screen.findByTitle("tablets-input");
-      const picksValue = await screen.findByTitle("picks-input");
+      const holesValue = await screen.findByLabelText("holes value");
+      const tabletsValue = await screen.findByLabelText("tablets value");
+      const picksValue = await screen.findByLabelText("picks value");
 
       expect(holesValue).toHaveTextContent("5");
       expect(tabletsValue).toHaveTextContent("5");

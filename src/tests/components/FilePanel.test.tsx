@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import { describe, test, expect, vi, afterEach } from "vitest";
 import userEvent from "@testing-library/user-event";
-import FilePanel from "../components/FilePanel";
+import FilePanel from "../../domains/editor/components/FilePanel";
 import {
   DraftContext,
   DraftContextType,
-} from "../context/DraftContext/DraftContextProvider";
-import { findByText } from "../../../__tests__/testing-library/helpers";
+} from "../../domains/editor/context/DraftContext/DraftContextProvider";
+import { findByText } from "../helpers";
 import { MemoryRouter } from "react-router-dom";
 
 const mockDraftCtx: DraftContextType = {

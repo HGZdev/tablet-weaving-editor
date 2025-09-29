@@ -1,15 +1,11 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, test, expect, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
-import ColorsPanel from "../components/ColorsPanel";
-import {
-  findByText,
-  findByTitle,
-} from "../../../__tests__/testing-library/helpers";
+import ColorsPanel from "../../domains/editor/components/ColorsPanel";
 import {
   DraftContext,
   DraftContextType,
-} from "../context/DraftContext/DraftContextProvider";
+} from "../../domains/editor/context/DraftContext/DraftContextProvider";
 import { MemoryRouter } from "react-router-dom";
 
 // Mocking DraftContext values
@@ -57,9 +53,15 @@ describe("ColorsPanel Component", () => {
     );
 
     // Check if the colors are rendered as buttons
-    for (const color of mockDraftCtx.paletteOfColors!) {
-      expect(await findByTitle(color.toUpperCase())).toBeTruthy();
-    }
+    expect(
+      screen.getByTitle(`Color 1: ${mockDraftCtx.paletteOfColors![0]}`)
+    ).toBeTruthy();
+    expect(
+      screen.getByTitle(`Color 2: ${mockDraftCtx.paletteOfColors![1]}`)
+    ).toBeTruthy();
+    expect(
+      screen.getByTitle(`Color 3: ${mockDraftCtx.paletteOfColors![2]}`)
+    ).toBeTruthy();
   });
 
   test("handles color selection and updates state", async () => {
@@ -74,7 +76,9 @@ describe("ColorsPanel Component", () => {
     );
 
     // Simulate selecting the second color
-    const colorButton = await findByTitle(mockDraftCtx.paletteOfColors![1]);
+    const colorButton = screen.getByTitle(
+      `Color 2: ${mockDraftCtx.paletteOfColors![1]}`
+    );
     expect(colorButton).toBeTruthy();
 
     await user.click(colorButton);
@@ -93,11 +97,11 @@ describe("ColorsPanel Component", () => {
       </MemoryRouter>
     );
 
-    const colorInput = await findByTitle("color-input");
+    const colorInput = screen.getByTitle("color-input");
     await user.clear(colorInput);
     await user.type(colorInput, "#123456");
 
-    const changeColorBtn = await findByText("Change");
+    const changeColorBtn = screen.getByText("Change");
     await user.click(changeColorBtn);
 
     expect(mockDraftCtx.onPaletteColorChange).toHaveBeenCalledWith("#123456");
@@ -117,7 +121,7 @@ describe("ColorsPanel Component", () => {
       </MemoryRouter>
     );
 
-    const colorInput = await findByTitle("color-input");
+    const colorInput = screen.getByTitle("color-input");
     expect(colorInput.getAttribute("value")).toContain(""); // Should default to an empty value or handle appropriately
   });
 
@@ -143,8 +147,8 @@ describe("ColorsPanel Component", () => {
     );
 
     // Select second color
-    const secondColorButton = await findByTitle(
-      mockDraftCtx.paletteOfColors![1]
+    const secondColorButton = screen.getByTitle(
+      `Color 2: ${mockDraftCtx.paletteOfColors![1]}`
     );
     await user.click(secondColorButton);
 
@@ -164,11 +168,11 @@ describe("ColorsPanel Component", () => {
     );
 
     // Change the first color
-    const colorInput = await findByTitle("color-input");
+    const colorInput = screen.getByTitle("color-input");
     await user.clear(colorInput);
     await user.type(colorInput, "#FF00FF");
 
-    const changeColorBtn = await findByText("Change");
+    const changeColorBtn = screen.getByText("Change");
     await user.click(changeColorBtn);
 
     expect(mockDraftCtx.onPaletteColorChange).toHaveBeenCalledWith("#FF00FF");

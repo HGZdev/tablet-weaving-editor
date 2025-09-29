@@ -21,28 +21,53 @@ export const NumberInput: React.FC<{
     }
   };
 
+  const inputId = `${title}-input`;
+  const decrementId = `${title}-decrement`;
+  const incrementId = `${title}-increment`;
+
   return (
-    <div className="flex gap-2">
-      <label className="min-w-16 text-sm">{label}</label>
+    <div
+      className="flex gap-2"
+      role="group"
+      aria-labelledby={`${inputId}-label`}
+    >
+      <label
+        id={`${inputId}-label`}
+        className="min-w-16 text-sm"
+        htmlFor={inputId}
+      >
+        {label}
+      </label>
       <button
+        id={decrementId}
         onClick={handleDecrement}
         className="btn btn-outline btn-sm w-8 h-8 p-0 flex items-center justify-center text-sm font-bold"
         disabled={min !== undefined && valueOrg <= min}
-        title={`${title} decrement`}
+        title={`Decrease ${title}`}
+        aria-label={`Decrease ${title}`}
+        aria-describedby={`${inputId}-value`}
       >
         −
       </button>
       <div
-        title={title}
+        id={`${inputId}-value`}
+        role="spinbutton"
+        aria-valuenow={valueOrg}
+        aria-valuemin={min}
+        aria-valuemax={max}
+        aria-label={`${title} value`}
         className="w-8 text-center text-sm border border-neutral-300 rounded px-1 py-1 bg-white flex items-center justify-center"
       >
         {valueOrg}
       </div>
       <button
+        id={incrementId}
         onClick={handleIncrement}
         className="btn btn-outline btn-sm w-8 h-8 p-0 flex items-center justify-center text-sm font-bold"
         disabled={max !== undefined && valueOrg >= max}
-        title={`${title} increment`}
+        title={`Increase ${title}`}
+        aria-label={`Increase ${title}`}
+        aria-describedby={`${inputId}-value`}
       >
         +
       </button>
@@ -64,10 +89,14 @@ const InputsPanel: React.FC = () => {
       <div
         title="inputs-panel"
         className="flex flex-col gap-2 p-4 bg-white rounded-md shadow-md"
+        role="region"
+        aria-labelledby="frame-heading"
       >
-        <h2 className="text-lg font-semibold">Frame</h2>
+        <h2 id="frame-heading" className="text-lg font-semibold">
+          Frame
+        </h2>
         <NumberInput
-          title="holes-input"
+          title="holes"
           label="Holes:"
           value={holes}
           min={3}
@@ -75,7 +104,7 @@ const InputsPanel: React.FC = () => {
           onChange={(v) => updateHoles(v)}
         />
         <NumberInput
-          title="picks-input"
+          title="picks"
           label="Picks:"
           value={picks}
           min={1}
@@ -83,7 +112,7 @@ const InputsPanel: React.FC = () => {
           onChange={(v) => updatePicks(v)}
         />
         <NumberInput
-          title="tablets-input"
+          title="tablets"
           label="Tablets:"
           value={tablets.length}
           min={2}

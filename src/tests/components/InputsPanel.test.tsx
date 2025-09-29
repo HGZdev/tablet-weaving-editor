@@ -1,12 +1,11 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, test, expect, vi, beforeEach } from "vitest";
 import userEvent from "@testing-library/user-event";
-import InputsPanel from "../components/InputsPanel";
+import InputsPanel from "../../domains/editor/components/InputsPanel";
 import {
   DraftContext,
   DraftContextType,
-} from "../context/DraftContext/DraftContextProvider";
-import { findByTitle } from "../../../__tests__/testing-library/helpers";
+} from "../../domains/editor/context/DraftContext/DraftContextProvider";
 import { MemoryRouter } from "react-router-dom";
 
 // Mock draft data with mutable state
@@ -86,7 +85,7 @@ describe("InputsPanel Component", () => {
     );
 
     // Verify if the inputs panel is rendered
-    const inputsPanel = await findByTitle("inputs-panel");
+    const inputsPanel = screen.getByTitle("inputs-panel");
     expect(inputsPanel).toBeTruthy();
   });
 
@@ -101,20 +100,20 @@ describe("InputsPanel Component", () => {
       </MemoryRouter>
     );
 
-    const holesInput = await findByTitle("holes-input");
+    const holesInput = screen.getByRole("spinbutton", { name: "holes value" });
 
     // Verify initial value
     expect(holesInput.textContent).toEqual("4");
 
     // Simulate clicking the increment button
-    const incrementBtn = await findByTitle("holes-input increment");
+    const incrementBtn = screen.getByLabelText("Increase holes");
     expect(incrementBtn).toBeTruthy();
 
     await user.click(incrementBtn);
     expect(mockDraftCtx.updateHoles).toHaveBeenCalledWith(5);
 
     // Simulate clicking the decrement button
-    const decrementBtn = await findByTitle("holes-input decrement");
+    const decrementBtn = screen.getByLabelText("Decrease holes");
     await user.click(decrementBtn);
     expect(mockDraftCtx.updateHoles).toHaveBeenCalledWith(3);
   });
@@ -130,20 +129,20 @@ describe("InputsPanel Component", () => {
       </MemoryRouter>
     );
 
-    const picksInput = await findByTitle("picks-input");
+    const picksInput = screen.getByRole("spinbutton", { name: "picks value" });
 
     // Verify initial value
     expect(picksInput.textContent).toEqual("5");
 
     // Simulate clicking the increment button
-    const incrementBtn = await findByTitle("picks-input increment");
+    const incrementBtn = screen.getByLabelText("Increase picks");
     expect(incrementBtn).toBeTruthy();
 
     await user.click(incrementBtn);
     expect(mockDraftCtx.updatePicks).toHaveBeenCalledWith(6);
 
     // Simulate clicking the decrement button
-    const decrementBtn = await findByTitle("picks-input decrement");
+    const decrementBtn = screen.getByLabelText("Decrease picks");
     expect(decrementBtn).toBeTruthy();
 
     await user.click(decrementBtn);
@@ -161,20 +160,22 @@ describe("InputsPanel Component", () => {
       </MemoryRouter>
     );
 
-    const tabletsInput = await findByTitle("tablets-input");
+    const tabletsInput = screen.getByRole("spinbutton", {
+      name: "tablets value",
+    });
 
     // Verify initial value
     expect(tabletsInput.textContent).toEqual("2");
 
     // Simulate clicking the increment button
-    const incrementBtn = await findByTitle("tablets-input increment");
+    const incrementBtn = screen.getByLabelText("Increase tablets");
     expect(incrementBtn).toBeTruthy();
 
     await user.click(incrementBtn);
     expect(mockDraftCtx.updateTablets).toHaveBeenCalledWith(3);
 
     // Test that decrement button is disabled at minimum value
-    const decrementBtn = await findByTitle("tablets-input decrement");
+    const decrementBtn = screen.getByLabelText("Decrease tablets");
     expect(decrementBtn).toBeTruthy();
     expect(decrementBtn).toBeDisabled();
   });
